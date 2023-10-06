@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import limitToTwoDecimalPlaces from "../utils/limitToTwoDecimalPlaces"
 
 const NumberToPercentage = () => {
     const [data, setData] = useState({numOne: '', numTwo: ''})
@@ -10,7 +11,9 @@ const NumberToPercentage = () => {
     }, [data])
     
     useEffect(() => {
-        hasResult && setResult(data.numOne / data.numTwo * 100)
+        const resultUnlimitedDecimals = data.numOne / data.numTwo * 100
+        const resultWithTwoDecimals = limitToTwoDecimalPlaces(resultUnlimitedDecimals)
+        hasResult && setResult(resultWithTwoDecimals)
     }, [data, hasResult])
 
     const handleInputChange = e => {

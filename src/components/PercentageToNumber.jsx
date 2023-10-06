@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+import Input from "./Input"
+import limitToTwoDecimalPlaces from "../utils/limitToTwoDecimalPlaces"
 
 const PercentageToNumber = () => {
     const [data, setData] = useState({percentage: '', total: ''})
@@ -10,7 +12,9 @@ const PercentageToNumber = () => {
     }, [data])
     
     useEffect(() => {
-        setResult(data.total * data.percentage / 100)
+        const resultUnlimitedDecimals = data.total * data.percentage / 100
+        const resultWithTwoDecimals = limitToTwoDecimalPlaces(resultUnlimitedDecimals)
+        hasResult && setResult(resultWithTwoDecimals)
     }, [data, hasResult])
 
     const handleInputChange = e => {
@@ -23,24 +27,18 @@ const PercentageToNumber = () => {
         <div className="container">
             <div className="inner-wrapper">
                 <p>How much is</p>
-                <input
-                    type="text"
+                <Input
                     name="percentage"
                     id="percentage"
-                    className="input"
-                    placeholder="0"
                     value={data.percentage}
-                    onChange={e => handleInputChange(e)}
+                    onchange={e => handleInputChange(e)}
                 />
                 <p>percent of</p>
-                <input
-                    type="text"
+                <Input
                     name="total"
                     id="total"
-                    className="input"
-                    placeholder="0"
                     value={data.total}
-                    onChange={e => handleInputChange(e)}
+                    onchange={e => handleInputChange(e)}
                 />
                 <div className="result-wrapper">
                     <p className="p--large">{result ? result : null}</p>
