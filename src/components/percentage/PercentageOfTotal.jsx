@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import Input from "./Input"
-import handleInputChange from "../utils/handleInputChange"
-import limitToTwoDecimalPlaces from "../utils/limitToTwoDecimalPlaces"
+import Input from "../library/Input"
+import handleInputChange from "../../utils/handleInputChange"
+import limitToTwoDecimalPlaces from "../../utils/limitToTwoDecimalPlaces"
 
 const PercentageOfTotal = () => {
     const [data, setData] = useState({fromPctToTotalNumOne: '', fromPctToTotalNumTwo: ''})
@@ -22,21 +22,21 @@ const PercentageOfTotal = () => {
         <div className="container">
             <h2>From percentage to total</h2>
             <div className="inner-wrapper">
-                <p>The number</p>
+                {/* <p>The number</p> */}
                 <Input
                     name="fromPctToTotalNumOne"
                     id="fromPctToTotalNumOne"
                     value={data.fromPctToTotalNumOne}
                     onchange={e => handleInputChange(e, setData)}
                 />
-                <p>is equal to</p>
+                <p>equals</p>
                 <Input
                     name="fromPctToTotalNumTwo"
                     id="fromPctToTotalNumTwo"
                     value={data.fromPctToTotalNumTwo}
                     onchange={e => handleInputChange(e, setData)}
                 />
-                <p>% of this total value:</p>
+                <p>percent of:</p>
                 <div className="result-wrapper">
                     {hasResult ? 
                         <p className="p--large">{result}</p> : null

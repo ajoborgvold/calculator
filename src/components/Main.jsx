@@ -1,19 +1,9 @@
-import PercentageToNumber from "./PercentageToNumber"
-import NumberToPercentage from "./NumberToPercentage"
-import ChangeInPercent from "./ChangeInPercent"
-import PercentageOfTotal from "./PercentageOfTotal"
+import Percentage from "./percentage/Percentage"
 
 const Main = () => {
     return (
         <main>
-            <h1>This is the main section</h1>
-            <PercentageToNumber />
-            <hr />
-            <NumberToPercentage />
-            <hr />
-            <ChangeInPercent />
-            <hr />
-            <PercentageOfTotal />
+            <Percentage />
         </main>
     )
 }

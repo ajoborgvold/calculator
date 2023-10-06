@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import Input from "./Input"
-import limitToTwoDecimalPlaces from "../utils/limitToTwoDecimalPlaces"
-import handleInputChange from "../utils/handleInputChange"
+import Input from "../library/Input"
+import limitToTwoDecimalPlaces from "../../utils/limitToTwoDecimalPlaces"
+import handleInputChange from "../../utils/handleInputChange"
 
 const PercentageToNumber = () => {
     const [data, setData] = useState({pctToNumberNumOne: '', pctToNumberNumTwo: ''})

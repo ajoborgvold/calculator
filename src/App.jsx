@@ -1,20 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Main from './components/Main'
+import './App.css'
+import Layout from './components/Layout'
+import Home from './components/Home'
+import Percentage from './components/percentage/Percentage'
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        {
+          path: "/",
+          element: <Home />
+        },
+        {
+          path: "/percentage",
+          element: <Percentage />
+        }
+      ]
+    },
+  ])
 
   return (
-    <div className='app-container'>
-      <Header />
-      <Main />
-      <Footer />
-    </div>
+    <RouterProvider router={router}/>
   )
 }
 

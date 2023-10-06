@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import Input from "./Input"
-import limitToTwoDecimalPlaces from "../utils/limitToTwoDecimalPlaces"
-import handleInputChange from "../utils/handleInputChange"
+import Input from "../library/Input"
+import limitToTwoDecimalPlaces from "../../utils/limitToTwoDecimalPlaces"
+import handleInputChange from "../../utils/handleInputChange"
 
 const ChangeInPercent = () => {
     const [data, setData] = useState({changeInPctNumOne: '', changeInPctNumTwo: ''})
@@ -40,7 +40,7 @@ const ChangeInPercent = () => {
                     value={data.changeInPctNumTwo}
                     onchange={e => handleInputChange(e, setData)}
                 />
-                <p>is equal to:</p>
+                <p>equals:</p>
                 <div className="result-wrapper">
                     {hasResult ? 
                         <p className="p--large">{result} %</p> : null
