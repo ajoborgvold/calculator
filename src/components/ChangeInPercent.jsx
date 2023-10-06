@@ -1,53 +1,48 @@
 import { useEffect, useState } from "react"
 import Input from "./Input"
 import limitToTwoDecimalPlaces from "../utils/limitToTwoDecimalPlaces"
-
+import handleInputChange from "../utils/handleInputChange"
 
 const ChangeInPercent = () => {
-    const [data, setData] = useState({num1: '', num2: ''})
+    const [data, setData] = useState({changeInPctNumOne: '', changeInPctNumTwo: ''})
     const [hasResult, setHasResult] = useState(false)
     const [result, setResult] = useState('')
 
     useEffect(() => {
-        setHasResult(data.num1 && data.num2 ? true : false)
+        setHasResult(data.changeInPctNumOne && data.changeInPctNumTwo ? true : false)
     }, [data])
 
     useEffect(() => {
-        const dif = data.num1 - data.num2
+        const dif = data.changeInPctNumOne - data.changeInPctNumTwo
         const positiveDif = dif < 0 ? Math.abs(dif) : dif
-        const p = (positiveDif / data.num1) * 100
-        const pWithTwoDecimals = limitToTwoDecimalPlaces(p)
+        const pct = (positiveDif / data.changeInPctNumOne) * 100
+        const pctWithTwoDecimals = limitToTwoDecimalPlaces(pct)
         if (hasResult) {
-            setResult(dif < 0 ? pWithTwoDecimals : -pWithTwoDecimals)
+            setResult(dif < 0 ? pctWithTwoDecimals : -pctWithTwoDecimals)
         }
     }, [data, hasResult])
 
-    const handleInputChange = e => {
-        setData(prevData => {
-            return {...prevData, [e.target.name]: e.target.value}
-        })
-    }
-
     return (
         <div className="container">
+            <h2>A change in percentage</h2>
             <div className="inner-wrapper">
                 <p>A change from</p>
                 <Input
-                    name="num1"
-                    id="num1"
-                    value={data.num1}
-                    onchange={e => handleInputChange(e)}
+                    name="changeInPctNumOne"
+                    id="changeInPctNumOne"
+                    value={data.changeInPctNumOne}
+                    onchange={e => handleInputChange(e, setData)}
                 />
                 <p>to</p>
                 <Input
-                    name="num2"
-                    id="num2"
-                    value={data.num2}
-                    onchange={e => handleInputChange(e)}
+                    name="changeInPctNumTwo"
+                    id="changeInPctNumTwo"
+                    value={data.changeInPctNumTwo}
+                    onchange={e => handleInputChange(e, setData)}
                 />
                 <p>is equal to:</p>
                 <div className="result-wrapper">
-                    {result ? 
+                    {hasResult ? 
                         <p className="p--large">{result} %</p> : null
                     }
                 </div>

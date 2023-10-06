@@ -1,52 +1,44 @@
 import { useEffect, useState } from "react"
+import Input from "./Input"
 import limitToTwoDecimalPlaces from "../utils/limitToTwoDecimalPlaces"
+import handleInputChange from "../utils/handleInputChange"
 
 const NumberToPercentage = () => {
-    const [data, setData] = useState({numOne: '', numTwo: ''})
+    const [data, setData] = useState({numberToPctNumOne: '', numberToPctNumTwo: ''})
     const [hasResult, setHasResult] = useState(false)
     const [result, setResult] = useState('')
 
     useEffect(() => {
-        setHasResult(data.numOne && data.numTwo ? true : false)
+        setHasResult(data.numberToPctNumOne && data.numberToPctNumTwo ? true : false)
     }, [data])
     
     useEffect(() => {
-        const resultUnlimitedDecimals = data.numOne / data.numTwo * 100
+        const resultUnlimitedDecimals = data.numberToPctNumOne / data.numberToPctNumTwo * 100
         const resultWithTwoDecimals = limitToTwoDecimalPlaces(resultUnlimitedDecimals)
         hasResult && setResult(resultWithTwoDecimals)
     }, [data, hasResult])
 
-    const handleInputChange = e => {
-        setData(prevData => {
-            return {...prevData, [e.target.name]: e.target.value}
-        })
-    }
-
     return (
         <div className="container">
+            <h2>Convert a number to a percentage</h2>
             <div className="inner-wrapper">
-                <p>How many percent is the number</p>
-                <input
-                    type="text"
-                    name="numOne"
-                    id="numOne"
-                    className="input"
-                    placeholder="0"
-                    value={data.numOne}
-                    onChange={e => handleInputChange(e)}
+                {/* <p>How many percent is the number</p> */}
+                <Input
+                    name="numberToPctNumOne"
+                    id="numberToPctNumOne"
+                    value={data.numberToPctNumOne}
+                    onchange={e => handleInputChange(e, setData)}
                 />
-                <p>of the number</p>
-                <input
-                    type="text"
-                    name="numTwo"
-                    id="numTwo"
-                    className="input"
-                    placeholder="0"
-                    value={data.numTwo}
-                    onChange={e => handleInputChange(e)}
+                <p>is what percent of</p>
+                <Input 
+                    name="numberToPctNumTwo"
+                    id="numberToPctNumTwo"
+                    value={data.numberToPctNumTwo}
+                    onchange={e => handleInputChange(e, setData)}
                 />
+                <p>?</p>
                 <div className="result-wrapper">
-                    {result ? 
+                    {hasResult ? 
                         <p className="p--large">{result} %</p> : null
                     }
                 </div>

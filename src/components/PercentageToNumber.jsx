@@ -1,47 +1,44 @@
 import { useEffect, useState } from "react"
 import Input from "./Input"
 import limitToTwoDecimalPlaces from "../utils/limitToTwoDecimalPlaces"
+import handleInputChange from "../utils/handleInputChange"
 
 const PercentageToNumber = () => {
-    const [data, setData] = useState({percentage: '', total: ''})
+    const [data, setData] = useState({pctToNumberNumOne: '', pctToNumberNumTwo: ''})
     const [hasResult, setHasResult] = useState(false)
     const [result, setResult] = useState('')
 
     useEffect(() => {
-        setHasResult(data.percentage && data.total ? true : false)
+        setHasResult(data.pctToNumberNumOne && data.pctToNumberNumTwo ? true : false)
     }, [data])
     
     useEffect(() => {
-        const resultUnlimitedDecimals = data.total * data.percentage / 100
+        const resultUnlimitedDecimals = data.pctToNumberNumTwo * data.pctToNumberNumOne / 100
         const resultWithTwoDecimals = limitToTwoDecimalPlaces(resultUnlimitedDecimals)
         hasResult && setResult(resultWithTwoDecimals)
     }, [data, hasResult])
 
-    const handleInputChange = e => {
-        setData(prevData => {
-            return {...prevData, [e.target.name]: e.target.value}
-        })
-    }
-
     return (
         <div className="container">
+            <h2>Convert a percentage to a number</h2>
             <div className="inner-wrapper">
-                <p>How much is</p>
+                <p>What is</p>
                 <Input
-                    name="percentage"
-                    id="percentage"
-                    value={data.percentage}
-                    onchange={e => handleInputChange(e)}
+                    name="pctToNumberNumOne"
+                    id="pctToNumberNumOne"
+                    value={data.pctToNumberNumOne}
+                    onchange={e => handleInputChange(e, setData)}
                 />
                 <p>percent of</p>
                 <Input
-                    name="total"
-                    id="total"
-                    value={data.total}
-                    onchange={e => handleInputChange(e)}
+                    name="pctToNumberNumTwo"
+                    id="pctToNumberNumTwo"
+                    value={data.pctToNumberNumTwo}
+                    onchange={e => handleInputChange(e, setData)}
                 />
+                <p>?</p>
                 <div className="result-wrapper">
-                    <p className="p--large">{result ? result : null}</p>
+                    <p className="p--large">{hasResult ? result : null}</p>
                 </div>
             </div>
         </div>
