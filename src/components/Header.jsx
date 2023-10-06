@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom"
+
 const Header = () => {
     return (
         <header>
-            <p>This is a header element</p>
+            <Link to="/" className="link--regular">&larr; Home</Link>
         </header>
     )
 }
