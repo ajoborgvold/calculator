@@ -5,15 +5,12 @@ import PercentageOfTotal from "./PercentageOfTotal"
 
 const Percentage = () => {
     return (
-        <main>
+        <section className="calculators-container">
             <PercentageToNumber />
-            <hr />
             <NumberToPercentage />
-            <hr />
             <ChangeInPercent />
-            <hr />
             <PercentageOfTotal />
-        </main>
+        </section>
     )
 }
 

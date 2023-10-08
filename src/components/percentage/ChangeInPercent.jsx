@@ -23,29 +23,32 @@ const ChangeInPercent = () => {
     }, [data, hasResult])
 
     return (
-        <div className="container">
-            <h2>A change in percentage</h2>
-            <div className="inner-wrapper">
-                <p>A change from</p>
+        <div className="calculator-wrapper">
+            <div className="calculator--top">
+                <p className="calculator__p--top">How much is a change from the number</p>
                 <Input
                     name="changeInPctNumOne"
                     id="changeInPctNumOne"
                     value={data.changeInPctNumOne}
                     onchange={e => handleInputChange(e, setData)}
+                    inputClass="input--top"
                 />
-                <p>to</p>
+            </div>
+            <div className="calculator--bottom">
+                <p className="calculator__p--center">to the number</p>
                 <Input
                     name="changeInPctNumTwo"
                     id="changeInPctNumTwo"
                     value={data.changeInPctNumTwo}
                     onchange={e => handleInputChange(e, setData)}
+                    inputClass="input--bottom"
                 />
-                <p>equals:</p>
-                <div className="result-wrapper">
-                    {hasResult ? 
-                        <p className="p--large">{result} %</p> : null
-                    }
-                </div>
+                <p className="calculator__p--bottom">in percent?</p>
+            </div>
+            <div className="result-wrapper">
+                {hasResult ?
+                    <p className="p--large">{result} %</p> : null
+                }
             </div>
         </div>
     )

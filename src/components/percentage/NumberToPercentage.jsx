@@ -19,29 +19,32 @@ const NumberToPercentage = () => {
     }, [data, hasResult])
 
     return (
-        <div className="container">
-            <h2>Convert a number to a percentage</h2>
-            <div className="inner-wrapper">
-                {/* <p>How many percent is the number</p> */}
+        <div className="calculator-wrapper">
+            <div className="calculator--top">
+                <p className="calculator__p--top">How many percent is the number</p>
                 <Input
                     name="numberToPctNumOne"
                     id="numberToPctNumOne"
                     value={data.numberToPctNumOne}
                     onchange={e => handleInputChange(e, setData)}
+                    inputClass="input--top"
                 />
-                <p>is what percent of</p>
-                <Input 
+            </div>
+            <div className="calculator--bottom">
+                <p className="calculator__p--center">of the number</p>
+                <Input
                     name="numberToPctNumTwo"
                     id="numberToPctNumTwo"
                     value={data.numberToPctNumTwo}
                     onchange={e => handleInputChange(e, setData)}
+                    inputClass="input--bottom"
                 />
-                <p>?</p>
-                <div className="result-wrapper">
-                    {hasResult ? 
-                        <p className="p--large">{result} %</p> : null
-                    }
-                </div>
+                <p className="calculator__p--bottom">?</p>
+            </div>
+            <div className="result-wrapper">
+                {hasResult ?
+                    <p className="p--large">{result} %</p> : null
+                }
             </div>
         </div>
     )

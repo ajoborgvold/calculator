@@ -19,29 +19,33 @@ const PercentageOfTotal = () => {
     }, [data, hasResult])
 
     return (
-        <div className="container">
-            <h2>From percentage to total</h2>
-            <div className="inner-wrapper">
-                {/* <p>The number</p> */}
-                <Input
-                    name="fromPctToTotalNumOne"
-                    id="fromPctToTotalNumOne"
-                    value={data.fromPctToTotalNumOne}
-                    onchange={e => handleInputChange(e, setData)}
-                />
-                <p>equals</p>
+        <div className="calculator-wrapper">
+            <div className="calculator--top">
+                <p className="caltulator__p--top">What is the total sum when</p>
                 <Input
                     name="fromPctToTotalNumTwo"
                     id="fromPctToTotalNumTwo"
                     value={data.fromPctToTotalNumTwo}
                     onchange={e => handleInputChange(e, setData)}
+                    inputClass="input--bottom"
                 />
-                <p>percent of:</p>
-                <div className="result-wrapper">
-                    {hasResult ? 
-                        <p className="p--large">{result}</p> : null
-                    }
-                </div>
+                <p>%</p>
+            </div>
+            <div className="calculator--bottom">
+                <p className="calculator__p--center">is equal to the number</p>
+                <Input
+                    name="fromPctToTotalNumOne"
+                    id="fromPctToTotalNumOne"
+                    value={data.fromPctToTotalNumOne}
+                    onchange={e => handleInputChange(e, setData)}
+                    inputClass="input--top"
+                />
+                <p className="calculator__p--bottom">?</p>
+            </div>
+            <div className="result-wrapper">
+                {hasResult ?
+                    <p className="p--large">{result}</p> : null
+                }
             </div>
         </div>
     )
