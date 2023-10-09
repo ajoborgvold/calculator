@@ -25,7 +25,7 @@ const CmToFeet = () => {
             />
             <p>cm equals</p>
             <div className="result-wrapper">
-                <p>{`${result && result} ft`}</p>
+                <p>{`${result} ft`}</p>
             </div>
         </div>
     )

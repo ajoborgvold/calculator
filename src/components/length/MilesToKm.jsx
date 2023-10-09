@@ -25,7 +25,7 @@ const MilesToKm = () => {
             />
             <p>mi equals</p>
             <div className="result-wrapper">
-                <p>{`${result && result} km`}</p>
+                <p>{`${result} km`}</p>
             </div>
         </div>
     )

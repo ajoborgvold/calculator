@@ -27,7 +27,7 @@ const InchToCm = () => {
                 <p>in equals</p>
             </div>
             <div className="result-wrapper">
-                <p>{`${result && result} cm`}</p>
+                <p>{`${result} cm`}</p>
             </div>
         </div>
     )
