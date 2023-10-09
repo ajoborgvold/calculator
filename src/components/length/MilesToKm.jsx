@@ -1,34 +1,34 @@
 import { useEffect, useState } from "react"
+import limitToTwoDecimalPlaces from "../../utils/limitToTwoDecimalPlaces"
 import Input from "../library/Input"
 import handleInputChange from "../../utils/handleInputChange"
-import limitToTwoDecimalPlaces from "../../utils/limitToTwoDecimalPlaces"
 
-const MeterToYard = () => {
-    const [data, setData] = useState({meterToYardNum: ''})
+const MilesToKm = () => {
+    const [data, setData] = useState({milesToKmNum: ''})
     const [result, setResult] = useState(null)
 
-    const conversionFactor = 1.0936133
+    const conversionFactor = 1.609344
 
     useEffect(() => {
-        const resultUnlimitedDecimals = data.meterToYardNum * conversionFactor
+        const resultUnlimitedDecimals = data.milesToKmNum * conversionFactor
         const resultWithTwoDecimals = limitToTwoDecimalPlaces(resultUnlimitedDecimals)
         setResult(resultWithTwoDecimals)
-    }, [data])
+    })
 
     return (
         <div className="calculator-wrapper flex-row">
-            <Input 
-                name="meterToYardNum"
-                id="meterToYardNum"
-                value={data.meterToYardNum}
+            <Input
+                name="milesToKmNum"
+                id="milesToKmNum"
+                value={data.milesToKmNum}
                 onchange={e => handleInputChange(e, setData)}
             />
-            <p>m equals </p>
+            <p>mi equals</p>
             <div className="result-wrapper">
-                <p>{`${result ? result : ''} yd`}</p>
+                <p>{`${result && result} km`}</p>
             </div>
         </div>
     )
 }
 
-export default MeterToYard
+export default MilesToKm

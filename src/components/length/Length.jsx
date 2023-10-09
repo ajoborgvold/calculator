@@ -2,6 +2,10 @@ import CmToFeet from "./CmToFeet"
 import CmToInch from "./CmToInch"
 import FeetToCm from "./FeetToCm"
 import InchToCm from "./InchToCm"
+import KmToMiles from "./KmToMiles"
+import MeterToYard from "./MeterToYard"
+import MilesToKm from "./MilesToKm"
+import YardToMeter from "./YardToMeter"
 
 const Length = () => {
     return (
@@ -17,9 +21,15 @@ const Length = () => {
                 <CmToFeet />
                 <FeetToCm />
             </div>
-            <h2 className="sub-heading">Meter = yard</h2>
+            <h2 className="sub-heading">Meters = yards</h2>
             <div className="calculators__sub-container">
-                
+                <MeterToYard />
+                <YardToMeter />
+            </div>
+            <h2 className="sub-heading">Kilometers = miles</h2>
+            <div className="calculators__sub-container">
+                <KmToMiles />
+                <MilesToKm />
             </div>
         </section>
     )
