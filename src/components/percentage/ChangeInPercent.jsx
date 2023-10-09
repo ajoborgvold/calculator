@@ -6,7 +6,7 @@ import handleInputChange from "../../utils/handleInputChange"
 const ChangeInPercent = () => {
     const [data, setData] = useState({changeInPctNumOne: '', changeInPctNumTwo: ''})
     const [hasResult, setHasResult] = useState(false)
-    const [result, setResult] = useState('')
+    const [result, setResult] = useState(0)
 
     useEffect(() => {
         setHasResult(data.changeInPctNumOne && data.changeInPctNumTwo ? true : false)
@@ -17,9 +17,7 @@ const ChangeInPercent = () => {
         const positiveDif = dif < 0 ? Math.abs(dif) : dif
         const pct = (positiveDif / data.changeInPctNumOne) * 100
         const pctWithTwoDecimals = limitToTwoDecimalPlaces(pct)
-        if (hasResult) {
-            setResult(dif < 0 ? pctWithTwoDecimals : -pctWithTwoDecimals)
-        }
+        hasResult ? setResult(dif < 0 ? pctWithTwoDecimals : -pctWithTwoDecimals) : setResult(0)
     }, [data, hasResult])
 
     return (
@@ -44,7 +42,7 @@ const ChangeInPercent = () => {
                 <p>in percent?</p>
             </div>
             <div className="result-wrapper">
-                <p>{`${hasResult ? result : ''} %`}</p>
+                <p>{`${result && result} %`}</p>
             </div>
         </div>
     )

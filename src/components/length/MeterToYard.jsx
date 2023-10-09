@@ -25,7 +25,7 @@ const MeterToYard = () => {
             />
             <p>m equals </p>
             <div className="result-wrapper">
-                <p>{`${result ? result : ''} yd`}</p>
+                <p>{`${result && result} yd`}</p>
             </div>
         </div>
     )

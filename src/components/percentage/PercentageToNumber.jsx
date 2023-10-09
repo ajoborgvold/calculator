@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
 import Input from "../library/Input"
-import limitToTwoDecimalPlaces from "../../utils/limitToTwoDecimalPlaces"
 import handleInputChange from "../../utils/handleInputChange"
+import limitToTwoDecimalPlaces from "../../utils/limitToTwoDecimalPlaces"
 
 const PercentageToNumber = () => {
     const [data, setData] = useState({pctToNumberNumOne: '', pctToNumberNumTwo: ''})
     const [hasResult, setHasResult] = useState(false)
-    const [result, setResult] = useState('')
+    const [result, setResult] = useState(0)
 
     useEffect(() => {
         setHasResult(data.pctToNumberNumOne && data.pctToNumberNumTwo ? true : false)
@@ -15,7 +15,7 @@ const PercentageToNumber = () => {
     useEffect(() => {
         const resultUnlimitedDecimals = data.pctToNumberNumTwo * data.pctToNumberNumOne / 100
         const resultWithTwoDecimals = limitToTwoDecimalPlaces(resultUnlimitedDecimals)
-        hasResult && setResult(resultWithTwoDecimals)
+        hasResult ? setResult(resultWithTwoDecimals) : setResult(0)
     }, [data, hasResult])
 
     return (
@@ -41,7 +41,7 @@ const PercentageToNumber = () => {
                 <p>?</p>
             </div>
             <div className="result-wrapper">
-                <p>{hasResult ? result : null}</p>
+                <p>{result && result}</p>
             </div>
         </div>
     )

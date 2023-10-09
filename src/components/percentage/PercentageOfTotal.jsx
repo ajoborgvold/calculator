@@ -6,16 +6,16 @@ import limitToTwoDecimalPlaces from "../../utils/limitToTwoDecimalPlaces"
 const PercentageOfTotal = () => {
     const [data, setData] = useState({fromPctToTotalNumOne: '', fromPctToTotalNumTwo: ''})
     const [hasResult, setHasResult] = useState(false)
-    const [result, setResult] = useState('')
+    const [result, setResult] = useState(0)
 
     useEffect(() => {
         setHasResult(data.fromPctToTotalNumOne && data.fromPctToTotalNumTwo ? true : false)
     }, [data])
 
     useEffect(() => {
-        const resultUnlimitedDecimals = data.fromPctToTotalNumOne / data.fromPctToTotalNumTwo * 100
+        const resultUnlimitedDecimals = data.fromPctToTotalNumTwo / data.fromPctToTotalNumOne * 100
         const resultWithTwoDecimals = limitToTwoDecimalPlaces(resultUnlimitedDecimals)
-        hasResult && setResult(resultWithTwoDecimals)
+        hasResult ? setResult(resultWithTwoDecimals) : setResult(0)
     }, [data, hasResult])
 
     return (
@@ -23,9 +23,9 @@ const PercentageOfTotal = () => {
             <div className="calculator__inner-wrapper">
                 <p>What is the total sum when</p>
                 <Input
-                    name="fromPctToTotalNumTwo"
-                    id="fromPctToTotalNumTwo"
-                    value={data.fromPctToTotalNumTwo}
+                    name="fromPctToTotalNumOne"
+                    id="fromPctToTotalNumOne"
+                    value={data.fromPctToTotalNumOne}
                     onchange={e => handleInputChange(e, setData)}
                 />
                 <p>%</p>
@@ -33,15 +33,15 @@ const PercentageOfTotal = () => {
             <div className="calculator__inner-wrapper">
                 <p>is equal to the number</p>
                 <Input
-                    name="fromPctToTotalNumOne"
-                    id="fromPctToTotalNumOne"
-                    value={data.fromPctToTotalNumOne}
+                    name="fromPctToTotalNumTwo"
+                    id="fromPctToTotalNumTwo"
+                    value={data.fromPctToTotalNumTwo}
                     onchange={e => handleInputChange(e, setData)}
                 />
                 <p>?</p>
             </div>
             <div className="result-wrapper">
-                <p>{hasResult ? result : null}</p>
+                <p>{result && result}</p>
             </div>
         </div>
     )

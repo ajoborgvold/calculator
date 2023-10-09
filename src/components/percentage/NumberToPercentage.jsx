@@ -6,7 +6,7 @@ import handleInputChange from "../../utils/handleInputChange"
 const NumberToPercentage = () => {
     const [data, setData] = useState({numberToPctNumOne: '', numberToPctNumTwo: ''})
     const [hasResult, setHasResult] = useState(false)
-    const [result, setResult] = useState('')
+    const [result, setResult] = useState(0)
 
     useEffect(() => {
         setHasResult(data.numberToPctNumOne && data.numberToPctNumTwo ? true : false)
@@ -15,7 +15,7 @@ const NumberToPercentage = () => {
     useEffect(() => {
         const resultUnlimitedDecimals = data.numberToPctNumOne / data.numberToPctNumTwo * 100
         const resultWithTwoDecimals = limitToTwoDecimalPlaces(resultUnlimitedDecimals)
-        hasResult && setResult(resultWithTwoDecimals)
+        hasResult ? setResult(resultWithTwoDecimals) : setResult(0)
     }, [data, hasResult])
 
     return (
@@ -40,7 +40,7 @@ const NumberToPercentage = () => {
                 <p>?</p>
             </div>
             <div className="result-wrapper">
-                <p>{`${hasResult ? result : ''} %`}</p>
+                <p>{`${result && result} %`}</p>
             </div>
         </div>
     )
