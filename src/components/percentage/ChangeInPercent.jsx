@@ -6,7 +6,7 @@ import handleInputChange from "../../utils/handleInputChange"
 const ChangeInPercent = () => {
     const [data, setData] = useState({changeInPctNumOne: '', changeInPctNumTwo: ''})
     const [hasResult, setHasResult] = useState(false)
-    const [result, setResult] = useState(0)
+    const [result, setResult] = useState(null)
 
     useEffect(() => {
         setHasResult(data.changeInPctNumOne && data.changeInPctNumTwo ? true : false)

@@ -6,7 +6,7 @@ import handleInputChange from "../../utils/handleInputChange"
 const NumberToPercentage = () => {
     const [data, setData] = useState({numberToPctNumOne: '', numberToPctNumTwo: ''})
     const [hasResult, setHasResult] = useState(false)
-    const [result, setResult] = useState(0)
+    const [result, setResult] = useState(null)
 
     useEffect(() => {
         setHasResult(data.numberToPctNumOne && data.numberToPctNumTwo ? true : false)

@@ -6,7 +6,7 @@ import limitToTwoDecimalPlaces from "../../utils/limitToTwoDecimalPlaces"
 const PercentageOfTotal = () => {
     const [data, setData] = useState({fromPctToTotalNumOne: '', fromPctToTotalNumTwo: ''})
     const [hasResult, setHasResult] = useState(false)
-    const [result, setResult] = useState(0)
+    const [result, setResult] = useState(null)
 
     useEffect(() => {
         setHasResult(data.fromPctToTotalNumOne && data.fromPctToTotalNumTwo ? true : false)
