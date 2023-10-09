@@ -19,7 +19,7 @@ const PercentageOfTotal = () => {
     }, [data, hasResult])
 
     return (
-        <div className="calculator-wrapper">
+        <div className="calculator-wrapper flex-column">
             <div className="calculator__inner-wrapper">
                 <p>What is the total sum when</p>
                 <Input

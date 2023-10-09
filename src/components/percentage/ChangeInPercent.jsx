@@ -23,7 +23,7 @@ const ChangeInPercent = () => {
     }, [data, hasResult])
 
     return (
-        <div className="calculator-wrapper">
+        <div className="calculator-wrapper flex-column">
             <div className="calculator__inner-wrapper">
                 <p>How much is a change from the number</p>
                 <Input

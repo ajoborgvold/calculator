@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react"
+import { useState, useEffect } from "react"
 import Input from "../library/Input"
 import handleInputChange from "../../utils/handleInputChange"
 import limitToTwoDecimalPlaces from "../../utils/limitToTwoDecimalPlaces"
 
-const CmToInch = () => {
-    const [data, setData] = useState({cmToInchNum: ''})
+const InchToCm = () => {
+    const [data, setData] = useState({inchToCmNum: ''})
     const [result, setResult] = useState('')
 
-    const conversionFactor = 0.393700787
+    const conversionFactor = 2.54
 
     useEffect(() => {
-        const resultUnlimitedDecimals = data.cmToInchNum * conversionFactor
+        const resultUnlimitedDecimals = data.inchToCmNum * conversionFactor
         const resultWithTwoDecimals = limitToTwoDecimalPlaces(resultUnlimitedDecimals)
         setResult(resultWithTwoDecimals)
     }, [data])
@@ -18,19 +18,19 @@ const CmToInch = () => {
     return (
         <div className="calculator-wrapper flex-row">
             <div className="calculator__inner-wrapper">
-                <Input 
-                    name="cmToInchNum"
-                    id="cmToInchNum"
-                    value={data.cmToInchNum}
+                <Input
+                    name="inchToCmNum"
+                    id="inchToCmNum"
+                    value={data.inchToCmNum}
                     onchange={e => handleInputChange(e, setData)}
                 />
-                <p>cm equals</p>
+                <p>in equals</p>
             </div>
             <div className="result-wrapper">
-                <p>{`${result ? result : ''} in`}</p>
+                <p>{`${result ? result : ''} cm`}</p>
             </div>
         </div>
     )
 }
 
-export default CmToInch
+export default InchToCm
