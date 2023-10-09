@@ -46,9 +46,7 @@ const ChangeInPercent = () => {
                 <p className="calculator__p--bottom">in percent?</p>
             </div>
             <div className="result-wrapper">
-                {hasResult ?
-                    <p className="p--large">{result} %</p> : null
-                }
+                <p className="p--large">{`${hasResult ? result : ''} %`}</p>
             </div>
         </div>
     )

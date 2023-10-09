@@ -42,9 +42,10 @@ const NumberToPercentage = () => {
                 <p className="calculator__p--bottom">?</p>
             </div>
             <div className="result-wrapper">
-                {hasResult ?
+                {/* {hasResult ?
                     <p className="p--large">{result} %</p> : null
-                }
+                } */}
+                <p className="p--large">{`${hasResult ? result : ''} %`}</p>
             </div>
         </div>
     )

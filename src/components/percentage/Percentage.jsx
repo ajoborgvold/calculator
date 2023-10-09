@@ -6,9 +6,11 @@ import PercentageOfTotal from "./PercentageOfTotal"
 const Percentage = () => {
     return (
         <section className="calculators-container">
-            <PercentageToNumber />
+            <h2 className="sub-heading">Convert a number to a percentage</h2>
             <NumberToPercentage />
             <ChangeInPercent />
+            <h2 className="sub-heading">Convert a percentage to a number</h2>
+            <PercentageToNumber />
             <PercentageOfTotal />
         </section>
     )

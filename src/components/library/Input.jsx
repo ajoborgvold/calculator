@@ -3,7 +3,7 @@ const Input = props => {
 
     return (
         <input
-            type="text"
+            type="number"
             name={name}
             id={id}
             placeholder="0"
