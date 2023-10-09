@@ -20,30 +20,28 @@ const PercentageToNumber = () => {
 
     return (
         <div className="calculator-wrapper">
-            <div className="calculator--top">
-                <p className="calculator__p--top">How much is</p>
+            <div className="calculator__inner-wrapper">
+                <p>How much is</p>
                 <Input
                     name="pctToNumberNumOne"
                     id="pctToNumberNumOne"
                     value={data.pctToNumberNumOne}
                     onchange={e => handleInputChange(e, setData)}
-                    inputClass="input--top"
                 />
                 <p>%</p>
             </div>
-            <div className="calculator--bottom">
-                <p className="calculator__p--center">of the number</p>
+            <div className="calculator__inner-wrapper">
+                <p>of the number</p>
                 <Input
                     name="pctToNumberNumTwo"
                     id="pctToNumberNumTwo"
                     value={data.pctToNumberNumTwo}
                     onchange={e => handleInputChange(e, setData)}
-                    inputClass="input--bottom"
                 />
-                <p className="calculator__p--bottom">?</p>
+                <p>?</p>
             </div>
             <div className="result-wrapper">
-                <p className="p--large">{hasResult ? result : null}</p>
+                <p>{hasResult ? result : null}</p>
             </div>
         </div>
     )

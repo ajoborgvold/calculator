@@ -20,32 +20,28 @@ const PercentageOfTotal = () => {
 
     return (
         <div className="calculator-wrapper">
-            <div className="calculator--top">
-                <p className="caltulator__p--top">What is the total sum when</p>
+            <div className="calculator__inner-wrapper">
+                <p>What is the total sum when</p>
                 <Input
                     name="fromPctToTotalNumTwo"
                     id="fromPctToTotalNumTwo"
                     value={data.fromPctToTotalNumTwo}
                     onchange={e => handleInputChange(e, setData)}
-                    inputClass="input--bottom"
                 />
                 <p>%</p>
             </div>
-            <div className="calculator--bottom">
-                <p className="calculator__p--center">is equal to the number</p>
+            <div className="calculator__inner-wrapper">
+                <p>is equal to the number</p>
                 <Input
                     name="fromPctToTotalNumOne"
                     id="fromPctToTotalNumOne"
                     value={data.fromPctToTotalNumOne}
                     onchange={e => handleInputChange(e, setData)}
-                    inputClass="input--top"
                 />
-                <p className="calculator__p--bottom">?</p>
+                <p>?</p>
             </div>
             <div className="result-wrapper">
-                {hasResult ?
-                    <p className="p--large">{result}</p> : null
-                }
+                <p>{hasResult ? result : null}</p>
             </div>
         </div>
     )

@@ -13,7 +13,18 @@ p {
   margin: 0;
 }
 
+p {
+  font-size: 1rem;
+}
+
+.main-heading {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
 .sub-heading {
+  font-size: 1.5rem;
   margin-top: 2em;
 }
 
@@ -65,23 +76,19 @@ body {
   padding: 2em 1em 1em;
 }
 
-.calculator-wrapper:last-child {
-  border-bottom: none;
-}
-
-.calculator--top,
-.calculator--bottom {
+.calculator__inner-wrapper {
   display: flex;
   align-items: center;
 }
 
 .input {
   font-family: inherit;
+  font-size: 1rem;
   width: 0;
   min-width: 7.5em;
   height: fit-content;
   margin: 0 .5em;
-  padding: .5em .25em;
+  padding: .25em;
   border: 1px solid #f5f5f5;
   border-radius: .3em;
   background-color: #242424;
