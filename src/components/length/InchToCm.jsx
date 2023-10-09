@@ -16,7 +16,7 @@ const InchToCm = () => {
     }, [data])
 
     return (
-        <div className="calculator-wrapper flex-row">
+        <div className="calculator-wrapper--small">
             <div className="calculator__inner-wrapper">
                 <Input
                     name="inchToCmNum"

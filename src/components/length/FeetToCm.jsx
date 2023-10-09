@@ -16,7 +16,7 @@ const FeetToCm = () => {
     }, [data])
 
     return (
-        <div className="calculator-wrapper flex-row">
+        <div className="calculator-wrapper--small">
             <Input 
                 name="feetToCmNum"
                 id="feetToCmNum"

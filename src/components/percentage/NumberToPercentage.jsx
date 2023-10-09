@@ -19,7 +19,7 @@ const NumberToPercentage = () => {
     }, [data, hasResult])
 
     return (
-        <div className="calculator-wrapper flex-column">
+        <div className="calculator-wrapper--large">
             <div className="calculator__inner-wrapper">
                 <p>How many percent is the number</p>
                 <Input

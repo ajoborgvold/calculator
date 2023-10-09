@@ -16,7 +16,7 @@ const MeterToYard = () => {
     }, [data])
 
     return (
-        <div className="calculator-wrapper flex-row">
+        <div className="calculator-wrapper--small">
             <Input 
                 name="meterToYardNum"
                 id="meterToYardNum"

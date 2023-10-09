@@ -16,7 +16,7 @@ const KmToMiles = () => {
     })
 
     return (
-        <div className="calculator-wrapper flex-row">
+        <div className="calculator-wrapper--small">
             <Input
                 name="kmToMilesNum"
                 id="kmToMilesNum"
