@@ -41,7 +41,7 @@ const PercentageOfTotal = () => {
                 <p>?</p>
             </div>
             <div className="result-wrapper">
-                <p>{result && result}</p>
+                <p>{result}</p>
             </div>
         </div>
     )
