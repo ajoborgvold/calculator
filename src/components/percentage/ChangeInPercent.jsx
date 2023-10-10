@@ -21,8 +21,8 @@ const ChangeInPercent = () => {
     }, [data, hasResult])
 
     return (
-        <div className="calculator-wrapper--large">
-            <div className="calculator__inner-wrapper">
+        <div className="flex__sub-container-item">
+            <div className="flex__sub-container-item__inner-wrapper">
                 <p>How much is a change from the number</p>
                 <Input
                     name="changeInPctNumOne"
@@ -31,7 +31,7 @@ const ChangeInPercent = () => {
                     onchange={e => handleInputChange(e, setData)}
                 />
             </div>
-            <div className="calculator__inner-wrapper">
+            <div className="flex__sub-container-item__inner-wrapper">
                 <p>to the number</p>
                 <Input
                     name="changeInPctNumTwo"

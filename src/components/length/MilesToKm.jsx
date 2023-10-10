@@ -16,14 +16,14 @@ const MilesToKm = () => {
     })
 
     return (
-        <div className="calculator-wrapper--small">
+        <div className="grid-item grid-item-b">
             <Input
                 name="milesToKmNum"
                 id="milesToKmNum"
                 value={data.milesToKmNum}
                 onchange={e => handleInputChange(e, setData)}
             />
-            <p>mi equals</p>
+            <p>mi =</p>
             <div className="result-wrapper">
                 <p>{`${result} km`}</p>
             </div>

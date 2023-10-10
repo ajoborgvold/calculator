@@ -11,23 +11,27 @@ const Length = () => {
     return (
         <section className="calculators-container">
             <h1 className="main-heading">Length conversion</h1>
-            <h2 className="sub-heading">Centimetres = inches</h2>
-            <div className="calculators__sub-container">
+            <div className="grid-container">
+                <h2 className="sub-heading heading-a">Centimetres &harr; inches</h2>
+                <h2 className="sub-heading heading-b">Inches &harr; centimetres</h2>
                 <CmToInch />
                 <InchToCm />
             </div>
-            <h2 className="sub-heading">Centimetres = feet</h2>
-            <div className="calculators__sub-container">
+            <div className="grid-container">
+                <h2 className="sub-heading heading-a">Centimetres &harr; feet</h2>
+                <h2 className="sub-heading heading-b">Feet &harr; centimetres</h2>
                 <CmToFeet />
                 <FeetToCm />
             </div>
-            <h2 className="sub-heading">Meters = yards</h2>
-            <div className="calculators__sub-container">
+            <div className="grid-container">
+                <h2 className="sub-heading heading-a">Metres &harr; yards</h2>
+                <h2 className="sub-heading heading-b">Yards &harr; metres</h2>
                 <MeterToYard />
                 <YardToMeter />
             </div>
-            <h2 className="sub-heading">Kilometers = miles</h2>
-            <div className="calculators__sub-container">
+            <div className="grid-container">
+                <h2 className="sub-heading heading-a">Kilometres &harr; miles</h2>
+                <h2 className="sub-heading heading-b">Miles &harr; kilometres</h2>
                 <KmToMiles />
                 <MilesToKm />
             </div>

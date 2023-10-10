@@ -16,16 +16,14 @@ const InchToCm = () => {
     }, [data])
 
     return (
-        <div className="calculator-wrapper--small">
-            <div className="calculator__inner-wrapper">
-                <Input
-                    name="inchToCmNum"
-                    id="inchToCmNum"
-                    value={data.inchToCmNum}
-                    onchange={e => handleInputChange(e, setData)}
-                />
-                <p>in equals</p>
-            </div>
+        <div className="grid-item grid-item-b">
+            <Input
+                name="inchToCmNum"
+                id="inchToCmNum"
+                value={data.inchToCmNum}
+                onchange={e => handleInputChange(e, setData)}
+            />
+            <p>in =</p>
             <div className="result-wrapper">
                 <p>{`${result} cm`}</p>
             </div>

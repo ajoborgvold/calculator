@@ -16,14 +16,14 @@ const CmToFeet = () => {
     }, [data])
 
     return (
-        <div className="calculator-wrapper--small">
+        <div className="grid-item grid-item-a">
             <Input 
                 name="cmToFeetNum"
                 id="cmToFeetNum"
                 value={data.cmToFeetNum}
                 onchange={e => handleInputChange(e, setData)}
             />
-            <p>cm equals</p>
+            <p>cm =</p>
             <div className="result-wrapper">
                 <p>{`${result} ft`}</p>
             </div>

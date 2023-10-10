@@ -19,8 +19,8 @@ const NumberToPercentage = () => {
     }, [data, hasResult])
 
     return (
-        <div className="calculator-wrapper--large">
-            <div className="calculator__inner-wrapper">
+        <div className="flex__sub-container-item">
+            <div className="flex__sub-container-item__inner-wrapper">
                 <p>How many percent is the number</p>
                 <Input
                     name="numberToPctNumOne"
@@ -29,7 +29,7 @@ const NumberToPercentage = () => {
                     onchange={e => handleInputChange(e, setData)}
                 />
             </div>
-            <div className="calculator__inner-wrapper">
+            <div className="flex__sub-container-item__inner-wrapper">
                 <p>of the number</p>
                 <Input
                     name="numberToPctNumTwo"

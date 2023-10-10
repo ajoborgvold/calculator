@@ -16,14 +16,14 @@ const YardToMeter = () => {
     }, [data])
 
     return (
-        <div className="calculator-wrapper--small">
+        <div className="grid-item grid-item-b">
             <Input 
                 name="yardToMeterNum"
                 id="yardToMeterNum"
                 value={data.yardToMeterNum}
                 onchange={e => handleInputChange(e, setData)}
             />
-            <p>yd equals </p>
+            <p>yd =</p>
             <div className="result-wrapper">
                 <p>{`${result} m`}</p>
             </div>

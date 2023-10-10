@@ -4,19 +4,16 @@
 }
 
 * {
+  margin: 0;
   box-sizing: border-box;
 }
 
-h1,
-h2,
-p {
-  margin: 0;
+body {
+  background-color: #242424;
+  color: #f5f5f5;
 }
 
-p {
-  font-size: 1rem;
-}
-
+/* Typography */
 .main-heading {
   font-size: 2rem;
   text-align: center;
@@ -25,9 +22,18 @@ p {
 
 .sub-heading {
   font-size: 1.5rem;
-  /* margin: 1.5em 0 1em; */
 }
 
+.heading-b {
+  display: none;
+}
+
+p {
+  font-size: 1rem;
+}
+
+
+/* Links */
 a {
   color: #f5f5f5;
   text-decoration: none;
@@ -40,67 +46,14 @@ a {
   border-radius: .5em;
 }
 
-body {
-  background-color: #242424;
-  color: #f5f5f5;
-}
 
-.app-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  min-height: 100vh;
-  padding: 1em;
-}
-
-.home-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2em;
-}
-
-.calculators-container {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  max-width: 1200px;
-  width: 100%;
-}
-
-.calculators__sub-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  width: 100%;
-  margin: 1em auto 2em;
-}
-
-.calculator-wrapper--large {
-  display: flex;
-  flex-direction: column;
-  gap: .5em;
-  padding: 2em 1em 1em;
-}
-
-.calculator-wrapper--small {
-  display: flex;
-  flex-direction: row;
-}
-
-.calculator__inner-wrapper {
-  display: flex;
-  align-items: center;
-}
-
+/* Input */
 .input {
   font-family: inherit;
   font-size: 1rem;
   width: 0;
   min-width: 6em;
   height: fit-content;
-  margin: 0 .5em;
   padding: .25em;
   border: 1px solid #f5f5f5;
   border-radius: .3em;
@@ -110,11 +63,107 @@ body {
 
 .input:focus {
   outline-color: currentColor;
-  outline-width: 1px;
+  outline-width: 2px;
   outline-style: inset;
   border-radius: .3em;
 }
 
+
+/* App container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100vh;
+}
+
+header {
+  padding: .5em;
+}
+
+footer {
+  margin-top: auto;
+  padding: .5em;
+}
+
+
+
+/* Home container */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+  margin: auto 0;
+}
+
+
+/* Calculators container */
+.calculators-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 0 1em;
+  max-width: 1000px;
+  width: 100%;
+}
+
+/* Flex containers */
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  padding: 2.5em 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.flex__sub-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  width: 100%;
+}
+
+.flex__sub-container-item {
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+}
+
+.flex__sub-container-item__inner-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.flex__sub-container-item__inner-wrapper .input {
+  margin: 0 .5em;
+}
+
+/* Grid containers */
+.grid-container {
+  display: grid;
+  gap: 1em;
+  padding: 2.5em 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.grid-item .input {
+  margin-right: .5em;
+}
+
+.flex-container:last-child,
+.grid-container:last-child {
+  border-bottom: none;
+}
+
+/* Result element */
 .result-wrapper {
   text-align: right;
   min-width: 5em;
@@ -126,34 +175,52 @@ body {
 }
 
 
-@media (min-width: 480px) {
-  .calculators__sub-container {
-  }
 
-  .calculator-wrapper--small {
-    /* margin: 0 2em; */
+/* Media queries */
+@media (min-width: 480px) {
+  .grid-container {
+    padding: 2.5em 2em;
   }
 }
 
 
 @media (min-width: 768px) {
+  .heading-b {
+    display: unset;
+  }
+
   .calculators-container {
     padding: 0 2em;
   }
-  .calculators__sub-container {
-    flex-direction: row;
-    justify-content: space-between;
-    /* gap: 2em; */
+
+  .flex-container {
+    padding: 2.5em 2em;
   }
-  
-  .calculator-wrapper--small .result-wrapper {
+
+  .grid-container {
+    grid-template-columns: repeat(2, auto);
+    width: fit-content;
+    margin: 0 auto;
+  }
+
+  .heading-a,
+  .grid-item-a {
+    margin-right: 3rem;
+  }
+
+  .heading-b,
+  .grid-item-b {
+    margin-left: 3rem;
+  }
+
+  .grid-item .result-wrapper {
     margin-left: 2em;
   }
-
 }
 
+
 @media (min-width: 1024px) {
-  .calculator-wrapper--large {
+  .flex__sub-container-item {
     flex-direction: row;
   }
 }
