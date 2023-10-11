@@ -5,8 +5,8 @@ const GramToOunce = () => {
         <UnitConvertor
             name="gramToOunceNum"
             factor="0.0352739619"
-            text="g ="
-            unit="oz"
+            unitOne="g"
+            unitTwo="oz"
             gridClass="grid-item-a"
         />
     )

@@ -5,8 +5,8 @@ const KmToMiles = () => {
         <UnitConvertor
             name="kmToMilesNum"
             factor="0.621371192"
-            text="km ="
-            unit="mi"
+            unitOne="km"
+            unitTwo="mi"
             gridClass="grid-item-a"
         />
     )

@@ -5,8 +5,8 @@ const YardToMetre = () => {
         <UnitConvertor
             name="yardToMetreNum"
             factor="0.9144"
-            text="yd ="
-            unit="m"
+            unitOne="yd"
+            unitTwo="m"
             gridClass="grid-item-b"
         />
     )

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import Input from "../library/Input"
 import formatResult from "../../utils/formatResult"
 
-const UnitConvertor = ({ name, factor, text, unit, gridClass }) => {
+const UnitConvertor = ({ name, factor, text, unitOne, unitTwo, gridClass }) => {
     const [data, setData] = useState({ name: null })
     const [result, setResult] = useState(null)
 
@@ -25,8 +25,8 @@ const UnitConvertor = ({ name, factor, text, unit, gridClass }) => {
                 value={data.name}
                 onchange={handleInputChange}
             />
-            <p>{text}</p>
-            <p className="result">{result} {unit}</p>
+            <p>{unitOne} =</p>
+            <p className="result">{result} {unitTwo}</p>
         </div>
     )
 }

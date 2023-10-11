@@ -5,8 +5,8 @@ const StoneToKg = () => {
         <UnitConvertor
             name="stoneToKgNum"
             factor="6.35029318"
-            text="st ="
-            unit="kg"
+            unitOne="st"
+            unitTwo="kg"
             gridClass="grid-item-b"
         />
     )

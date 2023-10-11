@@ -5,8 +5,8 @@ const InchToCm = () => {
         <UnitConvertor
             name="inchToCmNum"
             factor="2.54"
-            text="in ="
-            unit="cm"
+            unitOne="in"
+            unitTwo="cm"
             gridClass="grid-item-b"
         />
     )

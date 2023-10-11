@@ -5,8 +5,8 @@ const CmToFeet = () => {
         <UnitConvertor
             name="cmToFeetNum"
             factor="0.032808399"
-            text="cm ="
-            unit="ft"
+            unitOne="cm"
+            unitTwo="ft"
             gridClass="grid-item-a"
         />
     )

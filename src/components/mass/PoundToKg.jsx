@@ -5,8 +5,8 @@ const PoundToKg = () => {
         <UnitConvertor
             name="poundToKgNum"
             factor="0.45359237"
-            text="lb ="
-            unit="kg"
+            unitOne="lb"
+            unitTwo="kg"
             gridClass="grid-item-b"
         />
     )
