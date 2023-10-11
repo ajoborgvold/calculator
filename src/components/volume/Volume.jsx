@@ -2,6 +2,14 @@ import CentilitreToFlOunce from "./CentilitreToFlOunce"
 import CupToDecilitre from "./CupToDecilitre"
 import DecilitreToCup from "./DecilitreToCup"
 import FlOunceToCentilitre from "./FlOunceToCentilitre"
+import UKGallonToLitre from "./UKGallonToLitre"
+import UKLitreToGallon from "./UKLitreToGallon"
+import UKLitreToPint from "./UKLitreToPint"
+import UKPintToLitre from "./UKPintToLitre"
+import USGallonToLitre from "./USGallonToLitre"
+import USLitreToGallon from "./USLitreToGallon"
+import USLitreToPint from "./USLitreToPint"
+import USPintToLitre from "./USPintToLitre"
 
 const Volume = () => {
     return (
@@ -20,16 +28,28 @@ const Volume = () => {
                 <CupToDecilitre />
             </div>
             <div className="grid-container">
-                <h2 className="sub-heading heading-a">Kilograms &harr; pounds</h2>
-                <h2 className="sub-heading heading-b">Pounds &harr; kilograms</h2>
-                {/* <KgToPound /> */}
-                {/* <PoundToKg /> */}
+                <h2 className="sub-heading heading-a">Litre &harr; UK pints</h2>
+                <h2 className="sub-heading heading-b">UK pints &harr; litres</h2>
+                <UKLitreToPint />
+                <UKPintToLitre />
             </div>
             <div className="grid-container">
-                <h2 className="sub-heading heading-a">Kilograms &harr; stone</h2>
-                <h2 className="sub-heading heading-b">Stone &harr; kilograms</h2>
-                {/* <KgToStone /> */}
-                {/* <StoneToKg /> */}
+                <h2 className="sub-heading heading-a">Litre &harr; US pints</h2>
+                <h2 className="sub-heading heading-b">US pints &harr; litres</h2>
+                <USLitreToPint />
+                <USPintToLitre />
+            </div>
+            <div className="grid-container">
+                <h2 className="sub-heading heading-a">Litre &harr; UK gallons</h2>
+                <h2 className="sub-heading heading-b">UK gallons &harr; litres</h2>
+                <UKLitreToGallon />
+                <UKGallonToLitre />
+            </div>
+            <div className="grid-container">
+                <h2 className="sub-heading heading-a">Litre &harr; US gallons</h2>
+                <h2 className="sub-heading heading-b">US gallons &harr; litres</h2>
+                <USLitreToGallon />
+                <USGallonToLitre />
             </div>
         </section>
     )
