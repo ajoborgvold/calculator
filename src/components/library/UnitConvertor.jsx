@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react"
 import Input from "../library/Input"
+import formatResult from "../../utils/formatResult"
 
 const UnitConvertor = ({ name, factor, text, unit, gridClass }) => {
-    const [data, setData] = useState({name: 1})
+    const [data, setData] = useState({ name: null })
     const [result, setResult] = useState(null)
-    
+
     useEffect(() => {
-        const resultUnlimitedDecimals = data.name * conversionFactor
-        const resultWithTwoDecimals = parseFloat(resultUnlimitedDecimals.toFixed(2))
-        setResult(resultWithTwoDecimals)
+        const newResult = data.name * conversionFactor
+        setResult(formatResult(newResult))
     }, [data])
 
     const conversionFactor = Number(factor)
@@ -16,22 +16,19 @@ const UnitConvertor = ({ name, factor, text, unit, gridClass }) => {
     const handleInputChange = e => {
         e.target.value >= 0 ? setData({name: e.target.value}) : setData({name: 0})
     }
-    
+
     return (
         <div className={`grid-item ${gridClass}`}>
-            <Input 
+            <Input
                 name={name}
                 id={name}
                 value={data.name}
-                onchange={e => handleInputChange(e)}
+                onchange={handleInputChange}
             />
             <p>{text}</p>
-            <div className="result-wrapper">
-                <p>{result} {unit}</p>
-            </div>
+            <p className="result">{result} {unit}</p>
         </div>
     )
-
 }
 
 export default UnitConvertor
