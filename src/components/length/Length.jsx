@@ -3,9 +3,9 @@ import CmToInch from "./CmToInch"
 import FeetToCm from "./FeetToCm"
 import InchToCm from "./InchToCm"
 import KmToMiles from "./KmToMiles"
-import MeterToYard from "./MeterToYard"
+import MetreToYard from "./MetreToYard"
 import MilesToKm from "./MilesToKm"
-import YardToMeter from "./YardToMeter"
+import YardToMetre from "./YardToMetre"
 
 const Length = () => {
     return (
@@ -26,8 +26,8 @@ const Length = () => {
             <div className="grid-container">
                 <h2 className="sub-heading heading-a">Metres &harr; yards</h2>
                 <h2 className="sub-heading heading-b">Yards &harr; metres</h2>
-                <MeterToYard />
-                <YardToMeter />
+                <MetreToYard />
+                <YardToMetre />
             </div>
             <div className="grid-container">
                 <h2 className="sub-heading heading-a">Kilometres &harr; miles</h2>
