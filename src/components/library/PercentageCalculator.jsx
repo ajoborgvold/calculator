@@ -60,7 +60,7 @@ const PercentageCalculator = props => {
                 />
                 <p>{textFour}</p>
             </div>
-            <p className="result">{unit ? result + unit : result}</p>
+            <p className="result">{result} {unit && unit}</p>
         </div>
     )
 }

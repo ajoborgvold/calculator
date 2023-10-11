@@ -1,9 +1,9 @@
 import UnitConvertor from "../library/UnitConvertor"
 
-const MeterToYard = () => {
+const MetreToYard = () => {
     return (
         <UnitConvertor
-            name="meterToYardNum"
+            name="metreToYardNum"
             factor="1.0936133"
             text="m ="
             unit="yd"
@@ -12,4 +12,4 @@ const MeterToYard = () => {
     )
 }
 
-export default MeterToYard
+export default MetreToYard

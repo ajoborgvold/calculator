@@ -6,6 +6,7 @@ import Home from './components/Home'
 import Percentage from './components/percentage/Percentage'
 import Volume from './components/volume/Volume'
 import Length from './components/length/Length'
+import Mass from './components/mass/Mass'
 import Age from './components/age/Age'
 
 function App() {
@@ -29,6 +30,10 @@ function App() {
         {
           path: "/length",
           element: <Length />
+        },
+        {
+          path: "/mass",
+          element: <Mass />
         },
         {
           path: "/age",
