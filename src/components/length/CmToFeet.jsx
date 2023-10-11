@@ -1,33 +1,14 @@
-import { useEffect, useState } from "react"
-import Input from "../library/Input"
-import handleInputChange from "../../utils/handleInputChange"
-import limitToTwoDecimalPlaces from "../../utils/limitToTwoDecimalPlaces"
+import UnitConvertor from "../library/UnitConvertor"
 
 const CmToFeet = () => {
-    const [data, setData] = useState({cmToFeetNum: ''})
-    const [result, setResult] = useState(null)
-
-    const conversionFactor = 0.032808399
-
-    useEffect(() => {
-        const resultUnlimitedDecimals = data.cmToFeetNum * conversionFactor
-        const resultWithTwoDecimals = limitToTwoDecimalPlaces(resultUnlimitedDecimals)
-        setResult(resultWithTwoDecimals)
-    }, [data])
-
     return (
-        <div className="grid-item grid-item-a">
-            <Input 
-                name="cmToFeetNum"
-                id="cmToFeetNum"
-                value={data.cmToFeetNum}
-                onchange={e => handleInputChange(e, setData)}
-            />
-            <p>cm =</p>
-            <div className="result-wrapper">
-                <p>{`${result} ft`}</p>
-            </div>
-        </div>
+        <UnitConvertor
+            name="cmToFeetNum"
+            factor="0.032808399"
+            text="cm ="
+            unit="ft"
+            gridClass="grid-item-a"
+        />
     )
 }
 
