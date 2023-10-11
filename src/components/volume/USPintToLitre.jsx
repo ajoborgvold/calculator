@@ -1,8 +1,8 @@
-import UnitConvertor from "../library/UnitConvertor"
+import UnitConverter from "../library/UnitConverter"
 
 const USPintToLitre = () => {
     return (
-        <UnitConvertor
+        <UnitConverter
             name="usPintToLitreNum"
             factor="0.473176473"
             unitOne="pt"

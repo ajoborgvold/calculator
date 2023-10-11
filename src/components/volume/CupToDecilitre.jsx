@@ -1,8 +1,8 @@
-import UnitConvertor from "../library/UnitConvertor"
+import UnitConverter from "../library/UnitConverter"
 
 const CupToDecilitre = () => {
     return (
-        <UnitConvertor
+        <UnitConverter
             name="cupToDecilitreNum"
             factor="2.36588237"
             unitOne="cup"

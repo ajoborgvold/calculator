@@ -1,8 +1,8 @@
-import UnitConvertor from "../library/UnitConvertor"
+import UnitConverter from "../library/UnitConverter"
 
 const FlOunceToCentilitre = () => {
     return (
-        <UnitConvertor
+        <UnitConverter
             name="flOunceToCentilitreNum"
             factor="2.95735296"
             unitOne="fl oz"

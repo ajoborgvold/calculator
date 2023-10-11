@@ -1,8 +1,8 @@
-import UnitConvertor from "../library/UnitConvertor"
+import UnitConverter from "../library/UnitConverter"
 
 const USGallonToLitre = () => {
     return (
-        <UnitConvertor
+        <UnitConverter
             name="usGallonToLitreNum"
             factor="3.78541178"
             unitOne="gal"

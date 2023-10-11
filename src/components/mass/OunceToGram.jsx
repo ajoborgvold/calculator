@@ -1,8 +1,8 @@
-import UnitConvertor from "../library/UnitConvertor"
+import UnitConverter from "../library/UnitConverter"
 
 const OunceToGram = () => {
     return (
-        <UnitConvertor
+        <UnitConverter
             name="ounceToGramNum"
             factor="28.3495231"
             unitOne="oz"

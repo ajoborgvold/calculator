@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import Input from "../library/Input"
+import Input from "./Input"
 import formatResult from "../../utils/formatResult"
 
-const UnitConvertor = ({ name, factor, text, unitOne, unitTwo, gridClass }) => {
+const UnitConverter = ({ name, factor, text, unitOne, unitTwo, gridClass }) => {
     const [data, setData] = useState({ name: null })
     const [result, setResult] = useState(null)
 
@@ -31,4 +31,4 @@ const UnitConvertor = ({ name, factor, text, unitOne, unitTwo, gridClass }) => {
     )
 }
 
-export default UnitConvertor
+export default UnitConverter

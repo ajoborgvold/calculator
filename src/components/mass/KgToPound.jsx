@@ -1,8 +1,8 @@
-import UnitConvertor from "../library/UnitConvertor"
+import UnitConverter from "../library/UnitConverter"
 
 const KgToPound = () => {
     return (
-        <UnitConvertor
+        <UnitConverter
             name="kgToPoundNum"
             factor="2.20462262"
             unitOne="kg"
