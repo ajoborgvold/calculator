@@ -8,6 +8,7 @@ const Home = () => {
             <Link to ="/volume" className="link--border">Volume</Link>
             <Link to ="/length" className="link--border">Length</Link>
             <Link to ="/mass" className="link--border">Mass</Link>
+            <Link to ="/area" className="link--border">Area</Link>
             <Link to ="/age" className="link--border">Age</Link>
         </div>   
     )
