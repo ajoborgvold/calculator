@@ -7,29 +7,44 @@ import Volume from "../volume/Volume"
 import { AppContext } from "../../context/AppContext"
 
 const UnitConverters = () => {
-    const { showUnitConverter } = useContext(AppContext)
-    console.log(showUnitConverter)
+    const { unitConverterData } = useContext(AppContext)
+
+    // console.log(unitConverterData)
+
+    // const unitConverterEl = unitConverterData.map(converter => {
+    //     const btnText = `${converter.name.slice(1).toUppercase()} conversion`
+        
+    //     return (
+    //         <>
+    //             <Button
+    //                 id={converter.name}
+    //                 text={btnText}
+    //             />
+    //             {converter.isRendered}
+    //         </>
+    //     )
+    // })
 
     return (
         <>
             <Button
                 text="Volume conversion"
-                name="volume"
+                id="volume"
             />
             <Volume />
             <Button
                 text="Length conversion"
-                name="length"
+                id="length"
             />
             <Length />
             <Button
                 text="Mass conversion"
-                name="mass"
+                id="mass"
             />
             <Mass />
             <Button
                 text="Area conversion"
-                name="area"
+                id="area"
             />
             <Area />
         </>

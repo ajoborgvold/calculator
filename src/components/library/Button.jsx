@@ -1,17 +1,15 @@
-const Button = (props) => {
-    const { text, name } = props
+import { useContext } from "react"
+import { AppContext } from "../../context/AppContext"
 
-    function toggleConverter() {
-        // name === convertersData.name ? setConvertersData(prevData => {
-        //     return {...prevData, [prevData.show]: true}
-        // })
-        console.log(name)
-    }
+const Button = (props) => {
+    const { text, id } = props
+    const { toggle } = useContext(AppContext)
 
     return (
         <button 
-            onClick={toggleConverter}
+            onClick={toggle}
             className="btn"
+            id={id}
         >
             {text}
         </button>
