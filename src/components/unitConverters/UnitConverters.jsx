@@ -1,52 +1,35 @@
-import { useContext, useState } from "react"
-import Area from "../area/Area"
-import Length from "../length/Length"
-import Button from "../library/Button"
-import Mass from "../mass/Mass"
-import Volume from "../volume/Volume"
-import { AppContext } from "../../context/AppContext"
+import { NavLink, Outlet } from "react-router-dom"
 
 const UnitConverters = () => {
-    const { unitConverterData } = useContext(AppContext)
-
-    // console.log(unitConverterData)
-
-    // const unitConverterEl = unitConverterData.map(converter => {
-    //     const btnText = `${converter.name.slice(1).toUppercase()} conversion`
-        
-    //     return (
-    //         <>
-    //             <Button
-    //                 id={converter.name}
-    //                 text={btnText}
-    //             />
-    //             {converter.isRendered}
-    //         </>
-    //     )
-    // })
-
     return (
         <>
-            <Button
-                text="Volume conversion"
-                id="volume"
-            />
-            <Volume />
-            <Button
-                text="Length conversion"
-                id="length"
-            />
-            <Length />
-            <Button
-                text="Mass conversion"
-                id="mass"
-            />
-            <Mass />
-            <Button
-                text="Area conversion"
-                id="area"
-            />
-            <Area />
+            <nav className="nav-bar--horizontal">
+                <NavLink 
+                    to="volume"
+                    className={({isActive}) => isActive ? 'nav-link--active' : 'nav-link'}
+                >
+                    Volume
+                </NavLink>
+                <NavLink 
+                    to="length"
+                    className={({isActive}) => isActive ? 'nav-link--active' : 'nav-link'}
+                >
+                    Length
+                </NavLink>
+                <NavLink 
+                    to="mass"
+                    className={({isActive}) => isActive ? 'nav-link--active' : 'nav-link'}
+                >
+                    Mass
+                </NavLink>
+                <NavLink 
+                    to="area"
+                    className={({isActive}) => isActive ? 'nav-link--active' : 'nav-link'}
+                >
+                    Area
+                </NavLink>
+            </nav>
+            <Outlet />
         </>
     )
 }

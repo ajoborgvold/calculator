@@ -18,37 +18,38 @@ function App() {
       element: <Layout />,
       children: [
         {
-          path: "/",
+          index: true,
           element: <Home />
         },
         {
-          path: "/percentage",
+          path: "percentage",
           element: <Percentage />
         },
         {
-          path: "/unit-converters",
+          path: "unit-converters",
           element: <UnitConverters />,
           children: [
             {
-              path: "/unit-converters/volume",
+              // index: true,
+              path: "volume",
               element: <Volume />
             },
             {
-              path: "/unit-converters/length",
+              path: "length",
               element: <Length />
             },
             {
-              path: "/unit-converters/mass",
+              path: "mass",
               element: <Mass />
             },
             {
-              path: "/unit-converters/area",
+              path: "area",
               element: <Area />
             },
           ]
         },
         {
-          path: "/age",
+          path: "age",
           element: <Age />
         }
       ]

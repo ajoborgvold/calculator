@@ -5,7 +5,7 @@ import formatResult from "../../utils/formatResult"
 const PercentageCalculator = props => {
     const { nameOne, nameTwo, textOne, textTwo, textThree, textFour, unit, calculationType } = props
 
-    const [data, setData] = useState({ nameOne: null, nameTwo: null })
+    const [data, setData] = useState({ nameOne: '', nameTwo: '' })
     const [hasResult, setHasResult] = useState(false)
     const [result, setResult] = useState(null)
     
