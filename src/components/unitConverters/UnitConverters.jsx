@@ -1,6 +1,13 @@
-import { NavLink, Outlet } from "react-router-dom"
+import { useEffect } from "react"
+import { NavLink, Outlet, useNavigate } from "react-router-dom"
 
 const UnitConverters = () => {
+    const navigate = useNavigate()
+    
+    useEffect(() => {
+        navigate("volume")
+    }, [])
+    
     return (
         <>
             <nav className="nav-bar--horizontal">
