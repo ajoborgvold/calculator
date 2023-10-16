@@ -9,6 +9,7 @@ import Length from './components/length/Length'
 import Mass from './components/mass/Mass'
 import Area from './components/area/Area'
 import Age from './components/age/Age'
+import UnitConverters from './components/unitConverters/UnitConverters'
 
 function App() {
   const router = createBrowserRouter([
@@ -25,20 +26,26 @@ function App() {
           element: <Percentage />
         },
         {
-          path: "/volume",
-          element: <Volume />
-        },
-        {
-          path: "/length",
-          element: <Length />
-        },
-        {
-          path: "/mass",
-          element: <Mass />
-        },
-        {
-          path: "/area",
-          element: <Area />
+          path: "/unit-converters",
+          element: <UnitConverters />,
+          children: [
+            {
+              path: "/unit-converters/volume",
+              element: <Volume />
+            },
+            {
+              path: "/unit-converters/length",
+              element: <Length />
+            },
+            {
+              path: "/unit-converters/mass",
+              element: <Mass />
+            },
+            {
+              path: "/unit-converters/area",
+              element: <Area />
+            },
+          ]
         },
         {
           path: "/age",
