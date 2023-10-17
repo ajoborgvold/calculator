@@ -16,19 +16,19 @@ const Header = ({isMenuOpen, setIsMenuOpen, toggleMenu}) => {
                 <nav className="nav-bar--vertical" ref={menuRef}>
                     <NavLink
                         to="/"
-                        className={({isActive}) => isActive ? 'nav-link--active' : 'nav-link'}
+                        className={({isActive}) => isActive ? 'nav-link nav-link--small nav-link--active' : 'nav-link nav-link--small'}
                         >
                         Home
                     </NavLink>
                     <NavLink
                         to="percentage"
-                        className={({isActive}) => isActive ? 'nav-link--active' : 'nav-link'}
+                        className={({isActive}) => isActive ? 'nav-link nav-link--small nav-link--active' : 'nav-link nav-link--small'}
                         >
                         Percentage
                     </NavLink>
                     <NavLink
                         to="unit-converters"
-                        className={({isActive}) => isActive ? 'nav-link--active' : 'nav-link'}
+                        className={({isActive}) => isActive ? 'nav-link nav-link--small nav-link--active' : 'nav-link nav-link--small'}
                         >
                         Unit
                     converters</NavLink>
