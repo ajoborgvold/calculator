@@ -14,7 +14,7 @@ import USPintToLitre from "./USPintToLitre"
 const Volume = () => {
     return (
         <section className="calculators-container">
-            <h1 className="main-heading">Volume conversion</h1>
+            {/* <h1 className="main-heading">Volume conversion</h1> */}
             <div className="grid-container">
                 <h2 className="sub-heading heading-a">Centilitres &harr; fluid ounces</h2>
                 <h2 className="sub-heading heading-b">Fluid ounces &harr; centilitres</h2>

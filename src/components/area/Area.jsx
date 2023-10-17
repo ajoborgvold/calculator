@@ -4,7 +4,7 @@ import SqInchToSqCm from "./SqInchToSqCm"
 const Area = () => {
     return (
         <section className="calculators-container">
-            <h1 className="main-heading">Area conversion</h1>
+            {/* <h1 className="main-heading">Area conversion</h1> */}
             <div className="grid-container">
                 <h2 className="sub-heading heading-a">Square cm &harr; square in</h2>
                 <h2 className="sub-heading heading-b">Square in &harr; square cm</h2>

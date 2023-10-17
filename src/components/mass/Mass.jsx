@@ -8,7 +8,7 @@ import StoneToKg from "./StoneToKg"
 const Mass = () => {
     return (
         <section className="calculators-container">
-            <h1 className="main-heading">Mass conversion</h1>
+            {/* <h1 className="main-heading">Mass conversion</h1> */}
             <div className="grid-container">
                 <h2 className="sub-heading heading-a">Grams &harr; ounces</h2>
                 <h2 className="sub-heading heading-b">Ounces &harr; grams</h2>
