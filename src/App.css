@@ -91,7 +91,7 @@ a {
 /* Nav bars */
 .nav-bar--horizontal {
   display: flex;
-  gap: 1.5em;
+  gap: 1em;
   margin: 0 auto 2em;
 }
 
@@ -102,14 +102,23 @@ a {
 
 .nav-link--large {
   font-size: 1.125rem;
+  padding: .125em .25em;
+  border-radius: .1em;
 }
 
 .nav-link:hover {
-  border-bottom: 2px solid gray;
+  /* border-bottom: 2px solid gray; */
 }
 
+.nav-link:hover,
+.nav-link:focus {
+  outline-width: 1px;
+  outline-color: #e5e5e5;
+  outline-style: inset;
+}
+
+
 .nav-link--active {
-  /* width: fit-content; */
   border-bottom: 2px solid #f5f5f5;
 }
 

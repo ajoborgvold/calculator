@@ -11,7 +11,7 @@ const Header = ({isMenuOpen, setIsMenuOpen, toggleMenu}) => {
 
     const headerSmall = (
         <div className="header--small">
-            <FiMenu onClick={toggleMenu} className="menu-icon"/>
+            <FiMenu onClick={toggleMenu} className="menu-icon" tabIndex="0"/>
             {isMenuOpen && 
                 <nav className="nav-bar--vertical" ref={menuRef}>
                     <NavLink
