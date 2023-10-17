@@ -2,9 +2,7 @@ import { Link, NavLink } from "react-router-dom"
 import { FiMenu } from "react-icons/fi"
 import { useState } from "react"
 
-const Header = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false)
-
+const Header = ({isMenuOpen, toggleMenu}) => {
     const headerSmall = (
         <div className="header--small">
             <FiMenu onClick={toggleMenu} className="menu-icon"/>
@@ -37,9 +35,6 @@ const Header = () => {
         </div>
         )
 
-    function toggleMenu() {
-        setIsMenuOpen(prevIsMenuOpen => !prevIsMenuOpen)
-    }
 
     return (
         <header>

@@ -1,11 +1,12 @@
 import { useEffect } from "react"
 import { NavLink, Outlet, useNavigate } from "react-router-dom"
 
-const UnitConverters = () => {
+const UnitConverters = ({setIsMenuOpen}) => {
     const navigate = useNavigate()
     
     useEffect(() => {
         navigate("volume")
+        setIsMenuOpen(false)
     }, [])
     
     return (

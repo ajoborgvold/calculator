@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import './App.css'
@@ -12,22 +13,28 @@ import Age from './components/age/Age'
 import UnitConverters from './components/unitConverters/UnitConverters'
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  function toggleMenu() {
+    setIsMenuOpen(prevIsMenuOpen => !prevIsMenuOpen)
+  }
+
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Layout />,
+      element: <Layout isMenuOpen={isMenuOpen} toggleMenu={toggleMenu}/>,
       children: [
         {
           index: true,
-          element: <Home />
+          element: <Home setIsMenuOpen={setIsMenuOpen} />
         },
         {
           path: "percentage",
-          element: <Percentage />
+          element: <Percentage setIsMenuOpen={setIsMenuOpen} />
         },
         {
           path: "unit-converters",
-          element: <UnitConverters />,
+          element: <UnitConverters setIsMenuOpen={setIsMenuOpen} />,
           children: [
             {
               path: "volume",
@@ -49,14 +56,14 @@ function App() {
         },
         {
           path: "age",
-          element: <Age />
+          element: <Age setIsMenuOpen={setIsMenuOpen} />
         }
       ]
     },
   ])
 
   return (
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} isMenuOpen={isMenuOpen} toggleMenu={toggleMenu}/>
   )
 }
 

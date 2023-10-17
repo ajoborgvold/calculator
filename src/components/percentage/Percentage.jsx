@@ -2,8 +2,13 @@ import PercentageToNumber from "./PercentageToNumber"
 import NumberToPercentage from "./NumberToPercentage"
 import ChangeInPercent from "./ChangeInPercent"
 import PercentageOfTotal from "./PercentageOfTotal"
+import { useEffect } from "react"
 
-const Percentage = () => {
+const Percentage = ({setIsMenuOpen}) => {
+    useEffect(() => {
+        setIsMenuOpen(false)
+    }, [])
+
     return (
         <section className="calculators-container">
             <h1 className="main-heading">Percentage calculation</h1>
