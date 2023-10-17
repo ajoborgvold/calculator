@@ -1,9 +1,53 @@
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
+import { FiMenu } from "react-icons/fi"
+import { useState } from "react"
 
 const Header = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+    const headerSmall = (
+        <div className="header--small">
+            <FiMenu onClick={toggleMenu} className="menu-icon"/>
+            {isMenuOpen && <nav className="nav-bar--vertical">
+                <NavLink
+                    to="/"
+                    className={({isActive}) => isActive ? 'nav-link--active' : 'nav-link'}
+                    >
+                    Home
+                </NavLink>
+                <NavLink
+                    to="percentage"
+                    className={({isActive}) => isActive ? 'nav-link--active' : 'nav-link'}
+                    >
+                    Percentage
+                </NavLink>
+                <NavLink
+                    to="unit-converters"
+                    className={({isActive}) => isActive ? 'nav-link--active' : 'nav-link'}
+                    >
+                    Unit
+                 converters</NavLink>
+                <NavLink
+                    to="age"
+                    className={({isActive}) => isActive ? 'nav-link--active' : 'nav-link'}
+                >
+                    Age
+                </NavLink>
+            </nav>}
+        </div>
+        )
+
+    function toggleMenu() {
+        setIsMenuOpen(prevIsMenuOpen => !prevIsMenuOpen)
+    }
+
     return (
         <header>
-            <Link to="/" className="link--regular">&larr; Home</Link>
+            {headerSmall}
+            {/* <Link to="/" className="link--regular">Home</Link>
+            <Link to="percentage" className="link--regular">Percentage</Link>
+            <Link to="unit-converters" className="link--regular">Unit converters</Link>
+            <Link to="age" className="link--regular">Age</Link> */}
         </header>
     )
 }
