@@ -1,37 +1,45 @@
-import { Link, NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import { FiMenu } from "react-icons/fi"
-import { useState } from "react"
+import { useCallback, useRef, useState } from "react"
+import useClickOutside from "../utils/useClickOutside"
 
-const Header = ({isMenuOpen, toggleMenu}) => {
+const Header = ({isMenuOpen, setIsMenuOpen, toggleMenu}) => {
+    const menuRef = useRef()
+
+    const closeMenu = useCallback(() => setIsMenuOpen(false), [])
+    useClickOutside(menuRef, closeMenu)
+
     const headerSmall = (
         <div className="header--small">
             <FiMenu onClick={toggleMenu} className="menu-icon"/>
-            {isMenuOpen && <nav className="nav-bar--vertical">
-                <NavLink
-                    to="/"
-                    className={({isActive}) => isActive ? 'nav-link--active' : 'nav-link'}
+            {isMenuOpen && 
+                <nav className="nav-bar--vertical" ref={menuRef}>
+                    <NavLink
+                        to="/"
+                        className={({isActive}) => isActive ? 'nav-link--active' : 'nav-link'}
+                        >
+                        Home
+                    </NavLink>
+                    <NavLink
+                        to="percentage"
+                        className={({isActive}) => isActive ? 'nav-link--active' : 'nav-link'}
+                        >
+                        Percentage
+                    </NavLink>
+                    <NavLink
+                        to="unit-converters"
+                        className={({isActive}) => isActive ? 'nav-link--active' : 'nav-link'}
+                        >
+                        Unit
+                    converters</NavLink>
+                    <NavLink
+                        to="age"
+                        className={({isActive}) => isActive ? 'nav-link--active' : 'nav-link'}
                     >
-                    Home
-                </NavLink>
-                <NavLink
-                    to="percentage"
-                    className={({isActive}) => isActive ? 'nav-link--active' : 'nav-link'}
-                    >
-                    Percentage
-                </NavLink>
-                <NavLink
-                    to="unit-converters"
-                    className={({isActive}) => isActive ? 'nav-link--active' : 'nav-link'}
-                    >
-                    Unit
-                 converters</NavLink>
-                <NavLink
-                    to="age"
-                    className={({isActive}) => isActive ? 'nav-link--active' : 'nav-link'}
-                >
-                    Age
-                </NavLink>
-            </nav>}
+                        Age
+                    </NavLink>
+                </nav>
+            }
         </div>
         )
 

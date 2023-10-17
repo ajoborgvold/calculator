@@ -22,7 +22,7 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Layout isMenuOpen={isMenuOpen} toggleMenu={toggleMenu}/>,
+      element: <Layout isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} toggleMenu={toggleMenu}/>,
       children: [
         {
           index: true,
