@@ -128,22 +128,28 @@ header {
 .header--small {
   display: flex;
   align-items: center;
+
+  /* outline: 1px dotted red; */
 }
 
 .menu-icon {
-  font-size: 1rem;
+  font-size: 1.25rem;
   margin: .5em;
   cursor: pointer;
+
+  /* outline: 1px dashed blue; */
 }
 
 .nav-bar--vertical {
   position: absolute;
-  top: 2.1em;
+  top: 2.6em;
   display: flex;
   flex-direction: column;
   gap: 1em;
   padding: .5em;
   background-color: #242424;
+
+  /* outline: 1px dashed green; */
 }
 
 
