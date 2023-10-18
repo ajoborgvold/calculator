@@ -6,9 +6,9 @@ const Age = ({setIsMenuOpen}) => {
     }, [])
 
     return (
-        <main>
+        <section className="main-container age-container">
             <h1>Age calculator goes here</h1>
-        </main>
+        </section>
     )
 }
 
