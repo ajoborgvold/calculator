@@ -7,7 +7,7 @@ const Home = ({setIsMenuOpen}) => {
     }, [])
 
     return (
-        <div className="main-container home-container">
+        <div className="home-container">
             {/* <h1 className="main-heading">All calculators and unit converters</h1> */}
             <Link to="/percentage" className="link--border">Percentage</Link>
             <Link to="/unit-converters" className="link--border">Unit converters</Link>
