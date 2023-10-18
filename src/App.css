@@ -140,7 +140,7 @@ a {
 footer {
   display: flex;
   align-items: center;
-  /* margin-top: auto; */
+  margin-top: auto;
   box-shadow: 0 0 5px #e5e5e5;
 }
 
