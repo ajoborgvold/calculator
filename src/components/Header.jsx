@@ -13,7 +13,7 @@ const Header = ({isMenuOpen, setIsMenuOpen, toggleMenu}) => {
         <div className="header--small">
             <FiMenu onClick={toggleMenu} className="menu-icon" tabIndex="0"/>
             {isMenuOpen && 
-                <nav className="nav-bar--vertical" ref={menuRef}>
+                <nav className="header__nav-bar--vertical" ref={menuRef}>
                     <NavLink
                         to="/"
                         className={({isActive}) => isActive ? 'nav-link nav-link--small nav-link--active' : 'nav-link nav-link--small'}
@@ -34,23 +34,49 @@ const Header = ({isMenuOpen, setIsMenuOpen, toggleMenu}) => {
                     converters</NavLink>
                     <NavLink
                         to="age"
-                        className={({isActive}) => isActive ? 'nav-link--active' : 'nav-link'}
+                        className={({isActive}) => isActive ? 'nav-link nav-link--small nav-link--active' : 'nav-link nav-link--small'}
                     >
                         Age
                     </NavLink>
                 </nav>
             }
         </div>
-        )
+    )
+
+    const headerLarge = (
+        <nav className="header__nav-bar--horizontal">
+            <NavLink
+                to="/"
+                className={({ isActive }) => isActive ? 'nav-link nav-link--regular nav-link--active' : 'nav-link nav-link--regular'}
+            >
+                Home
+            </NavLink>
+            <NavLink
+                to="percentage"
+                className={({ isActive }) => isActive ? 'nav-link nav-link--regular nav-link--active' : 'nav-link nav-link--regular'}
+            >
+                Percentage
+            </NavLink>
+            <NavLink
+                to="unit-converters"
+                className={({ isActive }) => isActive ? 'nav-link nav-link--regular nav-link--active' : 'nav-link nav-link--regular'}
+            >
+                Unit converters
+            </NavLink>
+            <NavLink
+                to="age"
+                className={({ isActive }) => isActive ? 'nav-link nav-link--regular nav-link--active' : 'nav-link nav-link--regular'}
+            >
+                Age
+            </NavLink>
+        </nav>
+    )
 
 
     return (
         <header>
             {headerSmall}
-            {/* <Link to="/" className="link--regular">Home</Link>
-            <Link to="percentage" className="link--regular">Percentage</Link>
-            <Link to="unit-converters" className="link--regular">Unit converters</Link>
-            <Link to="age" className="link--regular">Age</Link> */}
+            {headerLarge}
         </header>
     )
 }

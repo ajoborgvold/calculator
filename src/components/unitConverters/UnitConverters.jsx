@@ -10,7 +10,7 @@ const UnitConverters = ({setIsMenuOpen}) => {
     }, [])
     
     return (
-        <>
+        <div className="main-container unit-converters-container">
             <nav className="nav-bar--horizontal">
                 <NavLink 
                     to="volume"
@@ -38,7 +38,7 @@ const UnitConverters = ({setIsMenuOpen}) => {
                 </NavLink>
             </nav>
             <Outlet />
-        </>
+        </div>
     )
 }
 

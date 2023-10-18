@@ -10,7 +10,7 @@ const Percentage = ({setIsMenuOpen}) => {
     }, [])
 
     return (
-        <section className="calculators-container">
+        <section className="main-container pct-calculators-container">
             {/* <h1 className="main-heading">Percentage calculation</h1> */}
             <div className="flex-container">
                 <h2 className="sub-heading">Convert a number to a percentage</h2>
