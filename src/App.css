@@ -259,6 +259,10 @@ footer p {
 
 
 @media (min-width: 768px) {
+  .sub-heading {
+    font-size: 1.5rem;
+  }
+
   .heading-b {
     display: unset;
   }
@@ -308,6 +312,10 @@ footer p {
 
 
 @media (min-width: 1024px) {
+  .flex-container {
+    padding: 4em 2em;
+  }
+
   .flex__sub-container-item {
     flex-direction: row;
   }

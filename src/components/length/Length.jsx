@@ -9,7 +9,7 @@ import YardToMetre from "./YardToMetre"
 
 const Length = () => {
     return (
-        <section className="calculators-container">
+        <>
             {/* <h1 className="main-heading">Length conversion</h1> */}
             <div className="grid-container">
                 <h2 className="sub-heading heading-a">Centimetres &harr; inches</h2>
@@ -35,7 +35,7 @@ const Length = () => {
                 <KmToMiles />
                 <MilesToKm />
             </div>
-        </section>
+        </>
     )
 }
 
