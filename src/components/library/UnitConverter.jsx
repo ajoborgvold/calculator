@@ -7,11 +7,12 @@ const UnitConverter = ({ name, factor, unitOne, unitTwo, gridClass }) => {
     const [result, setResult] = useState(null)
 
     useEffect(() => {
-        const newResult = data.name * conversionFactor
+        // const newResult = data.name * conversionFactor
+        const newResult = data.name * factor
         setResult(formatResult(newResult))
     }, [data])
 
-    const conversionFactor = Number(factor)
+    // const conversionFactor = Number(factor)
 
     const handleInputChange = e => {
         e.target.value >= 0 ? setData({name: e.target.value}) : setData({name: 0})
