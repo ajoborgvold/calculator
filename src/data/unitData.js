@@ -23,7 +23,7 @@ export const unitData = {
             },
             toUnit: {
                 name: "centimetres",
-                abbreviation: "cm",
+                abbreviation: "cm"
             },
         },
         {
@@ -56,7 +56,7 @@ export const unitData = {
             name: "metreToYard",
             factor: 1.0936133,
             fromUnit: {
-                name: "metre",
+                name: "metres",
                 abbreviation: "m",
                 type: "metric"
             },
@@ -74,8 +74,8 @@ export const unitData = {
                 type: "imperial"
             },
             toUnit: {
-                name: "metre",
-                abbreviation: "m",
+                name: "metres",
+                abbreviation: "m"
             }
         },
         {
@@ -101,9 +101,166 @@ export const unitData = {
             },
             toUnit: {
                 name: "kilometres",
-                abbreviation: "km",
+                abbreviation: "km"
             },
         }
     ],
-    
+    volumeData: [
+        {
+            name: "centilitreToFlOunce",
+            factor: 0.338140227,
+            fromUnit: {
+                name: "centilitres",
+                abbreviation: "cl",
+                type: "metric"
+            },
+            toUnit: {
+                name: "fluid ounces",
+                abbreviation: "fl oz"
+            },
+        },
+        {
+            name: "flOunceToCentilitre",
+            factor: 2.95735296,
+            fromUnit: {
+                name: "fluid ounces",
+                abbreviation: "fl oz",
+                type: "imperial"
+            },
+            toUnit: {
+                name: "centilitres",
+                abbreviation: "cl"
+            }
+        },
+        {
+            name: "decilitreToCup",
+            factor: 0.422675284,
+            fromUnit: {
+                name: "decilitre",
+                abbreviation: "dl",
+                type: "metric"
+            },
+            toUnit: {
+                name: "cups",
+                abbreviation: "cups"
+            },
+        },
+        {
+            name: "cupToDecilitre",
+            factor: 2.36588237,
+            fromUnit: {
+                name: "cups",
+                abbreviation: "cups",
+                type: "imperial"
+            },
+            toUnit: {
+                name: "decilitre",
+                abbreviation: "dl"   
+            }
+        },
+        {
+            name: "ukLitreToPint",
+            factor: 1.75975326,
+            fromUnit: {
+                name: "litres",
+                abbreviation: "l",
+                type: "metric"
+            },
+            toUnit: {
+                name: "UK pints",
+                abbreviation: "pt"
+            }
+        },
+        {
+            name: "ukPintToLitre",
+            factor: 0.568261485,
+            fromUnit: {
+                name: "UK pints",
+                abbreviation: "pt",
+                type: "imperial"
+            },
+            toUnit: {
+                name: "litres",
+                abbreviation: "l"
+            }
+        },
+        {
+            name: "usLitreToPint",
+            factor: 2.11337642,
+            fromUnit: {
+                name: "litres",
+                abbreviation: "l",
+                type: "metric"
+            },
+            toUnit: {
+                name: "US pints",
+                abbreviation: "pt"
+            }
+        },
+        {
+            name: "usPintToLitre",
+            factor: 0.473176473,
+            fromUnit: {
+                name: "US pints",
+                abbreviation: "pt",
+                type: "imperial"
+            },
+            toUnit: {
+                name: "litres",
+                abbreviation: "l"
+            }
+        },
+        {
+            name: "ukLitreToGallon",
+            factor: 0.219969157,
+            fromUnit: {
+                name: "litres",
+                abbreviation: "l",
+                type: "metric"
+            },
+            toUnit: {
+                name: "UK gallons",
+                abbreviation: "gal"
+            }
+        },
+        {
+            name: "ukGallonToLitre",
+            factor: 4.54609188,
+            fromUnit: {
+                name: "UK gallons",
+                abbreviation: "gal",
+                type: "imperial"
+            },
+            toUnit: {
+                name: "litres",
+                abbreviation: "l"
+            }
+        },
+        {
+            name: "usLitreToGallon",
+            factor: 0.264172052,
+            fromUnit: {
+                name: "litres",
+                abbreviation: "l",
+                type: "metric"
+            },
+            toUnit: {
+                name: "US gallons",
+                abbreviation: "gal"
+            }
+        },
+        {
+            name: "usGallonToLitre",
+            factor: 3.78541178,
+            fromUnit: {
+                name: "US gallons",
+                abbreviation: "gal",
+                type: "imperial"
+            },
+            toUnit: {
+                name: "litres",
+                abbreviation: "l"
+            }
+        }
+    ]
 }

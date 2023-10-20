@@ -142,6 +142,7 @@ a {
 footer {
   display: flex;
   align-items: center;
+  /* margin-top: 3em; */
   box-shadow: 0 0 5px #e5e5e5;
 }
 
@@ -252,6 +253,11 @@ footer p {
 
 
 /* New version of unit converters */
+.converters-section {
+  display: grid;
+  margin-bottom: 3em;
+}
+
 .unit-converter-wrapper {
   display: flex;
   flex-direction: column;
@@ -261,6 +267,7 @@ footer p {
 
 .inner-wrapper {
   display: flex;
+  align-items: center;
   gap: .5em;
 }
 
@@ -277,15 +284,12 @@ footer p {
 
 @media (min-width: 768px) {
   .converters-section {
-    display: grid;
     grid-template-columns: repeat(2, auto);
     gap: 1em;
     margin-top: 1em;
   }
   
   .unit-converter-wrapper {
-    display: flex;
-    flex-direction: column;
     gap: .5em;
     padding-bottom: 2em;
     border-bottom: 1px solid #e5e5e5;
