@@ -265,7 +265,7 @@ footer p {
 }
 
 .position-b {
-  margin-top: 1em;
+  margin: 1em 0;
   padding-bottom: 1em;
   border-bottom: 1px solid #e5e5e5;
 }
@@ -276,27 +276,29 @@ footer p {
 
 
 @media (min-width: 768px) {
-  .new-unit-container {
+  .converters-section {
     display: grid;
     grid-template-columns: repeat(2, auto);
-    gap: 5em;
+    gap: 1em;
+    margin-top: 1em;
   }
   
   .unit-converter-wrapper {
     display: flex;
     flex-direction: column;
     gap: .5em;
-    padding: 1em;
+    padding-bottom: 2em;
     border-bottom: 1px solid #e5e5e5;
   }
   
   .position-a {
-    justify-self: end;
+    margin-right: 3em;
   }
   
   .position-b {
-    justify-self: start;
-    margin-top: unset;
+    margin: unset;
+    margin-left: 3em;
+    padding-bottom: unset;
   }
 
   .head-b {

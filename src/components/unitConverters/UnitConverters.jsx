@@ -37,9 +37,9 @@ const UnitConverters = ({setIsMenuOpen}) => {
                     Area
                 </NavLink>
             </nav>
-            <div className="new-unit-container">
+            <section className="converters-section">
                 <Outlet />
-            </div>
+            </section>
         </div>
     )
 }
