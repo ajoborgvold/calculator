@@ -259,6 +259,11 @@ footer p {
   padding: 0 1em;
 }
 
+.inner-wrapper {
+  display: flex;
+  gap: .5em;
+}
+
 .position-b {
   margin-top: 1em;
   padding-bottom: 1em;

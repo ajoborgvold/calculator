@@ -7,41 +7,57 @@ import MetreToYard from "./MetreToYard"
 import MilesToKm from "./MilesToKm"
 import YardToMetre from "./YardToMetre"
 
-import { unitData } from "../../data/unitData"
+import { lengthData } from "../../data/unitData"
 import UnitConverter from "../library/UnitConverter"
 
+// console.log(lengthData)
 
 const Length = () => {
-    const unitConverterEl = unitData.map(item => {
+    // const unitConverterEl = unitData.map(item => {
 
-        function createHeading() {
-            return item.fromUnit.name.charAt(0).toUpperCase() + item.fromUnit.name.slice(1)
-        }
+    //     function createHeading() {
+    //         return item.fromUnit.name.charAt(0).toUpperCase() + item.fromUnit.name.slice(1)
+    //     }
 
-        const divClass = item.fromUnit.type === "metric" ? "position-a" : "position-b"
-        const headingClass = item.fromUnit.type === "metric" ? "head-a" : "head-b"
+    //     const divClass = item.fromUnit.type === "metric" ? "position-a" : "position-b"
+    //     const headingClass = item.fromUnit.type === "metric" ? "head-a" : "head-b"
+
+    //     return (
+    //         <div key={item.name} className={`unit-converter-wrapper ${divClass}`}>
+    //             <h2 className={`sub-heading ${headingClass}`}>{createHeading()} &harr; {item.toUnit.name}</h2>
+    //             <UnitConverter
+    //                 key={item.name}
+    //                 name={item.name}
+    //                 factor={item.factor}
+    //                 unitOne={item.fromUnit.abbreviation}
+    //                 unitTwo={item.toUnit.abbreviation}
+
+    //             />
+    //         </div>
+    //     )
+    // })
 
 
+    // return (
+    //     <>
+    //         {unitConverterEl}
+    //     </>
+    // )
+
+    const unitConverterEl = lengthData.map(item => {
         return (
-            <div key={item.name} className={`unit-converter-wrapper ${divClass}`}>
-                <h2 className={`sub-heading ${headingClass}`}>{createHeading()} &harr; {item.toUnit.name}</h2>
-                <UnitConverter
-                    key={item.name}
-                    name={item.name}
-                    factor={item.factor}
-                    unitOne={item.fromUnit.abbreviation}
-                    unitTwo={item.toUnit.abbreviation}
-
-                />
-            </div>
+            <UnitConverter
+                key={item.name}
+                name={item.name}
+                factor={item.factor}
+                fromUnit={item.fromUnit}
+                toUnit={item.toUnit}
+            />
         )
     })
 
-
     return (
-        <>
-            {unitConverterEl}
-        </>
+        <>{unitConverterEl}</>
     )
 }
 
