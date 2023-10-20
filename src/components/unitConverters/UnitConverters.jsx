@@ -5,7 +5,7 @@ const UnitConverters = ({setIsMenuOpen}) => {
     const navigate = useNavigate()
     
     useEffect(() => {
-        navigate("length")
+        navigate("volume")
         setIsMenuOpen(false)
     }, [])
     
