@@ -1,9 +1,9 @@
 const Input = props => {
     const { name, id, value, handleInputChange } = props
-
+    
     return (
         <>
-            <label htmlFor={name} className="label">Enter a number</label>
+            <label htmlFor={id} className="label">Enter a number</label>
             <input
                 type="number"
                 name={name}

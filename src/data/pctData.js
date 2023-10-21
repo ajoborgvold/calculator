@@ -44,8 +44,8 @@ export const pctData = {
             },
             {
                 type: "pctToNum",
-                nameOne: "pctToNumberNumOne",
-                nameTwo: "pctToNumberNumTwo",
+                nameA: "pctToNumberNumOne",
+                nameB: "pctToNumberNumTwo",
                 text: {
                     a: "How much is",
                     b: "%",

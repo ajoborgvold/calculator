@@ -16,11 +16,7 @@ const Percentage = ({ setIsMenuOpen }) => {
                     {pctData[group].calculators.map(item => (
                         <PercentageCalculator
                             key={item.type}
-                            type={item.type}
-                            nameA={item.nameA}
-                            nameB={item.nameB}
-                            text={item.text}
-                            unit={item.unit}
+                            {...item}
                         />
                     ))}
                 </div>

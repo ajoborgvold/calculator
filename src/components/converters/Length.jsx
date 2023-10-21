@@ -6,10 +6,7 @@ const Length = () => {
         return (
             <UnitConverter
                 key={item.name}
-                name={item.name}
-                factor={item.factor}
-                fromUnit={item.fromUnit}
-                toUnit={item.toUnit}
+                {...item}
             />
         )
     })
