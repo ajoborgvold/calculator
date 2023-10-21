@@ -1,7 +1,4 @@
-import { useState } from "react"
-// import TemperatureConverter from "../library/TemperatureConverter"
 import UnitConverter from "../library/UnitConverter"
-// import { temperatureData } from "../../data/temperatureData"
 import { unitData } from "../../data/unitData"
 
 const Temperature = () => {
