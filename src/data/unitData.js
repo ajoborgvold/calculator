@@ -262,5 +262,85 @@ export const unitData = {
                 abbreviation: "l"
             }
         }
+    ],
+    massData: [
+        {
+            name: "gramToOunce",
+            factor: 0.0352739619,
+            fromUnit: {
+                name: "grams",
+                abbreviation: "g",
+                type: "metric"
+            },
+            toUnit: {
+                name: "ounces",
+                abbreviation: "oz"
+            }
+        },
+        {
+            name: "ounceToGram",
+            factor: 28.3495231,
+            fromUnit: {
+                name: "ounces",
+                abbreviation: "oz",
+                type: "imperial"
+            },
+            toUnit: {
+                name: "grams",
+                abbreviation: "g"
+            }
+        },
+        {
+            name: "kgToPound",
+            factor: 2.20462262,
+            fromUnit: {
+                name: "kilograms",
+                abbreviation: "kg",
+                type: "metric"
+            },
+            toUnit: {
+                name: "pounds",
+                abbreviation: "lb"
+            }
+        },
+        {
+            name: "poundToKg",
+            factor: 0.45359237,
+            fromUnit: {
+                name: "pounds",
+                abbreviation: "lb",
+                type: "imperial"
+            },
+            toUnit: {
+                name: "kilograms",
+                abbreviation: "kg"
+            }
+        },
+        {
+            name: "kgToStone",
+            factor: 0.157473044,
+            fromUnit: {
+                name: "kilograms",
+                abbreviation: "kg",
+                type: "metric"
+            },
+            toUnit: {
+                name: "stone",
+                abbreviation: "st"
+            }
+        },
+        {
+            name: "stoneToKg",
+            factor: 6.35029318,
+            fromUnit: {
+                name: "stone",
+                abbreviation: "st",
+                type: "imperial"
+            },
+            toUnit: {
+                name: "kilograms",
+                abbreviation: "kg"
+            }
+        }
     ]
 }
