@@ -64,10 +64,10 @@ const Header = ({isMenuOpen, setIsMenuOpen, toggleMenu}) => {
                 Unit converters
             </NavLink>
             <NavLink
-                to="age"
+                to="time"
                 className={({ isActive }) => isActive ? 'nav-link nav-link--regular nav-link--active' : 'nav-link nav-link--regular'}
             >
-                Age
+                Time
             </NavLink>
         </nav>
     )

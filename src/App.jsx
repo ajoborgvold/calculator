@@ -11,7 +11,7 @@ import Length from './components/converters/Length'
 import Mass from './components/converters/Mass'
 import Area from './components/converters/Area'
 import Temperature from './components/converters/Temperature'
-import Age from './components/routes/Age'
+import Time from './components/routes/Time'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -60,8 +60,8 @@ function App() {
           ]
         },
         {
-          path: "age",
-          element: <Age setIsMenuOpen={setIsMenuOpen} />
+          path: "time",
+          element: <Time setIsMenuOpen={setIsMenuOpen} />
         }
       ]
     },
