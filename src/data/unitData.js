@@ -448,5 +448,5 @@ export const unitData = {
                 abbreviation: "km2"
             }
         }
-    ]
+    ],
 }

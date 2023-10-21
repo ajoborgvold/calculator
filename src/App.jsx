@@ -10,6 +10,7 @@ import Volume from './components/converters/Volume'
 import Length from './components/converters/Length'
 import Mass from './components/converters/Mass'
 import Area from './components/converters/Area'
+import Temperature from './components/converters/Temperature'
 import Age from './components/routes/Age'
 
 function App() {
@@ -52,6 +53,10 @@ function App() {
               path: "area",
               element: <Area />
             },
+            {
+              path: "temperature",
+              element: <Temperature />
+            }
           ]
         },
         {

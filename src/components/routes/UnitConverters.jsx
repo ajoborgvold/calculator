@@ -36,6 +36,12 @@ const UnitConverters = ({setIsMenuOpen}) => {
                 >
                     Area
                 </NavLink>
+                <NavLink 
+                    to="temperature"
+                    className={({isActive}) => isActive ? 'nav-link nav-link--large nav-link--active' : 'nav-link nav-link--large'}
+                >
+                    Temperature
+                </NavLink>
             </nav>
             <section className="converters-section">
                 <Outlet />
