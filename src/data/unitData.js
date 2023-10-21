@@ -19,7 +19,7 @@ export const unitData = {
             fromUnit: {
                 name: "inches",
                 abbreviation: "in",
-                type: "imperial"
+                type: "non-metric"
             },
             toUnit: {
                 name: "centimetres",
@@ -27,7 +27,7 @@ export const unitData = {
             },
         },
         {
-            name: "cmToFeet",
+            name: "cmToFoot",
             factor: 0.032808399,
             fromUnit: {
                 name: "centimetres",
@@ -40,12 +40,12 @@ export const unitData = {
             }
         },
         {
-            name: "feetToCm",
+            name: "footToCm",
             factor: 30.48,
             fromUnit: {
                 name: "feet",
                 abbreviation: "ft",
-                type: "imperial"
+                type: "non-metric"
             },
             toUnit: {
                 name: "centimetres",
@@ -61,7 +61,7 @@ export const unitData = {
                 type: "metric"
             },
             toUnit: {
-                name: "yard",
+                name: "yards",
                 abbreviation: "yd"
             },
         },
@@ -69,9 +69,9 @@ export const unitData = {
             name: "yardToMetre",
             factor: 0.9144,
             fromUnit: {
-                name: "yard",
+                name: "yards",
                 abbreviation: "yd",
-                type: "imperial"
+                type: "non-metric"
             },
             toUnit: {
                 name: "metres",
@@ -79,7 +79,7 @@ export const unitData = {
             }
         },
         {
-            name: "kmToMiles",
+            name: "kmToMile",
             factor: 0.621371192,
             fromUnit: {
                 name: "kilometres",
@@ -92,12 +92,12 @@ export const unitData = {
             }
         },
         {
-            name: "milesToKm",
+            name: "mileToKm",
             factor: 1.609344,
             fromUnit: {
                 name: "miles",
                 abbreviation: "m",
-                type: "imperial"
+                type: "non-metric"
             },
             toUnit: {
                 name: "kilometres",
@@ -125,7 +125,7 @@ export const unitData = {
             fromUnit: {
                 name: "fluid ounces",
                 abbreviation: "fl oz",
-                type: "imperial"
+                type: "non-metric"
             },
             toUnit: {
                 name: "centilitres",
@@ -151,7 +151,7 @@ export const unitData = {
             fromUnit: {
                 name: "cups",
                 abbreviation: "cups",
-                type: "imperial"
+                type: "non-metric"
             },
             toUnit: {
                 name: "decilitre",
@@ -177,7 +177,7 @@ export const unitData = {
             fromUnit: {
                 name: "UK pints",
                 abbreviation: "pt",
-                type: "imperial"
+                type: "non-metric"
             },
             toUnit: {
                 name: "litres",
@@ -203,7 +203,7 @@ export const unitData = {
             fromUnit: {
                 name: "US pints",
                 abbreviation: "pt",
-                type: "imperial"
+                type: "non-metric"
             },
             toUnit: {
                 name: "litres",
@@ -229,7 +229,7 @@ export const unitData = {
             fromUnit: {
                 name: "UK gallons",
                 abbreviation: "gal",
-                type: "imperial"
+                type: "non-metric"
             },
             toUnit: {
                 name: "litres",
@@ -255,7 +255,7 @@ export const unitData = {
             fromUnit: {
                 name: "US gallons",
                 abbreviation: "gal",
-                type: "imperial"
+                type: "non-metric"
             },
             toUnit: {
                 name: "litres",
@@ -283,7 +283,7 @@ export const unitData = {
             fromUnit: {
                 name: "ounces",
                 abbreviation: "oz",
-                type: "imperial"
+                type: "non-metric"
             },
             toUnit: {
                 name: "grams",
@@ -309,7 +309,7 @@ export const unitData = {
             fromUnit: {
                 name: "pounds",
                 abbreviation: "lb",
-                type: "imperial"
+                type: "non-metric"
             },
             toUnit: {
                 name: "kilograms",
@@ -335,11 +335,117 @@ export const unitData = {
             fromUnit: {
                 name: "stone",
                 abbreviation: "st",
-                type: "imperial"
+                type: "non-metric"
             },
             toUnit: {
                 name: "kilograms",
                 abbreviation: "kg"
+            }
+        }
+    ],
+    areaData: [
+        {
+            name: "sqCmToInch",
+            factor: 0.15500031,
+            fromUnit: {
+                name: "square centimetres",
+                abbreviation: "cm2",
+                type: "metric"
+            },
+            toUnit: {
+                name: "square inches",
+                abbreviation: "sq in"
+            }
+        },
+        {
+            name: "sqInchToCm",
+            factor: 0.15500031,
+            fromUnit: {
+                name: "square inches",
+                abbreviation: "sq in",
+                type: "non-metric"
+            },
+            toUnit: {
+                name: "square centimetres",
+                abbreviation: "cm2"
+            }
+        },
+        {
+            name: "sqMetreToFoot",
+            factor: 10.7639104,
+            fromUnit: {
+                name: "square metres",
+                abbreviation: "m2",
+                type: "metric"
+            },
+            toUnit: {
+                name: "square feet",
+                abbreviation: "sq ft"
+            }
+        },
+        {
+            name: "sqFootToMetre",
+            factor: 0.09290304,
+            fromUnit: {
+                name: "square feet",
+                abbreviation: "sq ft",
+                type: "non-metric"
+            },
+            toUnit: {
+                name: "square metres",
+                abbreviation: "m2"
+            }
+        },
+        {
+            name: "sqMetreToYard",
+            factor: 1.19599005,
+            fromUnit: {
+                name: "square metres",
+                abbreviation: "m2",
+                type: "metric"
+            },
+            toUnit: {
+                name: "square yards",
+                abbreviation: "sq yd"
+            }
+        },
+        {
+            name: "sqYardToMetre",
+            factor: 0.83612736,
+            fromUnit: {
+                name: "square yards",
+                abbreviation: "sq yd",
+                type: "non-metric"
+            },
+            toUnit: {
+                name: "square metres",
+                abbreviation: "m2"
+            }
+        },
+        {
+            name: "sqKmToMile",
+            factor: 0.386102159,
+            fromUnit: {
+                name: "square kilometres",
+                abbreviation: "km2",
+                type: "metric"
+            },
+            toUnit: {
+                name: "square miles",
+                abbreviation: "sq m"
+            }
+        },
+        {
+            name: "sqMileToKm",
+            factor: 2.58998811,
+            fromUnit: {
+                name: "square miles",
+                abbreviation: "sq m",
+                type: "non-metric"
+            },
+            toUnit: {
+                name: "square kilometres",
+                abbreviation: "km2"
             }
         }
     ]
