@@ -1,64 +1,62 @@
-import { useEffect, useState } from "react"
-import Input from "../library/Input"
+import { useState, useEffect } from "react"
+import Input from "./Input"
 import formatResult from "../../utils/formatResult"
 
-const PercentageCalculator = props => {
-    const { nameOne, nameTwo, textOne, textTwo, textThree, textFour, unit, calculationType } = props
-
-    const [data, setData] = useState({ nameOne: '', nameTwo: '' })
+const PercentageCalculator = ({ type, nameA, nameB, text, unit }) => {
+    const [data, setData] = useState({ nameA: '', nameB: '' })
     const [hasResult, setHasResult] = useState(false)
     const [result, setResult] = useState(null)
-    
+
     useEffect(() => {
-        setHasResult(data.nameOne && data.nameTwo ? true : false)
+        setHasResult(data.nameA && data.nameB ? true : false)
     }, [data])
     
     useEffect(() => {
         let newResult = 0
 
-        if (calculationType === "numToPct") {
-            newResult = data.nameOne / data.nameTwo * 100
-        } else if (calculationType === "changeInPct") {
-            const dif = data.nameOne - data.nameTwo
-            newResult = dif < 0 ? (Math.abs(dif) / data.nameOne) * 100 : ((dif * -1) / data.nameOne) * 100
-        } else if (calculationType === "pctToNum") {
-            newResult = data.nameTwo * data.nameOne / 100
-        } else if (calculationType === "pctOfTotal") {
-            newResult = data.nameTwo / data.nameOne * 100
+        if (type === "numToPct") {
+            newResult = data.nameA / data.nameB * 100
+        } else if (type === "changeInPct") {
+            const dif = data.nameA - data.nameB
+            newResult = dif < 0 ? (Math.abs(dif) / data.nameA) * 100 : ((dif * -1) / data.nameA) * 100
+        } else if (type === "pctToNum") {
+            newResult = data.nameB * data.nameA / 100
+        } else if (type === "pctOfTotal") {
+            newResult = data.nameB / data.nameA * 100
         }
 
         getResultValue(newResult)
     }, [data, hasResult])
 
-    const handleInputChange = e => {
-        setData(prevData => ({...prevData, [e.target.name]: e.target.value}))
+    const handleInputChange = (e, key) => {
+        setData(prevData => ({...prevData, [key]: e.target.value}))
     }
 
     const getResultValue = newResult => {
         hasResult ? setResult(formatResult(newResult)) : setResult(0)
     }
-    
+
     return (
-        <div className="flex__sub-container-item">
-            <div className="flex__sub-container-item__inner-wrapper">
-                <p>{textOne}</p>
+        <div className="pct-calculator-wrapper">
+            <div className="inner-wrapper">
+                <p>{text.a}</p>
                 <Input
-                    name="nameOne"
-                    id="nameOne"
-                    value={data.nameOne}
-                    onchange={handleInputChange}
+                    name={nameA}
+                    id={nameA}
+                    value={data.nameA}
+                    handleInputChange={e => handleInputChange(e, 'nameA')}
                 />
-                {textTwo && <p>{textTwo}</p>}
+                {text.b && <p>{text.b}</p>}
             </div>
-            <div className="flex__sub-container-item__inner-wrapper">
-                <p>{textThree}</p>
+            <div className="inner-wrapper">
+                <p>{text.c}</p>
                 <Input
-                    name="nameTwo"
-                    id="nameTwo"
-                    value={data.nameTwo}
-                    onchange={handleInputChange}
+                    name={nameB}
+                    id={nameB}
+                    value={data.nameB}
+                    handleInputChange={e => handleInputChange(e, 'nameB')}
                 />
-                <p>{textFour}</p>
+                <p>{text.d}</p>
             </div>
             <p className="result">{result} {unit && unit}</p>
         </div>
