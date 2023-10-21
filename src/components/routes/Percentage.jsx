@@ -1,8 +1,8 @@
-import PercentageToNumber from "./PercentageToNumber"
-import NumberToPercentage from "./NumberToPercentage"
-import ChangeInPercent from "./ChangeInPercent"
-import PercentageOfTotal from "./PercentageOfTotal"
 import { useEffect } from "react"
+import PercentageToNumber from "../percentage/PercentageToNumber"
+import NumberToPercentage from "../percentage/NumberToPercentage"
+import ChangeInPercent from "../percentage/ChangeInPercent"
+import PercentageOfTotal from "../percentage/PercentageOfTotal"
 
 const Percentage = ({setIsMenuOpen}) => {
     useEffect(() => {
