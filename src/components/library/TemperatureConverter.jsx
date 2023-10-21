@@ -6,29 +6,32 @@ import formatResult from "../../utils/formatResult"
 const TemperatureConverter = ({ name, fromUnit, toUnit }) => {
     const [data, setData] = useState({name: ''})
     const [result, setResult] = useState(null)
+    const [hasResult, setHasResult] = useState(false)
 
     useEffect(() => {
         let newResult
+
         if (fromUnit === "celsius") {
             newResult = data.name * 9 / 5 + 32
-        } else {
+        } else if (fromUnit === "fahrenheit") {
             newResult = (data.name - 32) * 5 / 9
         }
-        setResult(formatResult(newResult))
-    }, [data])
+
+        hasResult && setResult(formatResult(newResult))
+    }, [data, hasResult])
 
     const handleInputChange = e => {
-        // e.target.value >= 0 ? setData({name: e.target.value}) : setData({name: 0})
         setData({name: e.target.value})
+        setHasResult(true)
     }
 
-    function createHeading() {
-        return fromUnit.charAt(0).toUpperCase() + fromUnit.slice(1)
-    }
+    // function createHeading() {
+    //     return fromUnit.charAt(0).toUpperCase() + fromUnit.slice(1)
+    // }
 
     return (
         <div>
-            <h2>{createHeading()} &harr; {toUnit}</h2>
+            <h2>{fromUnit.charAt(0).toUpperCase() + fromUnit.slice(1)} &harr; {toUnit}</h2>
             <div className="inner-wrapper">
                 <Input
                     name={name}

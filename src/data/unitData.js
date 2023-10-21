@@ -359,7 +359,7 @@ export const unitData = {
         },
         {
             name: "sqInchToCm",
-            factor: 0.15500031,
+            factor: 6.4516,
             fromUnit: {
                 name: "square inches",
                 abbreviation: "sq in",
@@ -449,4 +449,26 @@ export const unitData = {
             }
         }
     ],
+    temperatureData: [
+        {
+            name: "celsiusToFahrenheit",
+            fromUnit: {
+                name: "celsius",
+                type: "metric"
+            },
+            toUnit: {
+                name: "fahrenheit"
+            }
+        },
+        {
+            name: "fahrenheitToCelsius",
+            fromUnit: {
+                name: "fahrenheit",
+                type: "non-metric"
+            },
+            toUnit: {
+                name: "celsius"
+            }
+        }
+    ]
 }

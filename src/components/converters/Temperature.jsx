@@ -1,18 +1,18 @@
 import { useState } from "react"
-import TemperatureConverter from "../library/TemperatureConverter"
-import { temperatureData } from "../../data/temperatureData"
-
+// import TemperatureConverter from "../library/TemperatureConverter"
+import UnitConverter from "../library/UnitConverter"
+// import { temperatureData } from "../../data/temperatureData"
+import { unitData } from "../../data/unitData"
 
 const Temperature = () => {
-    const temperatureElement = temperatureData.map(item => {
+    const temperatureElement = unitData.temperatureData.map(item => {
         return (
-            <TemperatureConverter
+            <UnitConverter
                 key={item.name}
                 {...item}
             />
         )
     })
-
 
     return (
         <>{temperatureElement}</>
