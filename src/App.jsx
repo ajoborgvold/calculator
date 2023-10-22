@@ -6,6 +6,7 @@ import Layout from './components/routes/Layout'
 import Home from './components/routes/Home'
 import Percentage from './components/routes/Percentage'
 import UnitConverters from './components/routes/UnitConverters'
+import AllConverters from './components/converters/AllConverters'
 import Volume from './components/converters/Volume'
 import Length from './components/converters/Length'
 import Mass from './components/converters/Mass'
@@ -37,6 +38,10 @@ function App() {
           path: "unit-converters",
           element: <UnitConverters setIsMenuOpen={setIsMenuOpen} />,
           children: [
+            {
+              index: true,
+              element: <AllConverters />
+            },
             {
               path: "volume",
               element: <Volume />
