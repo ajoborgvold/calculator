@@ -1,7 +1,7 @@
 export const newUnitData = {
     length: {
         name: "length",
-        referenceUnit: "millitetre",
+        baseUnit: "millimetre",
         units: [
             {
                 name: "centimetres",
@@ -27,7 +27,7 @@ export const newUnitData = {
     },
     volume: {
         name: "volume",
-        referenceUnit: "millilitre",
+        baseUnit: "millilitre",
         units: [
             {
                 name: "decilitres",
@@ -39,6 +39,61 @@ export const newUnitData = {
                 abbreviation: "cups",
                 equalToFactor: 236.588237
             }
+        ]
+    },
+    mass: {
+        name: "mass",
+        baseUnit: "gram",
+        units: [
+            {
+                name: "grams",
+                abbreviation: "g",
+                equalToFactor: 1
+            },
+            {
+                name: "ounces",
+                abbreviation: "oz",
+                equalToFactor: 28.3495231
+            },
+            {
+                name: "kilograms",
+                abbreviation: "kg",
+                equalToFactor: 1000
+            }
+        ]
+    },
+    area: {
+        name: "area",
+        baseUnit: "square-centimetre",
+        units: [
+            {
+                name: "square centimetre",
+                abbreviation: "sq cm",
+                equalToFactor: 1
+            },
+            {
+                name: "square inches",
+                abbreviation: "sq in",
+                equalToFactor: 6.4516
+            }
+        ]
+    },
+    temperature: {
+        name: "temperature",
+        baseUnit: "celsius",
+        units: [
+            {
+                name: "celsius",
+                abbreviation: "°C",
+                equalToFactor: 1,
+                offset: 32
+              },
+              {
+                name: "fahrenheit",
+                abbreviation: "°F",
+                equalToFactor: 1.8,
+                offset: 32
+              }
         ]
     }
 }

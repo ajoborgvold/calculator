@@ -4,7 +4,6 @@ import Input from "./Input"
 import handleConversionCalculation from "../../utils/handleConversionCalculation"
 import formatResult from "../../utils/formatResult"
 
-
 const NewConverter = ({ unitData }) => {
     const [conversionData, setConversionData] = useState({
         fromUnit: '',
