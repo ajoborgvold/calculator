@@ -1,11 +1,8 @@
 import { useEffect } from "react"
-import { NavLink, Outlet, useNavigate } from "react-router-dom"
+import { NavLink, Outlet } from "react-router-dom"
 
-const UnitConverters = ({setIsMenuOpen}) => {
-    // const navigate = useNavigate()
-    
+const NewUnitConverters = ({setIsMenuOpen}) => {
     useEffect(() => {
-        // navigate("volume")
         setIsMenuOpen(false)
     }, [])
     
@@ -49,12 +46,6 @@ const UnitConverters = ({setIsMenuOpen}) => {
                 >
                     Temperature
                 </NavLink>
-                <NavLink 
-                    to="testing"
-                    className={({isActive}) => isActive ? 'nav-link nav-link--large nav-link--active' : 'nav-link nav-link--large'}
-                >
-                    Testing
-                </NavLink>
             </nav>
             <section className="converters-section">
                 <Outlet />
@@ -63,4 +54,4 @@ const UnitConverters = ({setIsMenuOpen}) => {
     )
 }
 
-export default UnitConverters
+export default NewUnitConverters

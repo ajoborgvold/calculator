@@ -13,6 +13,14 @@ import Mass from './components/converters/Mass'
 import Area from './components/converters/Area'
 import Temperature from './components/converters/Temperature'
 import Time from './components/routes/Time'
+import Testing from './components/converters/Testing'
+import NewUnitConverters from './components/routes/NewUnitConverters'
+import NewAllConverters from './components/newConverters/NewAllConverters'
+import NewVolume from './components/newConverters/NewVolume'
+import NewLength from './components/newConverters/NewLength'
+import NewMass from './components/newConverters/NewMass'
+import NewArea from './components/newConverters/NewArea'
+import NewTemperature from './components/newConverters/NewTemperature'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -34,33 +42,67 @@ function App() {
           path: "percentage",
           element: <Percentage setIsMenuOpen={setIsMenuOpen} />
         },
+        // {
+        //   path: "unit-converters",
+        //   element: <UnitConverters setIsMenuOpen={setIsMenuOpen} />,
+        //   children: [
+        //     {
+        //       index: true,
+        //       element: <AllConverters />
+        //     },
+        //     {
+        //       path: "volume",
+        //       element: <Volume />
+        //     },
+        //     {
+        //       path: "length",
+        //       element: <Length />
+        //     },
+        //     {
+        //       path: "mass",
+        //       element: <Mass />
+        //     },
+        //     {
+        //       path: "area",
+        //       element: <Area />
+        //     },
+        //     {
+        //       path: "temperature",
+        //       element: <Temperature />
+        //     },
+        //     {
+        //       path: "testing",
+        //       element: <Testing />
+        //     }
+        //   ]
+        // },
         {
-          path: "unit-converters",
-          element: <UnitConverters setIsMenuOpen={setIsMenuOpen} />,
+          path: "new-unit-converters",
+          element: <NewUnitConverters setIsMenuOpen={setIsMenuOpen} />,
           children: [
             {
               index: true,
-              element: <AllConverters />
+              element: <NewAllConverters />
             },
             {
               path: "volume",
-              element: <Volume />
+              element: <NewVolume />
             },
             {
               path: "length",
-              element: <Length />
+              element: <NewLength />
             },
             {
               path: "mass",
-              element: <Mass />
+              element: <NewMass />
             },
             {
               path: "area",
-              element: <Area />
+              element: <NewArea />
             },
             {
               path: "temperature",
-              element: <Temperature />
+              element: <NewTemperature />
             }
           ]
         },

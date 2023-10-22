@@ -44,7 +44,7 @@ const PercentageCalculator = ({ type, nameA, nameB, text, unit }) => {
                     name={nameA}
                     id={nameA}
                     value={data.nameA}
-                    handleInputChange={e => handleInputChange(e, 'nameA')}
+                    handleChange={e => handleInputChange(e, 'nameA')}
                 />
                 {text.b && <p>{text.b}</p>}
             </div>
@@ -54,7 +54,7 @@ const PercentageCalculator = ({ type, nameA, nameB, text, unit }) => {
                     name={nameB}
                     id={nameB}
                     value={data.nameB}
-                    handleInputChange={e => handleInputChange(e, 'nameB')}
+                    handleChange={e => handleInputChange(e, 'nameB')}
                 />
                 <p>{text.d}</p>
             </div>
