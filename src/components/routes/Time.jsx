@@ -57,10 +57,11 @@ const Time = ({setIsMenuOpen}) => {
     }
 
     return (
-        <section className="main-container time-container">
+        <div className="main-container time-container">
+            <h1>Time calculation</h1>
             <p>{formattedFullDate} {currentTime}</p>
             <p>{calculateAge()}</p>
-        </section>
+        </div>
     )
 }
 

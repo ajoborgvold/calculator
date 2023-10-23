@@ -18,7 +18,6 @@ const Header = ({isMenuOpen, setIsMenuOpen, toggleMenu}) => {
         }
     }, [])
 
-
     const closeMenu = useCallback(() => setIsMenuOpen(false), [])
     useClickOutside(menuRef, closeMenu)
 

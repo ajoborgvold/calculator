@@ -4,7 +4,7 @@ import { newUnitData } from "../../data/newUnitData"
 const NewTemperature = () => {
     return (
         <div>
-            <h2 className="sub-heading">Temperature conversion</h2>
+            <h2 className="sub-heading">Temperature</h2>
             <NewConverter unitData={newUnitData.temperature} />
         </div>
     )

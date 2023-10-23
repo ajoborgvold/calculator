@@ -10,6 +10,7 @@ const Percentage = ({ setIsMenuOpen }) => {
 
     return (
         <div className="main-container pct-calculators-container">
+            <h1 className="main-heading">Percentage calculation</h1>
             {Object.keys(pctData).map(group => (
                 <div key={group}>
                     <h2 className="sub-heading">{pctData[group].heading}</h2>

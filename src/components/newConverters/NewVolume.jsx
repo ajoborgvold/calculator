@@ -4,7 +4,7 @@ import NewConverter from "../library/NewConverter"
 const NewVolume = () => {
     return (
         <div>
-            <h2 className="sub-heading">Volume conversion</h2>
+            <h2 className="sub-heading">Volume</h2>
             <NewConverter unitData={newUnitData.volume}/>
         </div>
     )

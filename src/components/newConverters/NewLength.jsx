@@ -4,7 +4,7 @@ import { newUnitData } from "../../data/newUnitData"
 const NewLength = () => {
     return (
         <div>
-            <h2 className="sub-heading">Length conversion</h2>
+            <h2 className="sub-heading">Length</h2>
             <NewConverter unitData={newUnitData.length} />
         </div>
     )
