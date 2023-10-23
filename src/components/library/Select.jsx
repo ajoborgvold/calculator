@@ -1,9 +1,17 @@
 const Select = ({ data, id, handleChange }) => {
-    const optionElements = data.map(unit => {
-        const optionText = unit.name.charAt(0).toUpperCase() + unit.name.slice(1)
-        return (
-            <option key={unit.name} value={unit.name}>{optionText}</option>
-        )
+    const optionElements = data.map(item => {
+        if (item.name) {
+            const optionText = item.name.charAt(0).toUpperCase() + item.name.slice(1)
+            return (
+                <option key={item.name} value={item.name}>{optionText}</option>
+            )
+        } else {
+            const optionText = item.charAt(0).toUpperCase() + item.slice(1)
+            return (
+                <option key={item} value={item}>{optionText}</option>
+            )
+        }
+
     })
 
     return (

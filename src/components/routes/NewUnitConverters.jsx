@@ -1,10 +1,20 @@
 import { useEffect } from "react"
-import { NavLink, Outlet } from "react-router-dom"
+import { NavLink, Outlet, useNavigate } from "react-router-dom"
+import Select from "../library/Select"
+import { newUnitData } from "../../data/newUnitData"
 
 const NewUnitConverters = ({setIsMenuOpen}) => {
+    const navigate = useNavigate()
+    
     useEffect(() => {
         setIsMenuOpen(false)
     }, [])
+
+    function handleFilterConverters(e) {
+        console.log(e.target.value)
+        navigate(e.target.value)
+    }
+
     
     return (
         <div className="main-container unit-converters-container">
@@ -16,7 +26,14 @@ const NewUnitConverters = ({setIsMenuOpen}) => {
                 >
                     All converters
                 </NavLink>
-                <NavLink 
+            </nav>
+            <Select
+                data={Object.keys(newUnitData)}
+                id="filter-converters"
+                handleChange={handleFilterConverters}
+            />
+
+                {/* <NavLink 
                     to="volume"
                     className={({isActive}) => isActive ? 'nav-link nav-link--large nav-link--active' : 'nav-link nav-link--large'}
                 >
@@ -45,8 +62,8 @@ const NewUnitConverters = ({setIsMenuOpen}) => {
                     className={({isActive}) => isActive ? 'nav-link nav-link--large nav-link--active' : 'nav-link nav-link--large'}
                 >
                     Temperature
-                </NavLink>
-            </nav>
+                </NavLink> */}
+            {/* </nav> */}
             <section className="converters-section">
                 <Outlet />
             </section>
