@@ -42,6 +42,7 @@ const NewConverter = ({ unitData }) => {
                 id={`${unitData.name}-fromUnit`}
                 value={conversionData.fromUnit}
                 handleChange={e => handleConversionDataChange(e, "fromUnit")}
+                defaultText="Select a unit"
             />
             <Input
                 id={`${unitData.name}-input`}
@@ -54,6 +55,7 @@ const NewConverter = ({ unitData }) => {
                 id={`${unitData.name}-toUnit`}
                 value={conversionData.toUnit}
                 handleChange={e => handleConversionDataChange(e, "toUnit")}
+                defaultText="Select a unit"
             />
             <p className="result">{result && result}</p>
         </>
