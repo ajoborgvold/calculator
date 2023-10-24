@@ -1,18 +1,28 @@
-import { useEffect } from "react"
-import { Outlet, useNavigate } from "react-router-dom"
+import { useEffect, useRef } from "react"
+import { useSearchParams } from "react-router-dom"
+import NewConverter from "../library/NewConverter"
 import Select from "../library/Select"
 import { newUnitData } from "../../data/newUnitData"
 
 const NewUnitConverters = ({setIsMenuOpen}) => {
-    const navigate = useNavigate()
+    const isFirstRender = useRef(true)
+    const [searchParams, setSearchParams] = useSearchParams()
+    const nameFilter = searchParams.get("name")
     
     useEffect(() => {
         setIsMenuOpen(false)
     }, [])
 
     function handleFilterConverters(e) {
-        e.target.value ? navigate(e.target.value) : navigate(".")
+        isFirstRender.current = true
+        e.target.value ? setSearchParams({ name: e.target.value}) : setSearchParams({})
     }
+
+    const converterEl = nameFilter
+        ? <NewConverter unitData={newUnitData[nameFilter]} isFirstRender={isFirstRender} />
+        : Object.keys(newUnitData).map(converterName => (
+            <NewConverter key={converterName} unitData={newUnitData[converterName]} isFirstRender={isFirstRender} />
+        ))
     
     return (
         <div className="main-container unit-converters-container">
@@ -24,7 +34,7 @@ const NewUnitConverters = ({setIsMenuOpen}) => {
                 defaultText="All converters"
             />
             <section className="converters-section">
-                <Outlet />
+                {converterEl}
             </section>
         </div>
     )

@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import Select from "./Select"
 import Input from "./Input"
 import handleConversionCalculation from "../../utils/handleConversionCalculation"
 import formatResult from "../../utils/formatResult"
 
-const NewConverter = ({ unitData }) => {
+const NewConverter = ({ unitData, isFirstRender }) => {
     const [conversionData, setConversionData] = useState({
         fromUnit: '',
         toUnit: '',
@@ -12,7 +12,18 @@ const NewConverter = ({ unitData }) => {
     })
     const [hasResult, setHasResult] = useState(false)
     const [result, setResult] = useState(null)
-    const isFirstRender = useRef(true)
+    
+    useEffect(() => {
+        if (isFirstRender.current === true) {
+            setConversionData({
+                fromUnit: '',
+                toUnit: '',
+                input: ''
+            })
+            setResult(null)
+            setHasResult(false)
+        }
+    }, [isFirstRender.current])
 
     useEffect(() => {
         if (conversionData.fromUnit && conversionData.toUnit && conversionData.input) {
@@ -34,8 +45,11 @@ const NewConverter = ({ unitData }) => {
         setConversionData(prevData => ({...prevData, [key]: e.target.value}))
     }
 
+    const heading = unitData.name.charAt(0).toUpperCase() + unitData.name.slice(1)
+
     return (
-        <>
+        <div className="unit-converter-wrapper">
+            <h2>{heading}</h2>
             <Select
                 data={unitData.units}
                 name={`${unitData.name}-fromUnit`}
@@ -58,7 +72,7 @@ const NewConverter = ({ unitData }) => {
                 defaultText="Select a unit"
             />
             <p className="result">{result && result}</p>
-        </>
+        </div>
     )
 }
 
