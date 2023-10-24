@@ -11,7 +11,6 @@ const Select = ({ data, id, handleChange, defaultText }) => {
                 <option key={item} value={item}>{optionText}</option>
             )
         }
-
     })
 
     return (
