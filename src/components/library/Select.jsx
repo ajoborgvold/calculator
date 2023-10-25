@@ -1,4 +1,6 @@
-const Select = ({ data, id, handleChange, defaultText }) => {
+const Select = ({ data, id, handleChange, defaultText, value }) => {
+    // console.log(value)
+
     const optionElements = data.map(item => {
         if (item.name) {
             const optionText = item.name.charAt(0).toUpperCase() + item.name.slice(1)
@@ -13,10 +15,12 @@ const Select = ({ data, id, handleChange, defaultText }) => {
         }
     })
 
+    const selectedItem = value ? value : ''
+
     return (
         <>
             <label htmlFor={id} className="label">Select a unit</label>
-            <select id={id} onChange={handleChange}>
+            <select id={id} value={selectedItem} onChange={handleChange}>
                 <option value="">{defaultText}</option>
                 {optionElements}
             </select>

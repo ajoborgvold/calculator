@@ -4,7 +4,7 @@ import Input from "./Input"
 import handleConversionCalculation from "../../utils/handleConversionCalculation"
 import formatResult from "../../utils/formatResult"
 
-const NewConverter = ({ unitData, isFirstRender, setCount }) => {
+const NewConverter = ({ unitData, isFirstRender }) => {
     const [conversionData, setConversionData] = useState({
         fromUnit: '',
         toUnit: '',
@@ -12,10 +12,6 @@ const NewConverter = ({ unitData, isFirstRender, setCount }) => {
     })
     const [hasResult, setHasResult] = useState(false)
     const [result, setResult] = useState(null)
-
-    useEffect(() => {
-        setCount(prevCount => prevCount + 1)
-    }, [conversionData])
     
     useEffect(() => {
         if (isFirstRender.current === true) {
