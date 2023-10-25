@@ -25,7 +25,7 @@ const UnitConversion = ({setIsMenuOpen}) => {
     return (
         <div className="main-container unit-converters-container">
             <h1 className="main-heading">Unit conversion</h1>
-            <button onClick={handleFilterConverters}>Back to all converters</button>
+            {/* {nameFilter && <button onClick={handleFilterConverters} className="btn">Back to all converters</button>} */}
             <Select
                 data={Object.keys(unitData)}
                 id="filter-converters"

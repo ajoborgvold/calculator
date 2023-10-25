@@ -84,12 +84,11 @@ a {
 }
 
 
-/* Input */
+/* Input, select, button */
 .input {
   font-family: inherit;
   font-size: 1rem;
   width: 0;
-  /* min-width: 6em; */
   min-width: 4.5em;
   height: fit-content;
   padding: .25em;
@@ -108,6 +107,19 @@ a {
   border-radius: .3em;
 }
 
+.select-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.select {
+  font-family: inherit;
+  font-size: 1rem;
+  width: fit-content;
+  padding: .25em;
+}
+
 .label {
   position: absolute;
   clip: rect(1px, 1px, 1px, 1px);
@@ -117,6 +129,14 @@ a {
   width: 1px;
   overflow: hidden;
 }
+
+.btn {
+  font-family: inherit;
+  font-size: 1rem;
+  width: fit-content;
+  padding: .375em .75em;
+}
+
 
 
 /* App container */
@@ -153,7 +173,6 @@ a {
 footer {
   display: flex;
   align-items: center;
-  /* margin-top: 3em; */
   box-shadow: 0 0 5px #e5e5e5;
 }
 
@@ -171,7 +190,7 @@ footer p {
   flex-direction: column;
   padding: 0 1em;
   width: 100%;
-  max-width: 1000px;
+  /* max-width: 1000px; */
   margin: auto;
 }
 
@@ -181,70 +200,18 @@ footer p {
 }
 
 .unit-converters-container {
-  margin: 2em auto auto;
-}
-
-
-/* Flex containers */
-.flex-container {
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
-  padding: 2.5em 0;
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.flex__sub-container {
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
-  width: 100%;
-}
-
-.flex__sub-container-item {
-  display: flex;
-  flex-direction: column;
-  gap: .5em;
-}
-
-.flex__sub-container-item__inner-wrapper {
-  display: flex;
   align-items: center;
-}
-
-.flex__sub-container-item__inner-wrapper .input {
-  margin: 0 .5em;
-}
-
-
-/* Grid containers */
-/* .grid-container {
-  display: grid;
+  margin: 2em auto auto;
   gap: 1em;
-  padding: 1em 0 2.5em;
-  border-bottom: 1px solid #e5e5e5;
-} */
+  /* max-width: 600px; */
+}
+
 
 .nav-bar--horizontal {
   display: flex;
   gap: 1em;
   margin: 2em auto;
 }
-
-/* .grid-item {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.grid-item .input {
-  margin-right: .5em;
-}
-
-.flex-container:last-child,
-.grid-container:last-child {
-  border-bottom: none;
-} */
 
 
 /* Result element */
@@ -262,24 +229,57 @@ footer p {
 .pct-calculator-wrapper {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   gap: 1em;
 }
 
 
 /* New version of unit converters */
 .converters-section {
-  /* display: grid; */
-  margin-bottom: 3em;
+  display: grid;
+  gap: 2em;
+  width: 100%;
+  padding: 1em 0 2em;
 }
 
 .unit-converter-wrapper {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1em;
+  border: 1px solid #e5e5e5;
+  border-radius: .5em;
+}
+
+.converter__inner-wrapper {
   display: flex;
   flex-direction: column;
   gap: 1em;
-  padding: 1em;
-  border: 1px solid #e5e5e5;
+  margin-top: 1em;
 }
+
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* .position-a {
+  margin-right: auto;
+} */
+
+.bold-text {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.unit-result {
+  min-width: 4.5em;
+  text-align: right;
+  padding-left: .5em;
+  border-bottom: 2px solid #e5e5e5;
+}
+
+
 
 .inner-wrapper {
   display: flex;
@@ -287,30 +287,17 @@ footer p {
   gap: .5em;
 }
 
-/* .position-b {
-  margin: 1em 0;
-  padding-bottom: 1em;
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.head-b {
-  display: none;
-} */
 
 
 @media (min-width: 480px) {
-  .converters-section {
-    padding: 0 2em;
-  }
+  /* .converters-section {
+    padding: 1em 2em 2em;
+  } */
 }
 
 @media (min-width: 768px) {
   .input {
     min-width: 6em;
-  }
-
-  .heading-b {
-    display: unset;
   }
 
   .nav-link--large {
@@ -331,35 +318,6 @@ footer p {
   .main-container {
     padding: 0 2em;
   }
-
-  .flex-container {
-    padding: 2.5em 2em;
-  }
-
-  .converters-section {
-    /* grid-template-columns: repeat(2, auto); */
-    /* gap: 1em; */
-    margin-top: 1em;
-    padding: unset;
-  }
-  
-  .unit-converter-wrapper {
-    /* gap: .5em; */
-    /* padding-bottom: 2em; */
-    /* border-bottom: 1px solid #e5e5e5; */
-  }
-  
-  /* .position-a {
-  }
-  
-  .position-b {
-    margin: unset;
-    padding-bottom: unset;
-  }
-
-  .head-b {
-    display: unset;
-  } */
 }
 
 
@@ -367,21 +325,4 @@ footer p {
   .sub-heading {
     font-size: 1.5rem;
   }
-
-/* 
-  .flex-container {
-    padding: 4em 2em;
-  }
-
-  .flex__sub-container-item {
-    flex-direction: row;
-  }
-
-  .position-a {
-    margin-right: 3em;
-  }
-
-  .position-b {
-    margin-left: 3em;
-  } */
 }
