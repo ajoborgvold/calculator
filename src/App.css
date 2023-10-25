@@ -9,8 +9,11 @@
 }
 
 body {
-  background-color: #242424;
-  color: #f5f5f5;
+  background-color: #182737;
+  /* background-color: #b0b0b0; */
+  /* color: #B0B0B0; */
+  color: #cccccc;
+  /* color: #182737; */
 }
 
 /* Typography */
@@ -38,7 +41,7 @@ p {
 
 /* Links */
 a {
-  color: #f5f5f5;
+  color: #cccccc;
   text-decoration: none;
   letter-spacing: .175em;
   width: fit-content;
@@ -46,12 +49,12 @@ a {
 
 .link--border {
   padding: .5em 1em;
-  border: 2px solid #f5f5f5;
+  border: 2px solid #cccccc;
   border-radius: .5em;
 }
 
 .nav-link {
-  border-bottom: 2px solid #242424;
+  border-bottom: 2px solid #182737;
 }
 
 .nav-link--small,
@@ -75,12 +78,12 @@ a {
 .nav-link:hover,
 .nav-link:focus {
   outline-width: 1px;
-  outline-color: #e5e5e5;
+  outline-color: #cccccc;
   outline-style: inset;
 }
 
 .nav-link--active {
-  border-bottom: 2px solid #f5f5f5;
+  border-bottom: 2px solid #cccccc;
 }
 
 
@@ -92,10 +95,10 @@ a {
   min-width: 4.5em;
   height: fit-content;
   padding: .25em;
-  border: 1px solid #f5f5f5;
+  border: 1px solid #cccccc;
   border-radius: .3em;
-  background-color: #242424;
-  color: #f5f5f5;
+  background-color: #182737;
+  color: #B0B0B0;
 }
 
 .input:hover,
@@ -116,14 +119,13 @@ a {
 .select {
   font-family: inherit;
   font-size: 1rem;
-  background-color: #242424;
-  color: #f5f5f5;
+  background-color: #182737;
+  color: #B0B0B0;
   width: fit-content;
   padding: .25em 2em .25em .5em;
-  border: 1px solid #f5f5f5;
+  border: 1px solid #cccccc;
   border-radius: .3em;
   cursor: pointer;
-  background: none;
   
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -131,10 +133,10 @@ a {
   -moz-appearance: none;
   
   background-image:
-    linear-gradient(45deg, transparent 50%, #f5f5f5 50%),
-    linear-gradient(135deg, #f5f5f5 50%, transparent 50%),
-    linear-gradient(to right, #242424, #242424),
-    linear-gradient(90deg, #f5f5f5, #f5f5f5 90%, transparent 90%, transparent 100%);
+    linear-gradient(45deg, transparent 50%, #cccccc 50%),
+    linear-gradient(135deg, #cccccc 50%, transparent 50%),
+    linear-gradient(to right, #182737, #182737),
+    linear-gradient(90deg, #cccccc, #cccccc 90%, transparent 90%, transparent 100%);
 
   background-position:
     calc(100% - 16px) 50%,
@@ -194,8 +196,8 @@ a {
   flex-direction: column;
   gap: 1em;
   padding: 1em;
-  background-color: #242424;
-  box-shadow: 2px 2px 4px 1px #e5e5e5;
+  background-color: #27405C;
+  box-shadow: 2px 2px 4px 1px #cccccc;
 }
 
 .header__nav-bar--horizontal {
@@ -207,7 +209,7 @@ a {
 footer {
   display: flex;
   align-items: center;
-  box-shadow: 0 0 5px #e5e5e5;
+  box-shadow: 0 0 5px #cccccc;
 }
 
 footer p {
@@ -255,7 +257,7 @@ footer p {
   width: fit-content;
   height: 1.625em;
   margin-left: auto;
-  border-bottom: 2px solid #f5f5f5;
+  border-bottom: 2px solid #cccccc;
 }
 
 
@@ -279,11 +281,12 @@ footer p {
   display: flex;
   flex-direction: column;
   gap: 1em;
+  background-color: #27405C;
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
   padding: 1em;
-  border: 1px solid #e5e5e5;
+  border: 1px solid #cccccc;
   border-radius: .5em;
 }
 
@@ -307,7 +310,7 @@ footer p {
   min-width: 4.5em;
   text-align: right;
   padding-left: .5em;
-  border-bottom: 2px solid #e5e5e5;
+  border-bottom: 2px solid #cccccc;
 }
 
 
