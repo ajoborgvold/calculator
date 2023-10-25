@@ -1,11 +1,10 @@
-import { useEffect, useRef } from "react"
+import { useEffect } from "react"
 import { useSearchParams } from "react-router-dom"
 import UnitConverter from "../library/UnitConverter"
 import Select from "../library/Select"
 import { unitData } from "../../data/unitData"
 
 const UnitConversion = ({setIsMenuOpen}) => {
-    const isNewConversion = useRef(true)
     const [searchParams, setSearchParams] = useSearchParams()
     const nameFilter = searchParams.get("name")
 
@@ -14,14 +13,13 @@ const UnitConversion = ({setIsMenuOpen}) => {
     }, [])
 
     function handleFilterConverters(e) {
-        isNewConversion.current = true
         e.target.value ? setSearchParams({ name: e.target.value}) : setSearchParams({})
     }
 
     const converterEl = nameFilter
-        ? <UnitConverter data={unitData[nameFilter]} isNewConversion={isNewConversion} />
+        ? <UnitConverter data={unitData[nameFilter]} />
         : Object.keys(unitData).map(converterName => (
-            <UnitConverter key={converterName} data={unitData[converterName]} isNewConversion={isNewConversion} />
+            <UnitConverter key={converterName} data={unitData[converterName]} />
         ))
     
     return (
@@ -34,6 +32,7 @@ const UnitConversion = ({setIsMenuOpen}) => {
                 handleChange={handleFilterConverters}
                 defaultText="All converters"
                 value={nameFilter}
+                label="Select a unit converter"
             />
             <section className="converters-section">
                 {converterEl}

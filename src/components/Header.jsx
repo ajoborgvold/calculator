@@ -1,7 +1,7 @@
 import { useCallback, useRef, useState, useEffect } from "react"
 import { FiMenu } from "react-icons/fi"
 import NavBar from "./NavBar"
-import useClickOutside from "../utils/useClickOutside"
+import { useClickOutside } from "../utils/utilities"
 
 const Header = ({isMenuOpen, setIsMenuOpen, toggleMenu}) => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth)

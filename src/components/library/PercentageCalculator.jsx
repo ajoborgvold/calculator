@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import Input from "./Input"
-import formatResult from "../../utils/formatResult"
+import { formatResult, handleChange } from "../../utils/utilities"
 
 const PercentageCalculator = ({ type, nameA, nameB, text, unit }) => {
     const [data, setData] = useState({ nameA: '', nameB: '' })
@@ -28,10 +28,6 @@ const PercentageCalculator = ({ type, nameA, nameB, text, unit }) => {
         getResultValue(newResult)
     }, [data, hasResult])
 
-    const handleInputChange = (e, key) => {
-        setData(prevData => ({...prevData, [key]: e.target.value}))
-    }
-
     const getResultValue = newResult => {
         hasResult ? setResult(formatResult(newResult)) : setResult(0)
     }
@@ -44,7 +40,7 @@ const PercentageCalculator = ({ type, nameA, nameB, text, unit }) => {
                     name={nameA}
                     id={nameA}
                     value={data.nameA}
-                    handleChange={e => handleInputChange(e, 'nameA')}
+                    handleChange={e => handleChange(e, "nameA", setData)}
                 />
                 {text.b && <p>{text.b}</p>}
             </div>
@@ -54,7 +50,7 @@ const PercentageCalculator = ({ type, nameA, nameB, text, unit }) => {
                     name={nameB}
                     id={nameB}
                     value={data.nameB}
-                    handleChange={e => handleInputChange(e, 'nameB')}
+                    handleChange={e => handleChange(e, "nameB", setData)}
                 />
                 <p>{text.d}</p>
             </div>
