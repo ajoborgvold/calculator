@@ -16,10 +16,10 @@ const NavBar = ({ navClass, menuRef }) => {
                 Percentage
             </NavLink>
             <NavLink
-                to="new-unit-converters"
+                to="unit-conversion"
                 className={({ isActive }) => isActive ? 'nav-link nav-link--regular nav-link--active' : 'nav-link nav-link--regular'}
             >
-                Unit converters
+                Unit conversion
             </NavLink>
             <NavLink
                 to="time"

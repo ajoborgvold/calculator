@@ -1,6 +1,6 @@
-function handleConversionCalculation(unitData, conversionData) {
-    const fromUnitData = unitData.units.find(unit => unit.name === conversionData.fromUnit)
-    const toUnitData = unitData.units.find(unit => unit.name === conversionData.toUnit)
+function handleConversionCalculation(data, conversionData) {
+    const fromUnitData = data.units.find(unit => unit.name === conversionData.fromUnit)
+    const toUnitData = data.units.find(unit => unit.name === conversionData.toUnit)
     const numToConvert = Number(conversionData.input)
     const numInBaseUnit = numToConvert * fromUnitData.equalToFactor
 

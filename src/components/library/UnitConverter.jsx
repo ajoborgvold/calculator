@@ -4,69 +4,58 @@ import Input from "./Input"
 import handleConversionCalculation from "../../utils/handleConversionCalculation"
 import formatResult from "../../utils/formatResult"
 
-const NewConverter = ({ unitData, isFirstRender }) => {
+const UnitConverter = ({ data, isNewConversion }) => {
     const [conversionData, setConversionData] = useState({
         fromUnit: '',
         toUnit: '',
         input: ''
     })
-    const [hasResult, setHasResult] = useState(false)
     const [result, setResult] = useState(null)
-    
+
     useEffect(() => {
-        if (isFirstRender.current === true) {
+        if (isNewConversion.current === true) {
             setConversionData({
                 fromUnit: '',
                 toUnit: '',
                 input: ''
             })
             setResult(null)
-            setHasResult(false)
         }
-    }, [isFirstRender.current])
+    }, [isNewConversion.current])
 
     useEffect(() => {
         if (conversionData.fromUnit && conversionData.toUnit && conversionData.input) {
-            isFirstRender.current = false
-            setHasResult(true)
-        } else {
-            setHasResult(false)
-        }
-    }, [conversionData])
-
-    useEffect(() => {
-        if (!isFirstRender.current) {
-            const getResult = handleConversionCalculation(unitData, conversionData)
+            const getResult = handleConversionCalculation(data, conversionData)
             setResult(formatResult(getResult))
         }
-    }, [conversionData, hasResult])
+    }, [conversionData])
 
     function handleConversionDataChange(e, key) {
         setConversionData(prevData => ({...prevData, [key]: e.target.value}))
     }
 
-    const heading = unitData.name.charAt(0).toUpperCase() + unitData.name.slice(1)
+    const heading = data.name.charAt(0).toUpperCase() + data.name.slice(1)
 
     return (
         <div className="unit-converter-wrapper">
             <h2>{heading}</h2>
             <Select
-                data={unitData.units}
-                name={`${unitData.name}-fromUnit`}
-                id={`${unitData.name}-fromUnit`}
+                data={data.units}
+                name={`${data.name}-fromUnit`}
+                id={`${data.name}-fromUnit`}
                 value={conversionData.fromUnit}
                 handleChange={e => handleConversionDataChange(e, "fromUnit")}
                 defaultText="Select a unit"
             />
             <Input
-                id={`${unitData.name}-input`}
-                name={`${unitData.name}-input`}
+                id={`${data.name}-input`}
+                name={`${data.name}-input`}
                 value={conversionData.input}
                 handleChange={e => handleConversionDataChange(e, "input")}
             />
             <Select
-                data={unitData.units}
-                id={`${unitData.name}-toUnit`}
+                data={data.units}
+                id={`${data.name}-toUnit`}
                 value={conversionData.toUnit}
                 handleChange={e => handleConversionDataChange(e, "toUnit")}
                 defaultText="Select a unit"
@@ -76,4 +65,4 @@ const NewConverter = ({ unitData, isFirstRender }) => {
     )
 }
 
-export default NewConverter
+export default UnitConverter

@@ -4,7 +4,7 @@ import Layout from './components/routes/Layout'
 import Home from './components/routes/Home'
 import Percentage from './components/routes/Percentage'
 import Time from './components/routes/Time'
-import NewUnitConverters from './components/routes/NewUnitConverters'
+import UnitConversion from './components/routes/UnitConversion'
 import './App.css'
 
 
@@ -29,8 +29,8 @@ function App() {
           element: <Percentage setIsMenuOpen={setIsMenuOpen} />
         },
         {
-          path: "new-unit-converters",
-          element: <NewUnitConverters setIsMenuOpen={setIsMenuOpen} />
+          path: "unit-conversion",
+          element: <UnitConversion setIsMenuOpen={setIsMenuOpen} />
         },
         {
           path: "time",

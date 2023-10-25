@@ -1,11 +1,11 @@
 import { useEffect, useRef } from "react"
 import { useSearchParams } from "react-router-dom"
-import NewConverter from "../library/NewConverter"
+import UnitConverter from "../library/UnitConverter"
 import Select from "../library/Select"
-import { newUnitData } from "../../data/newUnitData"
+import { unitData } from "../../data/unitData"
 
-const NewUnitConverters = ({setIsMenuOpen}) => {
-    const isFirstRender = useRef(true)
+const UnitConversion = ({setIsMenuOpen}) => {
+    const isNewConversion = useRef(true)
     const [searchParams, setSearchParams] = useSearchParams()
     const nameFilter = searchParams.get("name")
 
@@ -14,14 +14,14 @@ const NewUnitConverters = ({setIsMenuOpen}) => {
     }, [])
 
     function handleFilterConverters(e) {
-        isFirstRender.current = true
+        isNewConversion.current = true
         e.target.value ? setSearchParams({ name: e.target.value}) : setSearchParams({})
     }
 
     const converterEl = nameFilter
-        ? <NewConverter unitData={newUnitData[nameFilter]} isFirstRender={isFirstRender} />
-        : Object.keys(newUnitData).map(converterName => (
-            <NewConverter key={converterName} unitData={newUnitData[converterName]} isFirstRender={isFirstRender} />
+        ? <UnitConverter data={unitData[nameFilter]} isNewConversion={isNewConversion} />
+        : Object.keys(unitData).map(converterName => (
+            <UnitConverter key={converterName} data={unitData[converterName]} isNewConversion={isNewConversion} />
         ))
     
     return (
@@ -29,7 +29,7 @@ const NewUnitConverters = ({setIsMenuOpen}) => {
             <h1 className="main-heading">Unit conversion</h1>
             <button onClick={handleFilterConverters}>Back to all converters</button>
             <Select
-                data={Object.keys(newUnitData)}
+                data={Object.keys(unitData)}
                 id="filter-converters"
                 handleChange={handleFilterConverters}
                 defaultText="All converters"
@@ -42,4 +42,4 @@ const NewUnitConverters = ({setIsMenuOpen}) => {
     )
 }
 
-export default NewUnitConverters
+export default UnitConversion
