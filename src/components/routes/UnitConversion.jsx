@@ -33,6 +33,7 @@ const UnitConversion = ({setIsMenuOpen}) => {
                 defaultText="All converters"
                 value={nameFilter}
                 label="Select a unit converter"
+                className="select--large"
             />
             <section className="converters-section">
                 {converterEl}
