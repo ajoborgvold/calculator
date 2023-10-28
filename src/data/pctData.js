@@ -1,58 +1,56 @@
-export const pctData = {
-    groupA: {
-        heading: "Convert a number to a percentage",
-        calculators: [
-            {
-                type: "changeInPct",
-                nameA: "changeInPctNumOne",
-                nameB: "changeInPctNumTwo",
-                text: {
-                    a: "How much is a change from the number",
-                    b: "",
-                    c: "to the number",
-                    d: "in percent?"
-                },
-                unit: "%"
-            },
-            {
-                type: "numToPct",
-                nameA: "numberToPctNumOne",
-                nameB: "numberToPctNumTwo",
-                text: {
-                    a: "How many percent is the number",
-                    b: "",
-                    c: "of the number",
-                    d: "?"
-                },
-                unit: "%"
-            }
-        ]
+export const pctData = [
+    {
+        heading: "change in percentage",
+        type: "changeInPct",
+        nameA: "changeInPctNumOne",
+        nameB: "changeInPctNumTwo",
+        text: {
+            a: "a change from the number",
+            b: "",
+            c: "to the number",
+            d: "",
+            e: "equals what in percantage?"
+        },
+        unit: "%"
     },
-    groupB: {
-        heading: "Convert a percentage to a number",
-        calculators: [
-            {
-                type: "pctOfTotal",
-                nameA: "fromPctToTotalNumOne",
-                nameB: "fromPctToTotalNumTwo",
-                text: {
-                    a: "What is the total sum when",
-                    b: "%",
-                    c: "is equal to the number",
-                    d: "?"
-                }
-            },
-            {
-                type: "pctToNum",
-                nameA: "pctToNumberNumOne",
-                nameB: "pctToNumberNumTwo",
-                text: {
-                    a: "How much is",
-                    b: "%",
-                    c: "of the number",
-                    d: "?"
-                }
-            }
-        ]
+    {
+        heading: "from number to percentage",
+        type: "numToPct",
+        nameA: "numberToPctNumOne",
+        nameB: "numberToPctNumTwo",
+        text: {
+            a: "the number",
+            b: "",
+            c: "is what per cent of the number",
+            d: "?",
+            e: ""
+        },
+        unit: "%"
+    },
+    {
+        heading: "find the total sum",
+        type: "pctOfTotal",
+        nameA: "fromPctToTotalNumOne",
+        nameB: "fromPctToTotalNumTwo",
+        text: {
+            a: "when",
+            b: "%",
+            c: "is equal to the number",
+            d: "",
+            e: "the total sum is"
+        }
+    },
+    {
+        heading: "from percentage to number",
+        type: "pctToNum",
+        nameA: "pctToNumberNumOne",
+        nameB: "pctToNumberNumTwo",
+        text: {
+            a: "what is",
+            b: "%",
+            c: "of",
+            d: "?",
+            e: ""
+        }
     }
-}
+]

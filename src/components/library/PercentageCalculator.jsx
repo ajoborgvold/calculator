@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
 import Input from "./Input"
-import { formatResult, handleChange } from "../../utils/utilities"
+import { capitalizeFirstLetter, formatResult, handleChange } from "../../utils/utilities"
 
-const PercentageCalculator = ({ type, nameA, nameB, text, unit }) => {
+const PercentageCalculator = ({ heading, type, nameA, nameB, text, unit }) => {
     const [data, setData] = useState({ nameA: '', nameB: '' })
     const [result, setResult] = useState(null)
     
@@ -25,8 +25,9 @@ const PercentageCalculator = ({ type, nameA, nameB, text, unit }) => {
 
     return (
         <div className="pct-calculator-wrapper">
+            <h2>{capitalizeFirstLetter(heading)}</h2>
             <div className="inner-wrapper">
-                <p>{text.a}</p>
+                <p>{capitalizeFirstLetter(text.a)}</p>
                 <Input
                     name={nameA}
                     id={nameA}
@@ -45,7 +46,11 @@ const PercentageCalculator = ({ type, nameA, nameB, text, unit }) => {
                 />
                 <p>{text.d}</p>
             </div>
-            <p className="result">{result} {unit && unit}</p>
+            <p>{text.e}</p>
+            <div className="converter__inner-wrapper">
+                <span className="bold-text">Result:</span>
+                <p className="unit-result bold-text">{result ? result : ''} {unit && unit}</p>
+            </div>
         </div>
     )
 }

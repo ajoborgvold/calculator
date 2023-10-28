@@ -8,20 +8,21 @@ const Percentage = ({ setIsMenuOpen }) => {
         setIsMenuOpen(false)
     }, [])
 
+    const pctCalculatorEl = pctData.map(calculator => {
+        return (
+            <PercentageCalculator
+                key={calculator.type}
+                {...calculator}
+            />
+        )
+    })
+
     return (
         <div className="main-container pct-calculators-container">
             <h1 className="main-heading">Percentage calculation</h1>
-            {Object.keys(pctData).map(group => (
-                <div key={group}>
-                    <h2 className="sub-heading">{pctData[group].heading}</h2>
-                    {pctData[group].calculators.map(item => (
-                        <PercentageCalculator
-                            key={item.type}
-                            {...item}
-                        />
-                    ))}
-                </div>
-            ))}
+            <section className="converters-section">
+                {pctCalculatorEl}
+            </section>
         </div>
     )
 }
