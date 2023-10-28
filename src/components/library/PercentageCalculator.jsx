@@ -4,12 +4,7 @@ import { formatResult, handleChange } from "../../utils/utilities"
 
 const PercentageCalculator = ({ type, nameA, nameB, text, unit }) => {
     const [data, setData] = useState({ nameA: '', nameB: '' })
-    const [hasResult, setHasResult] = useState(false)
     const [result, setResult] = useState(null)
-
-    useEffect(() => {
-        setHasResult(data.nameA && data.nameB ? true : false)
-    }, [data])
     
     useEffect(() => {
         let newResult = 0
@@ -25,12 +20,8 @@ const PercentageCalculator = ({ type, nameA, nameB, text, unit }) => {
             newResult = data.nameB / data.nameA * 100
         }
 
-        getResultValue(newResult)
-    }, [data, hasResult])
-
-    const getResultValue = newResult => {
-        hasResult ? setResult(formatResult(newResult)) : setResult(0)
-    }
+        data.nameA && data.nameB ? setResult(formatResult(newResult)) : setResult(null)
+    }, [data])
 
     return (
         <div className="pct-calculator-wrapper">
