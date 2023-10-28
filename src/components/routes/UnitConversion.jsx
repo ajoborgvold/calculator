@@ -23,7 +23,7 @@ const UnitConversion = ({setIsMenuOpen}) => {
         ))
     
     return (
-        <div className="main-container unit-converters-container">
+        <div className="main-container">
             <h1 className="main-heading">Unit conversion</h1>
             {/* {nameFilter && <button onClick={handleFilterConverters} className="btn">Back to all converters</button>} */}
             <Select

@@ -18,7 +18,7 @@ const Percentage = ({ setIsMenuOpen }) => {
     })
 
     return (
-        <div className="main-container pct-calculators-container">
+        <div className="main-container">
             <h1 className="main-heading">Percentage calculation</h1>
             <section className="calculators-section">
                 {pctCalculatorEl}

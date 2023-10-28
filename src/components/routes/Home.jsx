@@ -8,9 +8,9 @@ const Home = ({setIsMenuOpen}) => {
 
     return (
         <div className="main-container home-container">
-            <Link to="/percentage" className="link--border">Percentage</Link>
-            <Link to="/unit-conversion" className="link--border">Unit conversion</Link>
-            <Link to="/time" className="link--border">Time</Link>
+            <Link to="/percentage" className="link">Percentage</Link>
+            <Link to="/unit-conversion" className="link">Unit conversion</Link>
+            <Link to="/time" className="link">Time</Link>
         </div>   
     )
 }

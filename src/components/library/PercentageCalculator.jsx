@@ -23,6 +23,8 @@ const PercentageCalculator = ({ heading, type, nameA, nameB, text, unit }) => {
         data.nameA && data.nameB ? setResult(formatResult(newResult)) : setResult(null)
     }, [data])
 
+    const resultToDisplay = result && unit ? `${result} ${unit}` : result ? result : ''
+
     return (
         <div className="calculator-item-wrapper pct-item-wrapper">
             <h2 className="sub-heading">{capitalizeFirstLetter(heading)}</h2>
@@ -54,8 +56,8 @@ const PercentageCalculator = ({ heading, type, nameA, nameB, text, unit }) => {
                 }
             </form>
             <div className="inner-wrapper space-between">
-                <span className="bold-text">Result:</span>
-                <p className="result bold-text">{result ? result : ''} {unit && unit}</p>
+                <p className="bold-text">Result:</p>
+                <p className="result bold-text">{resultToDisplay}</p>
             </div>
         </div>
     )

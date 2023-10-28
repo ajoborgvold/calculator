@@ -32,6 +32,8 @@ const UnitConverter = ({ data }) => {
 
     const heading = capitalizeFirstLetter(data.name)
     const label = `Select ${isVowel(data.name[0]) ? "an" : "a"} ${data.name} unit`
+    const resultToDisplay = result ? `${result} ${toUnitAbbreviation}` : ''
+    // const resultToDisplay = result ? `${<CountingAnimation result={result}/>} ${toUnitAbbreviation}` : ''
 
     return (
         <div className="calculator-item-wrapper">
@@ -71,8 +73,8 @@ const UnitConverter = ({ data }) => {
                 </div>
             </form>
             <div className="inner-wrapper space-between">
-                <span className="bold-text">Result:</span>
-                <p className="result bold-text">{result ? result : ''} {result && toUnitAbbreviation}</p>
+                <p className="bold-text">Result:</p>
+                <p className="result bold-text">{resultToDisplay}</p>
             </div>
         </div>
     )
