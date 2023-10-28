@@ -25,7 +25,7 @@ const PercentageCalculator = ({ heading, type, nameA, nameB, text, unit }) => {
 
     return (
         <div className="calculator-item-wrapper pct-item-wrapper">
-            <h2>{capitalizeFirstLetter(heading)}</h2>
+            <h2 className="sub-heading">{capitalizeFirstLetter(heading)}</h2>
             <form className="form pct-form">
                 <div className="inner-wrapper">
                     <p>{capitalizeFirstLetter(text.a)}</p>
