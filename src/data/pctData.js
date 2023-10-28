@@ -9,19 +9,19 @@ export const pctData = [
             b: "",
             c: "to the number",
             d: "",
-            e: "equals what in percantage?"
+            e: "is what in percantage?"
         },
         unit: "%"
     },
     {
-        heading: "from number to percentage",
+        heading: "from number to pct",
         type: "numToPct",
         nameA: "numberToPctNumOne",
         nameB: "numberToPctNumTwo",
         text: {
             a: "the number",
             b: "",
-            c: "is what per cent of the number",
+            c: "is what % of the number",
             d: "?",
             e: ""
         },
@@ -37,18 +37,18 @@ export const pctData = [
             b: "%",
             c: "is equal to the number",
             d: "",
-            e: "the total sum is"
+            e: "the total sum is what?"
         }
     },
     {
-        heading: "from percentage to number",
+        heading: "from pct to number",
         type: "pctToNum",
         nameA: "pctToNumberNumOne",
         nameB: "pctToNumberNumTwo",
         text: {
             a: "what is",
             b: "%",
-            c: "of",
+            c: "of the number",
             d: "?",
             e: ""
         }
