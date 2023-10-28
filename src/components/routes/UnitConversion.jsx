@@ -35,7 +35,7 @@ const UnitConversion = ({setIsMenuOpen}) => {
                 label="Select a unit converter"
                 className="select--large"
             />
-            <section className="converters-section">
+            <section className="calculators-section">
                 {converterEl}
             </section>
         </div>

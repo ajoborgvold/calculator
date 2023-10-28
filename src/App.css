@@ -24,7 +24,7 @@ body[data-theme="light"] {
 .main-heading {
   font-size: 2rem;
   text-align: center;
-  margin-bottom: 1em;
+  /* margin-bottom: 1em; */
 }
 
 .sub-heading {
@@ -135,7 +135,8 @@ a {
     linear-gradient(45deg, transparent 50%, var(--color-primary) 50%),
     linear-gradient(135deg, var(--color-primary) 50%, transparent 50%),
     linear-gradient(to right, var(--bg-secondary), var(--bg-secondary)),
-    linear-gradient(90deg, var(--color-primary), var(--color-primary) 90%, transparent 90%, transparent 100%);
+    linear-gradient(90deg, var(--color-primary), var(--color-primary) 90%, transparent 90%, transparent 100%)
+    ;
   background-position:
     calc(100% - 16px) 50%,
     calc(100% - 10px) 50%,
@@ -150,8 +151,20 @@ a {
 }
 
 .select--large {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   padding: .25em 3em .25em .75em;
+  background-position:
+  calc(100% - 18px) 50%,
+  calc(100% - 8px) 50%,
+  100% 0,
+  100% 0
+  ;
+  background-size:
+  .5em .5em,
+  .5em .5em,
+  2.5em 2.5em,
+  .125em 100%
+  ;
 }
 
 .select:hover,
@@ -238,7 +251,6 @@ footer p {
   flex-direction: column;
   padding: 0 1em;
   width: 100%;
-  /* max-width: 1000px; */
   margin: auto;
 }
 
@@ -247,65 +259,24 @@ footer p {
   gap: 2em;
 }
 
-/* .pct-calculators-container {
-  align-items: center;
-  gap: 2em;
-} */
-
 .pct-calculators-container,
 .unit-converters-container {
   align-items: center;
   margin: 2em auto auto;
   gap: 1em;
-  /* max-width: 600px; */
 }
 
-/* 
-.nav-bar--horizontal {
-  display: flex;
-  gap: 1em;
-  margin: 2em auto;
-} */
-
-
-/* Result element */
-.result {
-  text-align: right;
-  min-width: 7em;
-  width: fit-content;
-  height: 1.625em;
-  margin-left: auto;
-  border-bottom: 2px solid var(--color-primary);
-}
-
-
-/* New version of pct calculator */
-.pct-calculator-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  background-color: var(--bg-secondary);
-  width: 100%;
-  /* max-width: 600px; */
-  margin: 0 auto;
-  padding: 1em;
-  border: 1px solid var(--color-primary);
-  border-radius: .5em;
-}
-
-
-/* New version of unit converters */
-.converters-section {
+.calculators-section {
   display: grid;
   gap: 2em;
   width: 100%;
-  padding: 1em 0 2em;
+  padding: 1em 0 3em;
 }
 
-.unit-converter-wrapper {
+.calculator-item-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 2em;
   background-color: var(--bg-secondary);
   width: 100%;
   max-width: 600px;
@@ -315,30 +286,15 @@ footer p {
   border-radius: .5em;
 }
 
-.converter__inner-wrapper {
+.pct-item-wrapper {
+  max-width: 800px;
+}
+
+.form {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 1em;
 }
-
-.converter__inner-wrapper:first-of-type,
-.converter__inner-wrapper:last-of-type {
-  margin-top: 1em;
-}
-
-.bold-text {
-  font-size: 1.125rem;
-  font-weight: 600;
-}
-
-.unit-result {
-  min-width: 4.5em;
-  text-align: right;
-  padding-left: .5em;
-  border-bottom: 2px solid var(--color-primary);
-}
-
-
 
 .inner-wrapper {
   display: flex;
@@ -346,10 +302,26 @@ footer p {
   gap: .5em;
 }
 
+.space-between {
+  justify-content: space-between;
+}
+
+.bold-text {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.result {
+  min-width: 4.5em;
+  height: 1.625em;
+  text-align: right;
+  padding-left: .5em;
+  border-bottom: 2px solid var(--color-primary);
+}
 
 
 @media (min-width: 480px) {
-  .unit-converter-wrapper {
+  .calculator-item-wrapper {
     padding: 2em;
   }
 }
@@ -376,6 +348,11 @@ footer p {
   .main-container {
     padding: 0 2em;
   }
+  
+  .pct-form {
+    flex-direction: row;
+    gap: .5em;
+  }
 }
 
 
@@ -383,4 +360,5 @@ footer p {
   .sub-heading {
     font-size: 1.5rem;
   }
+
 }

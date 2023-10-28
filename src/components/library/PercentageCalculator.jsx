@@ -24,36 +24,38 @@ const PercentageCalculator = ({ heading, type, nameA, nameB, text, unit }) => {
     }, [data])
 
     return (
-        <div className="pct-calculator-wrapper">
+        <div className="calculator-item-wrapper pct-item-wrapper">
             <h2>{capitalizeFirstLetter(heading)}</h2>
-            <div className="inner-wrapper">
-                <p>{capitalizeFirstLetter(text.a)}</p>
-                <Input
-                    name={nameA}
-                    id={nameA}
-                    value={data.nameA}
-                    handleChange={e => handleChange(e, "nameA", setData)}
-                />
-                {text.b && <p>{text.b}</p>}
-            </div>
-            <div className="inner-wrapper">
-                <p>{text.c}</p>
-                <Input
-                    name={nameB}
-                    id={nameB}
-                    value={data.nameB}
-                    handleChange={e => handleChange(e, "nameB", setData)}
-                />
-                <p>{text.d}</p>
-            </div>
-            {text.e && 
+            <form className="form pct-form">
                 <div className="inner-wrapper">
-                    <p>{text.e}</p>
+                    <p>{capitalizeFirstLetter(text.a)}</p>
+                    <Input
+                        name={nameA}
+                        id={nameA}
+                        value={data.nameA}
+                        handleChange={e => handleChange(e, "nameA", setData)}
+                    />
+                    {text.b && <p>{text.b}</p>}
                 </div>
-            }
-            <div className="converter__inner-wrapper">
+                <div className="inner-wrapper">
+                    <p>{text.c}</p>
+                    <Input
+                        name={nameB}
+                        id={nameB}
+                        value={data.nameB}
+                        handleChange={e => handleChange(e, "nameB", setData)}
+                    />
+                    <p>{text.d}</p>
+                </div>
+                {text.e && 
+                    <div className="inner-wrapper">
+                        <p>{text.e}</p>
+                    </div>
+                }
+            </form>
+            <div className="inner-wrapper space-between">
                 <span className="bold-text">Result:</span>
-                <p className="unit-result bold-text">{result ? result : ''} {unit && unit}</p>
+                <p className="result bold-text">{result ? result : ''} {unit && unit}</p>
             </div>
         </div>
     )
