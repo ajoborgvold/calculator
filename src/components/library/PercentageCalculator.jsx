@@ -46,7 +46,11 @@ const PercentageCalculator = ({ heading, type, nameA, nameB, text, unit }) => {
                 />
                 <p>{text.d}</p>
             </div>
-            <p>{text.e}</p>
+            {text.e && 
+                <div className="inner-wrapper">
+                    <p>{text.e}</p>
+                </div>
+            }
             <div className="converter__inner-wrapper">
                 <span className="bold-text">Result:</span>
                 <p className="unit-result bold-text">{result ? result : ''} {unit && unit}</p>
