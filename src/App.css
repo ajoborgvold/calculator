@@ -17,9 +17,7 @@ body {
 }
 
 body[data-theme="light"] {
-  /* --bg-primary: #D9F2E2; */
   --bg-primary: #DCEFD4;
-  /* --bg-secondary: #C8EFD9; */
   --bg-secondary: #A6CDBD;
   --color-primary: #052D1A;
 }
@@ -49,11 +47,13 @@ p {
 }
 
 .p--border-bottom {
-  min-width: 4.5em;
-  height: 1.625em;
+  background-color: var(--bg-primary);
+  min-width: 6em;
+  height: 2.125em;
   text-align: right;
-  padding-left: .5em;
-  border-bottom: 2px solid var(--color-primary);
+  padding: .25em 1em;
+  border: 1px solid var(--color-primary);
+  border-radius: .3em;
 }
 
 
@@ -135,6 +135,7 @@ a {
   padding: .25em;
   border: 1px solid var(--color-primary);
   border-radius: .3em;
+  cursor: pointer;
 }
 
 .input:hover,
