@@ -4,7 +4,6 @@ const Time = () => {
     const [currentDate, setCurrentDate] = useState(new Date())
 
     useEffect(() => {
-        // setIsOpen(false)
         const intervalId = setInterval(updateDateTime, 1000)
         return () => clearInterval(intervalId)
     }, [])

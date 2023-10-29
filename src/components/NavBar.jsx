@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom"
-import { AiOutlineCloseCircle } from "react-icons/ai"
 import { CgClose } from "react-icons/cg"
 
 const NavBar = ({ navClass, isMenuOpen, closeMenu, menuRef }) => {

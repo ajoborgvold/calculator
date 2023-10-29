@@ -18,25 +18,6 @@ function App() {
   function closeMenu() {
     setIsMenuOpen(false)
   }
-  
-  
-  // const [menuOpenState, setMenuOpenState] = useState(false)
-  
-  // function toggleMenu() {
-  //   setMenuOpenState(!menuOpenState)
-  // }
-  
-  // function stateChangeHandler(newState) {
-  //   setMenuOpenState(newState.isOpen)
-  // }
-  
-  // function openMenu() {
-  //   setMenuOpenState(true)
-  // }
-  
-  // function closeMenu() {
-  //   setIsOpen(false)
-  // }
 
   const router = createBrowserRouter([
     {

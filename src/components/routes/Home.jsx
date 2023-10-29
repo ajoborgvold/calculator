@@ -1,11 +1,6 @@
-import { useEffect } from "react"
 import { Link } from "react-router-dom"
 
 const Home = () => {
-    // useEffect(() => {
-    //     setIsOpen(false)
-    // }, [])
-
     return (
         <div className="main-container home-container">
             <Link to="/percentage" className="link">Percentage</Link>

@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import { useSearchParams } from "react-router-dom"
 import UnitConverter from "../library/UnitConverter"
 import Select from "../library/Select"
@@ -7,10 +6,6 @@ import { unitData } from "../../data/unitData"
 const UnitConversion = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const nameFilter = searchParams.get("name")
-
-    // useEffect(() => {
-    //     setIsOpen(false)
-    // }, [])
 
     function handleFilterConverters(e) {
         e.target.value ? setSearchParams({ name: e.target.value}) : setSearchParams({})

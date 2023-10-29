@@ -1,12 +1,8 @@
-import { useEffect } from "react"
 import PercentageCalculator from "../library/PercentageCalculator"
 
 import { pctData } from "../../data/pctData"
 
 const Percentage = () => {
-    // useEffect(() => {
-    //     setIsOpen(false)
-    // }, [])
 
     const pctCalculatorEl = pctData.map(calculator => {
         return (
