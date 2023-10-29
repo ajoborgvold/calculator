@@ -40,14 +40,14 @@ const PercentageCalculator = ({ heading, type, nameA, nameB, text, unit }) => {
                     {text.b && <p>{text.b}</p>}
                 </div>
                 <div className="inner-wrapper">
-                    <p>{text.c}</p>
+                    {text.c && <p>{text.c}</p>}
                     <Input
                         name={nameB}
                         id={nameB}
                         value={data.nameB}
                         handleChange={e => handleChange(e, "nameB", setData)}
                     />
-                    <p>{text.d}</p>
+                    {text.d && <p>{text.d}</p>}
                 </div>
                 {text.e && 
                     <div className="inner-wrapper">

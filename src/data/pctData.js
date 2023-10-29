@@ -6,7 +6,7 @@ export const pctData = [
         nameB: "pctToNumberNumTwo",
         text: {
             a: "what is",
-            b: "%",
+            b: "pct",
             c: "of the number",
             d: "?",
             e: ""
@@ -20,7 +20,7 @@ export const pctData = [
         text: {
             a: "the number",
             b: "",
-            c: "is what % of the number",
+            c: "is what pct of the number",
             d: "?",
             e: ""
         },
@@ -47,7 +47,7 @@ export const pctData = [
         nameB: "fromPctToTotalNumTwo",
         text: {
             a: "when",
-            b: "%",
+            b: "pct",
             c: "is equal to the number",
             d: "",
             e: "the total sum is what?"
