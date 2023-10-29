@@ -55,9 +55,9 @@ const PercentageCalculator = ({ heading, type, nameA, nameB, text, unit }) => {
                     </div>
                 }
             </form>
-            <div className="inner-wrapper space-between">
+            <div className="inner-wrapper space-between result-wrapper">
                 <p className="p--large">Result:</p>
-                <p className="p--large p--border-bottom">{resultToDisplay}</p>
+                <p className="p--large">{resultToDisplay}</p>
             </div>
         </div>
     )
