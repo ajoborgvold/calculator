@@ -73,8 +73,8 @@ const UnitConverter = ({ data }) => {
                 </div>
             </form>
             <div className="inner-wrapper space-between">
-                <p className="bold-text">Result:</p>
-                <p className="result bold-text">{resultToDisplay}</p>
+                <p className="p--large">Result:</p>
+                <p className="p--large p--border-bottom">{resultToDisplay}</p>
             </div>
         </div>
     )

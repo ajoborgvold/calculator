@@ -4,13 +4,13 @@ import UnitConverter from "../library/UnitConverter"
 import Select from "../library/Select"
 import { unitData } from "../../data/unitData"
 
-const UnitConversion = ({setIsMenuOpen}) => {
+const UnitConversion = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const nameFilter = searchParams.get("name")
 
-    useEffect(() => {
-        setIsMenuOpen(false)
-    }, [])
+    // useEffect(() => {
+    //     setIsOpen(false)
+    // }, [])
 
     function handleFilterConverters(e) {
         e.target.value ? setSearchParams({ name: e.target.value}) : setSearchParams({})

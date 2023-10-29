@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 
-const Time = ({setIsMenuOpen}) => {
+const Time = () => {
     const [currentDate, setCurrentDate] = useState(new Date())
 
     useEffect(() => {
-        setIsMenuOpen(false)
+        // setIsOpen(false)
         const intervalId = setInterval(updateDateTime, 1000)
         return () => clearInterval(intervalId)
     }, [])

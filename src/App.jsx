@@ -12,36 +12,59 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   function toggleMenu() {
-    setIsMenuOpen(prevIsMenuOpen => !prevIsMenuOpen)
+    setIsMenuOpen(!isMenuOpen)
   }
+
+  function closeMenu() {
+    setIsMenuOpen(false)
+  }
+  
+  
+  // const [menuOpenState, setMenuOpenState] = useState(false)
+  
+  // function toggleMenu() {
+  //   setMenuOpenState(!menuOpenState)
+  // }
+  
+  // function stateChangeHandler(newState) {
+  //   setMenuOpenState(newState.isOpen)
+  // }
+  
+  // function openMenu() {
+  //   setMenuOpenState(true)
+  // }
+  
+  // function closeMenu() {
+  //   setIsOpen(false)
+  // }
 
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Layout isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} toggleMenu={toggleMenu}/>,
+      element: <Layout isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} closeMenu={closeMenu} />,
       children: [
         {
           index: true,
-          element: <Home setIsMenuOpen={setIsMenuOpen} />
+          element: <Home />
         },
         {
           path: "percentage",
-          element: <Percentage setIsMenuOpen={setIsMenuOpen} />
+          element: <Percentage />
         },
         {
           path: "unit-conversion",
-          element: <UnitConversion setIsMenuOpen={setIsMenuOpen} />
+          element: <UnitConversion />
         },
         {
           path: "time",
-          element: <Time setIsMenuOpen={setIsMenuOpen} />
+          element: <Time />
         }
       ]
     },
   ])
 
   return (
-    <RouterProvider router={router} isMenuOpen={isMenuOpen} toggleMenu={toggleMenu}/>
+    <RouterProvider router={router} />
   )
 }
 

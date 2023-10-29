@@ -1,10 +1,10 @@
 import { useEffect } from "react"
 import { Link } from "react-router-dom"
 
-const Home = ({setIsMenuOpen}) => {
-    useEffect(() => {
-        setIsMenuOpen(false)
-    }, [])
+const Home = () => {
+    // useEffect(() => {
+    //     setIsOpen(false)
+    // }, [])
 
     return (
         <div className="main-container home-container">

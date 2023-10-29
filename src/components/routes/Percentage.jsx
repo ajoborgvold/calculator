@@ -3,10 +3,10 @@ import PercentageCalculator from "../library/PercentageCalculator"
 
 import { pctData } from "../../data/pctData"
 
-const Percentage = ({ setIsMenuOpen }) => {
-    useEffect(() => {
-        setIsMenuOpen(false)
-    }, [])
+const Percentage = () => {
+    // useEffect(() => {
+    //     setIsOpen(false)
+    // }, [])
 
     const pctCalculatorEl = pctData.map(calculator => {
         return (
