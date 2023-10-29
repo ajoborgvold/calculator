@@ -246,7 +246,7 @@ header {
   padding: 2em;
   background-color: var(--bg-secondary-opacity);
   box-shadow: 2px 2px 4px 1px var(--color-primary);
-  border-radius: .5em;
+  border-bottom-right-radius: .5em;
   -webkit-animation: slide 0.5s forwards;
   -webkit-animation-delay: 2s;
   animation: slide 0.5s forwards;
