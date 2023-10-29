@@ -130,6 +130,10 @@ a {
   cursor: pointer;
 }
 
+.input::placeholder {
+  color: var(--color-primary);
+}
+
 .input:hover,
 .input:focus,
 .input:active {
