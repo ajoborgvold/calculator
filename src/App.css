@@ -11,7 +11,7 @@
 body {
   --bg-primary: #182737;
   --bg-secondary: #27405C;
-  --bg-secondary-opacity: #27405CF2;
+  --bg-secondary-opacity: #27405CF7;
   --color-primary: #cccccc;
   background-color: var(--bg-primary);
   color: var(--color-primary);
@@ -20,7 +20,7 @@ body {
 body[data-theme="light"] {
   --bg-primary: #DCEFD4;
   --bg-secondary: #A6CDBD;
-  --bg-secondary-opacity: #A6CDBDF2;
+  --bg-secondary-opacity: #A6CDBDF7;
   --color-primary: #052D1A;
 }
 
