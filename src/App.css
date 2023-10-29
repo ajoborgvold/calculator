@@ -11,6 +11,7 @@
 body {
   --bg-primary: #182737;
   --bg-secondary: #27405C;
+  --bg-secondary-opacity: #27405CF2;
   --color-primary: #cccccc;
   background-color: var(--bg-primary);
   color: var(--color-primary);
@@ -19,6 +20,7 @@ body {
 body[data-theme="light"] {
   --bg-primary: #DCEFD4;
   --bg-secondary: #A6CDBD;
+  --bg-secondary-opacity: #A6CDBDF2;
   --color-primary: #052D1A;
 }
 
@@ -50,13 +52,13 @@ p {
 /* Links */
 a {
   color: var(--color-primary);
-  background-color: var(--bg-secondary);
   text-decoration: none;
   letter-spacing: .175em;
   width: fit-content;
 }
 
 .link {
+  background-color: var(--bg-secondary);
   padding: .5em 1em;
   border: 2px solid var(--color-primary);
   border-radius: .5em;
@@ -236,12 +238,26 @@ header {
 .header__nav-bar--vertical {
   position: absolute;
   top: 0;
+  left: -300px;
   display: flex;
   flex-direction: column;
-  gap: 2em;
+  gap: 2.5em;
+  width: 300px;
   padding: 2em;
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-secondary-opacity);
   box-shadow: 2px 2px 4px 1px var(--color-primary);
+  border-radius: .5em;
+  -webkit-animation: slide 0.5s forwards;
+  -webkit-animation-delay: 2s;
+  animation: slide 0.5s forwards;
+}
+
+@-webkit-keyframes slide {
+  100% { left: 0; }
+}
+
+@keyframes slide {
+  100% { left: 0; }
 }
 
 .header--large {
