@@ -1,12 +1,16 @@
 import { useCallback, useRef, useState, useEffect } from "react"
-import { FiMenu } from "react-icons/fi"
 import NavBar from "./NavBar"
+import { FiMenu } from "react-icons/fi"
+import { HiOutlineSun } from "react-icons/hi"
+import { HiMoon } from "react-icons/hi2"
 import { useClickOutside } from "../utils/utilities"
 
 const Header = ({ isMenuOpen, toggleMenu, closeMenu }) => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+    const [theme, setTheme] = useState('light')
     const menuRef = useRef()
 
+    // Track the window width of the user's device
     useEffect(() => {
         function handleResize() {
             setWindowWidth(window.innerWidth)
@@ -18,6 +22,50 @@ const Header = ({ isMenuOpen, toggleMenu, closeMenu }) => {
         }
     }, [])
 
+    // Handle the user's app color theme preferences
+    useEffect(() => {
+        const userThemePref = getUserThemePref()
+        const mediaQueryPref = getMediaQueryPref()
+
+        if (userThemePref) {
+            setTheme(userThemePref)
+        } else {
+            setTheme(mediaQueryPref)
+        }
+
+        document.body.dataset.theme = theme
+
+    }, [theme])
+
+    // Get the user's app color theme preference from their OS
+    function getMediaQueryPref() {
+        const mediaQuery = "(prefers-color-scheme: dark)"
+        const mql = window.matchMedia(mediaQuery)
+        const hasPreference = typeof mql.matches === "boolean"
+
+        if (hasPreference) {
+            return mql.matches ? "dark" : "light";
+        }
+    }
+
+    // Toggle color theme in the app UI
+    function toggleTheme() {
+        const newTheme = theme === 'dark' ? 'light' : 'dark'
+        setTheme(newTheme)
+        storeUserThemePref(newTheme)
+        document.body.dataset.theme = theme
+    }
+
+    // Store the user's theme preference in local storage
+    function storeUserThemePref(pref) {
+        localStorage.setItem('theme', pref)
+    }
+
+    function getUserThemePref() {
+        return localStorage.getItem('theme')
+    }
+
+    // Close the hamburger menu on click outside the menu
     const close = useCallback(() => closeMenu(), [])
     useClickOutside(menuRef, close)
 
@@ -33,6 +81,7 @@ const Header = ({ isMenuOpen, toggleMenu, closeMenu }) => {
     return (
         <header>
             {headerEl}
+            {theme === "light" ? <HiMoon onClick={toggleTheme} className="icon theme-icon"/> : <HiOutlineSun onClick={toggleTheme} className="icon theme-icon" />}
         </header>
     )
 }

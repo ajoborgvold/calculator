@@ -17,7 +17,11 @@ body {
 }
 
 body[data-theme="light"] {
-
+  /* --bg-primary: #D9F2E2; */
+  --bg-primary: #DCEFD4;
+  /* --bg-secondary: #C8EFD9; */
+  --bg-secondary: #A6CDBD;
+  --color-primary: #052D1A;
 }
 
 /* Typography */
@@ -95,7 +99,6 @@ a {
 .icon {
   font-size: 2rem;
   background-color: var(--bg-secondary);
-  margin-left: auto;
   padding: .1em;
   outline: 1px solid var(--color-primary);
   border-radius: .1em;
@@ -108,6 +111,10 @@ a {
 
 .close-icon {
   margin-left: auto;
+}
+
+.theme-icon {
+  margin-right: .375em;
 }
 
 .icon:hover,
@@ -223,6 +230,9 @@ a {
 
 /* Header */
 header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: var(--bg-secondary);
   box-shadow: 0 0 7px var(--color-primary);
 }
@@ -244,8 +254,9 @@ header {
 }
 
 .header--large {
-  background-color: var(--bg-secondary);
-  box-shadow: 0 0 7px var(--color-primary);
+  /* display: flex;
+  align-items: center; */
+  /* justify-content: space-between; */
 }
 
 .header__nav-bar--horizontal {
