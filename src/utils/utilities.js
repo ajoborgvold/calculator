@@ -15,7 +15,7 @@ function handleChange(e, key, setterFunction) {
 }
 
 
-function handleConversionCalculation(data, conversionData) {
+function handleConversion(data, conversionData) {
     const fromUnitData = data.units.find(unit => unit.name === conversionData.fromUnit)
     const toUnitData = data.units.find(unit => unit.name === conversionData.toUnit)
     const numToConvert = Number(conversionData.input)
@@ -34,7 +34,7 @@ function handleConversionCalculation(data, conversionData) {
         return numToConvert * toUnitData.equalToFactor + fromUnitData.offset
     }
 
-    /** All other cases, i.e. not temperature and two different units selected **/
+    /** All other cases, i.e. !temperature && two different units selected **/
     return numInBaseUnit / toUnitData.equalToFactor
 }
 
@@ -81,4 +81,11 @@ function useClickOutside(ref, handler) {
 }
 
 
-export { formatResult, capitalizeFirstLetter, isVowel, handleChange, handleConversionCalculation, useClickOutside }
+export { 
+    formatResult,
+    capitalizeFirstLetter,
+    isVowel,
+    handleChange,
+    handleConversion,
+    useClickOutside
+}

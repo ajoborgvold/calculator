@@ -6,7 +6,7 @@ import {
     capitalizeFirstLetter,
     isVowel,
     handleChange,
-    handleConversionCalculation
+    handleConversion
 } from "../../utils/utilities"
 
 const UnitConverter = ({ data }) => {
@@ -20,7 +20,7 @@ const UnitConverter = ({ data }) => {
 
     useEffect(() => {
         if (conversionData.fromUnit && conversionData.toUnit && conversionData.input) {
-            const getResult = handleConversionCalculation(data, conversionData)
+            const getResult = handleConversion(data, conversionData)
             const toUnitData = data.units.find(unit => unit.name === conversionData.toUnit)
             setResult(formatResult(getResult, data))
             setToUnitAbbreviation(toUnitData.abbreviation)

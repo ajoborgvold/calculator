@@ -5,12 +5,13 @@ import { HiOutlineSun } from "react-icons/hi"
 import { HiMoon } from "react-icons/hi2"
 import { useClickOutside } from "../utils/utilities"
 
-const Header = ({ isMenuOpen, toggleMenu, closeMenu }) => {
+const Header = () => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth)
     const [theme, setTheme] = useState('light')
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
     const menuRef = useRef()
 
-    // Track the window width of the user's device
+    /** Track the window width of the user's device **/
     useEffect(() => {
         function handleResize() {
             setWindowWidth(window.innerWidth)
@@ -22,7 +23,7 @@ const Header = ({ isMenuOpen, toggleMenu, closeMenu }) => {
         }
     }, [])
 
-    // Handle the user's app color theme preferences
+    /** Handle the user's app color theme preferences **/
     useEffect(() => {
         const userThemePref = getUserThemePref()
         const mediaQueryPref = getMediaQueryPref()
@@ -37,7 +38,6 @@ const Header = ({ isMenuOpen, toggleMenu, closeMenu }) => {
 
     }, [theme])
 
-    // Get the user's app color theme preference from their OS
     function getMediaQueryPref() {
         const mediaQuery = "(prefers-color-scheme: dark)"
         const mql = window.matchMedia(mediaQuery)
@@ -48,7 +48,6 @@ const Header = ({ isMenuOpen, toggleMenu, closeMenu }) => {
         }
     }
 
-    // Toggle color theme in the app UI
     function toggleTheme() {
         const newTheme = theme === 'dark' ? 'light' : 'dark'
         setTheme(newTheme)
@@ -56,7 +55,6 @@ const Header = ({ isMenuOpen, toggleMenu, closeMenu }) => {
         document.body.dataset.theme = theme
     }
 
-    // Store the user's theme preference in local storage
     function storeUserThemePref(pref) {
         localStorage.setItem('theme', pref)
     }
@@ -65,10 +63,20 @@ const Header = ({ isMenuOpen, toggleMenu, closeMenu }) => {
         return localStorage.getItem('theme')
     }
 
-    // Close the hamburger menu on click outside the menu
+    /** Handle hamburger menu state **/
+    function toggleMenu() {
+        setIsMenuOpen(!isMenuOpen)
+    }
+
+    function closeMenu() {
+        setIsMenuOpen(false)
+    }
+
+    /** Close hamburger menu on click outside the menu **/
     const close = useCallback(() => closeMenu(), [])
     useClickOutside(menuRef, close)
 
+    /** Create header element based on the user's window width **/
     const headerEl = windowWidth < 768 ?
         <div className="header--small">
             <FiMenu onClick={toggleMenu} className="icon menu-icon" tabIndex="0" />

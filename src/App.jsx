@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './components/routes/Layout'
 import Home from './components/routes/Home'
@@ -9,20 +8,10 @@ import './App.css'
 
 
 function App() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-
-  function toggleMenu() {
-    setIsMenuOpen(!isMenuOpen)
-  }
-
-  function closeMenu() {
-    setIsMenuOpen(false)
-  }
-
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Layout isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} closeMenu={closeMenu} />,
+      element: <Layout />,
       children: [
         {
           index: true,
