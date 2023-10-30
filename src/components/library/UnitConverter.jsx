@@ -76,7 +76,7 @@ const UnitConverter = ({ data }) => {
                 {result && result >= 0.01 ?
                     <p className="p--large">{result} {toUnitAbbreviation}</p>
                     : result && result < 0.009 ?
-                    <p className="p--large user-warning">Result too low to display</p> : ""
+                    <p className="p--large user-warning">too low to display</p> : ""
                 }
             </div>
         </div>
