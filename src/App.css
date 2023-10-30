@@ -348,7 +348,7 @@ footer p {
 
 .result-wrapper {
   background-color: var(--bg-primary);
-  padding: .5em;
+  padding: .5em 1em;
   border-radius: .3em;
 }
 
