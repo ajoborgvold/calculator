@@ -13,6 +13,7 @@ body {
   --bg-secondary: #27405C;
   --bg-secondary-opacity: #27405CF7;
   --color-primary: #cccccc;
+  --color-warning: #B32531;
   background-color: var(--bg-primary);
   color: var(--color-primary);
 }
@@ -46,6 +47,10 @@ p {
   font-size: 1.125rem;
   font-weight: 600;
   letter-spacing: .1em;
+}
+
+.user-warning {
+  color: var(--color-warning);
 }
 
 
@@ -97,16 +102,8 @@ a {
   cursor: pointer;
 }
 
-.menu-icon {
-  /* margin: .375em; */
-}
-
 .close-icon {
   margin-left: auto;
-}
-
-.theme-icon {
-  /* margin-right: .375em; */
 }
 
 .icon:hover,
@@ -254,7 +251,6 @@ header {
   background-color: var(--bg-secondary-opacity);
   box-shadow: 2px 2px 4px 1px var(--color-primary);
   -webkit-animation: slide 0.5s forwards;
-  -webkit-animation-delay: 2s;
   animation: slide 0.5s forwards;
 }
 

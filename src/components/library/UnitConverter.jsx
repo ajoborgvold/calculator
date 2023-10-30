@@ -32,8 +32,7 @@ const UnitConverter = ({ data }) => {
 
     const heading = capitalizeFirstLetter(data.name)
     const label = `Select ${isVowel(data.name[0]) ? "an" : "a"} ${data.name} unit`
-    const resultToDisplay = result ? `${result} ${toUnitAbbreviation}` : ''
-    // const resultToDisplay = result ? `${<CountingAnimation result={result}/>} ${toUnitAbbreviation}` : ''
+    const resultToDisplay = result && result >= 0.01 ? `${result} ${toUnitAbbreviation}` : result && result < 0.009 ? "Result too low to display" : ""
 
     return (
         <div className="calculator-item-wrapper">
@@ -74,7 +73,11 @@ const UnitConverter = ({ data }) => {
             </form>
             <div className="inner-wrapper space-between result-wrapper">
                 <p className="p--large">Result:</p>
-                <p className="p--large">{resultToDisplay}</p>
+                {result && result >= 0.01 ?
+                    <p className="p--large">{result} {toUnitAbbreviation}</p>
+                    : result && result < 0.009 ?
+                    <p className="p--large user-warning">Result too low to display</p> : ""
+                }
             </div>
         </div>
     )
