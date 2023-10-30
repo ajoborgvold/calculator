@@ -18,12 +18,11 @@ const UnitConverter = ({ data }) => {
     const [result, setResult] = useState(null)
     const [toUnitAbbreviation, setToUnitAbbreviation] = useState(null)
 
-
     useEffect(() => {
         if (conversionData.fromUnit && conversionData.toUnit && conversionData.input) {
             const getResult = handleConversionCalculation(data, conversionData)
             const toUnitData = data.units.find(unit => unit.name === conversionData.toUnit)
-            setResult(formatResult(getResult))
+            setResult(formatResult(getResult, data))
             setToUnitAbbreviation(toUnitData.abbreviation)
         } else {
             setResult(null)
@@ -32,14 +31,13 @@ const UnitConverter = ({ data }) => {
 
     const heading = capitalizeFirstLetter(data.name)
     const label = `Select ${isVowel(data.name[0]) ? "an" : "a"} ${data.name} unit`
-    const resultToDisplay = result && result >= 0.01 ? `${result} ${toUnitAbbreviation}` : result && result < 0.009 ? "Result too low to display" : ""
 
     return (
         <div className="calculator-item-wrapper">
             <h2 className="sub-heading">{heading}</h2>
             <form className="form">
                 <div className="inner-wrapper space-between">
-                    <span>Convert this number:</span>
+                    <p>Convert this number:</p>
                     <Input
                         id={`${data.name}-input`}
                         name={`${data.name}-input`}
@@ -48,7 +46,7 @@ const UnitConverter = ({ data }) => {
                     />
                 </div>
                 <div className="inner-wrapper space-between">
-                    <span>From:</span>
+                    <p>From:</p>
                     <Select
                         data={data.units}
                         name={`${data.name}-fromUnit`}
@@ -60,7 +58,7 @@ const UnitConverter = ({ data }) => {
                     />
                 </div>
                 <div className="inner-wrapper space-between">
-                    <span>To:</span>
+                    <p>To:</p>
                     <Select
                         data={data.units}
                         id={`${data.name}-toUnit`}
@@ -73,11 +71,7 @@ const UnitConverter = ({ data }) => {
             </form>
             <div className="inner-wrapper space-between result-wrapper">
                 <p className="p--large">Result:</p>
-                {result && result >= 0.01 ?
-                    <p className="p--large">{result} {toUnitAbbreviation}</p>
-                    : result && result < 0.009 ?
-                    <p className="p--large user-warning">too low to display</p> : ""
-                }
+                {result && <p className="p--large">{result} {toUnitAbbreviation}</p>}
             </div>
         </div>
     )

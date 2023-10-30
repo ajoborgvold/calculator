@@ -1,11 +1,5 @@
 import { useEffect } from "react"
 
-function formatResult(num) {
-    const formattedResult = num.toFixed(2)
-    return formattedResult.endsWith(".00") ? num.toFixed(0) : formattedResult
-}
-
-
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1)
 }
@@ -36,14 +30,27 @@ function handleConversionCalculation(data, conversionData) {
     if (fromUnitData.name === "fahrenheit") {
         const numInCelsius = (numToConvert - fromUnitData.offset) / fromUnitData.equalToFactor
         return numInCelsius * toUnitData.equalToFactor
-    }
-    
-    if (fromUnitData.name === "celsius") {
+    } else if (fromUnitData.name === "celsius") {
         return numToConvert * toUnitData.equalToFactor + fromUnitData.offset
     }
 
     /** All other cases, i.e. not temperature and two different units selected **/
     return numInBaseUnit / toUnitData.equalToFactor
+}
+
+
+function formatResult(num, data) {
+    const formattedResult = num.toFixed(2)
+
+    /** Check if result is in a temperature unit; 
+     * if so, allow negative numbers; 
+     * if not, display a "rounded to" message for results < 0.01 **/
+    if (data?.name === "temperature") {
+        return formattedResult.endsWith(".00") ? num.toFixed(0) : formattedResult
+    } else {
+        return formattedResult < 0.01 ? "(rounded to) 0.00"
+            : formattedResult.endsWith(".00") ? num.toFixed(0) : formattedResult
+    }
 }
 
 

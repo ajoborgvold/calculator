@@ -121,6 +121,11 @@ export const unitData = {
         baseUnit: "gram",
         units: [
             {
+                name: "milligrams",
+                abbreviation: "mg",
+                equalToFactor: 0.001
+            },
+            {
                 name: "grams",
                 abbreviation: "g",
                 equalToFactor: 1
@@ -149,6 +154,16 @@ export const unitData = {
                 name: "stones",
                 abbreviation: "st",
                 equalToFactor: 6350.29318
+            },
+            {
+                name: "short ton (US)",
+                abbreviation: "sh.t.",
+                equalToFactor: 907184.74
+            },
+            {
+                name: "long ton (UK)",
+                abbreviation: "l.t.",
+                equalToFactor: 1016046.91
             }
         ]
     },
