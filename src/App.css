@@ -8,12 +8,12 @@
   box-sizing: border-box;
 }
 
+/* CSS variables, setting app colors */
 body {
   --bg-primary: #182737;
   --bg-secondary: #27405C;
   --bg-secondary-opacity: #27405CF7;
   --color-primary: #cccccc;
-  --color-warning: #B32531;
   background-color: var(--bg-primary);
   color: var(--color-primary);
 }
@@ -24,6 +24,15 @@ body[data-theme="light"] {
   --bg-secondary-opacity: #A7BBCEF7;
   --color-primary: #182737;
 }
+
+
+/* App container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
 
 /* Typography */
 .main-heading {
@@ -46,11 +55,6 @@ p {
 .p--large {
   font-size: 1.125rem;
   font-weight: 600;
-  /* letter-spacing: .1em; */
-}
-
-.user-warning {
-  color: var(--color-warning);
 }
 
 
@@ -107,12 +111,13 @@ a {
 }
 
 .icon:hover,
-.icon:focus {
+.icon:focus,
+.icon:active {
   background-color: var(--bg-primary);
 }
 
 
-/* Input, select, button */
+/* Input elements */
 .input {
   font-family: inherit;
   font-size: 1rem;
@@ -138,6 +143,8 @@ a {
   outline: 1px solid var(--color-primary);
 }
 
+
+/* Select elements */
 .select-wrapper {
   display: flex;
   align-items: center;
@@ -196,6 +203,8 @@ a {
   outline: 1px solid var(--color-primary);
 }
 
+
+/* Input and select labels */
 .label {
   position: absolute;
   clip: rect(1px, 1px, 1px, 1px);
@@ -204,21 +213,6 @@ a {
   height: 1px;
   width: 1px;
   overflow: hidden;
-}
-/* 
-.btn {
-  font-family: inherit;
-  font-size: 1rem;
-  width: fit-content;
-  padding: .375em .75em;
-} */
-
-
-/* App container */
-.app-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100dvh;
 }
 
 
@@ -254,14 +248,6 @@ header {
   animation: slide 0.5s forwards;
 }
 
-@-webkit-keyframes slide {
-  100% { left: 0; }
-}
-
-@keyframes slide {
-  100% { left: 0; }
-}
-
 .header--large {
   padding: .75em 0;
 }
@@ -269,6 +255,15 @@ header {
 .header__nav-bar--horizontal {
   display: flex;
   gap: 2em;
+}
+
+/* Hamburger menu animation */
+@-webkit-keyframes slide {
+  100% { left: 0; }
+}
+
+@keyframes slide {
+  100% { left: 0; }
 }
 
 
