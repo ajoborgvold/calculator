@@ -42,13 +42,10 @@ function handleConversionCalculation(data, conversionData) {
 function formatResult(num, data) {
     const formattedResult = num.toFixed(2)
 
-    /** Check if result is in a temperature unit; 
-     * if so, allow negative numbers; 
-     * if not, display a "rounded to" message for results < 0.01 **/
     if (data?.name === "temperature") {
         return formattedResult.endsWith(".00") ? num.toFixed(0) : formattedResult
     } else {
-        return formattedResult < 0.01 ? "(rounded to) 0.00"
+        return num < 0.01 ? "(rounded to) 0.00"
             : formattedResult.endsWith(".00") ? num.toFixed(0) : formattedResult
     }
 }
