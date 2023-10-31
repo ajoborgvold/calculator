@@ -2,7 +2,9 @@ import { capitalizeFirstLetter } from "../../utils/utilities"
 
 const Select = ({ data, id, handleChange, defaultText, value, label, className }) => {
     const optionElements = data.map(item => {
-        if (item.name) {
+        if (typeof item === "number") {
+            return <option key={item} value={item}>{item}</option>
+        } else if (item.name) {
             const optionText = capitalizeFirstLetter(item.name)
             return (
                 <option key={item.name} value={item.name}>{optionText}</option>

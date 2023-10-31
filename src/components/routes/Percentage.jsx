@@ -1,9 +1,7 @@
 import PercentageCalculator from "../library/PercentageCalculator"
-
 import { pctData } from "../../data/pctData"
 
 const Percentage = () => {
-
     const pctCalculatorEl = pctData.map(calculator => {
         return (
             <PercentageCalculator

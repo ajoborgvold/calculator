@@ -57,6 +57,11 @@ p {
   font-weight: 600;
 }
 
+.p--italic {
+  font-style: italic;
+  letter-spacing: .1em;
+}
+
 
 /* Links */
 a {
