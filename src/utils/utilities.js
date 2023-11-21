@@ -47,6 +47,96 @@ function formatResult(num, data) {
 }
 
 
+function calculateTime(name, setResult, setErrorMessage, day, month, year) {
+    const currentDate = new Date()
+    const selectedDate = new Date(year, month, day)
+
+    if (name === "time passed") {
+        calculateTimePassed(setResult, setErrorMessage, selectedDate, currentDate)
+    } else if (name === "future time") {
+        calculateFutureTime(setResult, setErrorMessage, selectedDate, currentDate)
+    }
+}
+
+
+function calculateTimePassed(setResult, setErrorMessage, selectedDate, currentDate) {
+    const timeDiffInMs = currentDate - selectedDate
+
+    if (timeDiffInMs < 0) {
+        setErrorMessage("Invalid selection. Selected date must be in the past.")
+        return
+    } else {
+        setErrorMessage("")
+    }
+
+    const yearsPassed = Math.floor(timeDiffInMs / (1000 * 60 * 60 * 24 * 365))
+    selectedDate.setFullYear(selectedDate.getFullYear() + yearsPassed)
+
+    const monthDiff = currentDate.getMonth() - selectedDate.getMonth()
+    const monthsPassed = monthDiff < 0 ? 12 + monthDiff : monthDiff
+    selectedDate.setMonth(selectedDate.getMonth() + monthsPassed)
+
+    let dayDiff = selectedDate.getDate() - currentDate.getDate()
+    dayDiff = adjustDayDifference(dayDiff, currentDate)
+
+    setResult({
+        years: yearsPassed,
+        months: monthsPassed,
+        days: dayDiff,
+    });
+}
+
+
+function calculateFutureTime(setResult, setErrorMessage, selectedDate, currentDate) {
+    const timeDiffInMs = selectedDate - currentDate
+
+    if (timeDiffInMs < 0) {
+        setErrorMessage("Invalid selection. Selected date must be in the future.")
+        return
+    } else {
+        setErrorMessage("")
+    }
+
+    const yearsToCome = Math.floor(timeDiffInMs / (1000 * 60 * 60 * 24 * 365))
+    selectedDate.setFullYear(selectedDate.getFullYear() + yearsToCome)
+    
+    const monthDiff = selectedDate.getMonth() - currentDate.getMonth()
+    let monthsToCome = monthDiff < 0 ? 12 + monthDiff : monthDiff
+
+    if (selectedDate.getDate() < currentDate.getDate()) {
+        monthsToCome--
+
+        if (monthsToCome < 0) {
+            monthsToCome += 12
+        }
+    }
+
+    currentDate.setMonth(currentDate.getMonth() + monthsToCome)
+
+    let dayDiff = selectedDate.getDate() - currentDate.getDate()
+    dayDiff = adjustDayDifference(dayDiff, currentDate)
+
+    setResult({
+        years: yearsToCome,
+        months: monthsToCome,
+        days: dayDiff,
+    });
+}
+
+
+function adjustDayDifference(dayDiff, currentDate) {
+    if (dayDiff < 0) {
+        const lastDayOfPrevMonth = new Date(
+            currentDate.getFullYear(),
+            currentDate.getMonth(),
+            0
+        ).getDate();
+        dayDiff += lastDayOfPrevMonth;
+    }
+    return dayDiff;
+}
+
+
 function useClickOutside(ref, handler) {
     useEffect(() => {
         let startedInside = false
@@ -83,5 +173,6 @@ export {
     isVowel,
     handleChange,
     handleConversion,
+    calculateTime,
     useClickOutside
 }

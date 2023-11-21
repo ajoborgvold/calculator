@@ -14,6 +14,7 @@ body {
   --bg-secondary: #27405C;
   --bg-secondary-opacity: #27405CF7;
   --color-primary: #cccccc;
+  --color-warning: #FFA500;
   background-color: var(--bg-primary);
   color: var(--color-primary);
 }
@@ -23,6 +24,7 @@ body[data-theme="light"] {
   --bg-secondary: #A7BBCE;
   --bg-secondary-opacity: #A7BBCEF7;
   --color-primary: #182737;
+  --color-warning: #601414;
 }
 
 
@@ -60,6 +62,10 @@ p {
 .p--italic {
   font-style: italic;
   letter-spacing: .1em;
+}
+
+.p--warning {
+  color: var(--color-warning);
 }
 
 
