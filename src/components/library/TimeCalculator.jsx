@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import Select from "./Select"
 import Input from "./Input"
 import { daysArray, monthsArray } from "../../data/timeData"
-import { capitalizeFirstLetter, handleChange, calculateTime } from "../../utils/utilities"
+import { capitalizeFirstLetter, handleChange, calculateTime } from "../../utils/utilityFunctions"
 
 const TimeCalculator = ({ name, heading, description }) => {
     const [timeCalculationData, setTimeCalculationData] = useState({

@@ -1,5 +1,7 @@
 import { useEffect } from "react"
 
+
+//=== FORMATTING OF STRINGS AND NUMBERS ===//
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1)
 }
@@ -10,11 +12,52 @@ function isVowel(letter) {
 }
 
 
+function formatResult(num) {
+    const formattedResult = num.toFixed(2)
+
+    return num < 0.01 && num > 0 ? "(rounded to) 0.00"
+        : formattedResult.endsWith(".00") ? num.toFixed(0) : formattedResult
+}
+
+
+//=== CLOSE VERTICAL MENU, RENDERED ON SMALLER SCREENS, ON CLICK OUTSIDE THE MENU ===//
+function useClickOutside(ref, handler) {
+    useEffect(() => {
+        let startedInside = false
+        let startedWhenMounted = false
+
+        function listener(e) {
+            if (startedInside || !startedWhenMounted) return
+            if (!ref.current || ref.current.contains(e.target)) return
+
+            handler(e)
+        }
+
+        function validateEventStart(e) {
+            startedWhenMounted = ref.current
+            startedInside = ref.current && ref.current.contains(e.target)
+        }
+
+        document.addEventListener("mousedown", validateEventStart)
+        document.addEventListener("touchstart", validateEventStart)
+        document.addEventListener("click", listener)
+
+        return () => {
+            document.removeEventListener("mousedown", validateEventStart)
+            document.removeEventListener("touchstart", validateEventStart)
+            document.removeEventListener("click", listener)
+        }
+    }, [ref, handler])
+}
+
+
+//=== HANDLE FORM DATA BASED ON USER INPUT ===//
 function handleChange(e, key, setterFunction) {
     setterFunction(prevData => ({...prevData, [key]: e.target.value}))
 }
 
 
+//=== PERFORM UNIT CONVERSION ===//
 function handleConversion(data, conversionData) {
     const fromUnitData = data.units.find(unit => unit.name === conversionData.fromUnit)
     const toUnitData = data.units.find(unit => unit.name === conversionData.toUnit)
@@ -39,14 +82,7 @@ function handleConversion(data, conversionData) {
 }
 
 
-function formatResult(num, data) {
-    const formattedResult = num.toFixed(2)
-
-    return num < 0.01 && num > 0 ? "(rounded to) 0.00"
-        : formattedResult.endsWith(".00") ? num.toFixed(0) : formattedResult
-}
-
-
+//=== TIME CALCULATION ===//
 function calculateTime(name, setResult, setErrorMessage, day, month, year) {
     const currentDate = new Date()
     const selectedDate = new Date(year, month, day)
@@ -136,43 +172,12 @@ function adjustDayDifference(dayDiff, currentDate) {
     return dayDiff;
 }
 
-
-function useClickOutside(ref, handler) {
-    useEffect(() => {
-        let startedInside = false
-        let startedWhenMounted = false
-
-        function listener(e) {
-            if (startedInside || !startedWhenMounted) return
-            if (!ref.current || ref.current.contains(e.target)) return
-
-            handler(e)
-        }
-
-        function validateEventStart(e) {
-            startedWhenMounted = ref.current
-            startedInside = ref.current && ref.current.contains(e.target)
-        }
-
-        document.addEventListener("mousedown", validateEventStart)
-        document.addEventListener("touchstart", validateEventStart)
-        document.addEventListener("click", listener)
-
-        return () => {
-            document.removeEventListener("mousedown", validateEventStart)
-            document.removeEventListener("touchstart", validateEventStart)
-            document.removeEventListener("click", listener)
-        }
-    }, [ref, handler])
-}
-
-
 export { 
     formatResult,
     capitalizeFirstLetter,
     isVowel,
+    useClickOutside,
     handleChange,
     handleConversion,
-    calculateTime,
-    useClickOutside
+    calculateTime
 }

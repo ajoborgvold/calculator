@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import Input from "./Input"
-import { capitalizeFirstLetter, formatResult, handleChange } from "../../utils/utilities"
+import { capitalizeFirstLetter, formatResult, handleChange } from "../../utils/utilityFunctions"
 
 const PercentageCalculator = ({ heading, type, nameA, nameB, text, unit }) => {
     const [data, setData] = useState({ nameA: '', nameB: '' })

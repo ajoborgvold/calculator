@@ -1,4 +1,4 @@
-import { capitalizeFirstLetter } from "../../utils/utilities"
+import { capitalizeFirstLetter } from "../../utils/utilityFunctions"
 
 const Select = ({ data, id, handleChange, defaultText, value, label, className }) => {
     const optionElements = data.map(item => {

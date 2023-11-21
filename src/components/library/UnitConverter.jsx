@@ -7,7 +7,7 @@ import {
     isVowel,
     handleChange,
     handleConversion
-} from "../../utils/utilities"
+} from "../../utils/utilityFunctions"
 
 const UnitConverter = ({ data }) => {
     const [conversionData, setConversionData] = useState({
