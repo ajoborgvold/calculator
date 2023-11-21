@@ -3,7 +3,7 @@ import NavBar from "./NavBar"
 import { FiMenu } from "react-icons/fi"
 import { HiOutlineSun } from "react-icons/hi"
 import { HiMoon } from "react-icons/hi2"
-import { useClickOutside } from "../utils/utilities"
+import { useClickOutside } from "../utils/utilityFunctions"
 
 const Header = () => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth)
