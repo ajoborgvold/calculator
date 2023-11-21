@@ -90,12 +90,17 @@ a {
   background-color: var(--bg-primary);
 }
 
-.nav-link:hover,
-.nav-link:focus {
+.nav-link--border--focus {
+  outline: 2px solid var(--color-primary);
+  background-color: var(--bg-primary);
+}
+
+.nav-link--bare:hover,
+.nav-link--bare:focus {
   outline: 2px solid var(--color-primary);  
 }
 
-.nav-link--active {
+.nav-link--bare--active {
   outline: 2px solid var(--color-primary);
   background-color: var(--bg-primary);
 }
