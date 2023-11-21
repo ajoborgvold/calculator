@@ -23,6 +23,20 @@ const Header = () => {
         }
     }, [])
 
+    useEffect(() => {
+        function handleKeyDown(e) {
+            if (e.key === "Escape") {
+                setIsMenuOpen(false);
+            }
+        }
+
+        document.addEventListener("keydown", handleKeyDown);
+
+        return () => {
+            document.removeEventListener("keydown", handleKeyDown);
+        };
+    }, []);
+
     /** Handle the user's app color theme preferences **/
     useEffect(() => {
         const userThemePref = getUserThemePref()
@@ -48,11 +62,13 @@ const Header = () => {
         }
     }
 
-    function toggleTheme() {
-        const newTheme = theme === 'dark' ? 'light' : 'dark'
-        setTheme(newTheme)
-        storeUserThemePref(newTheme)
-        document.body.dataset.theme = theme
+    function toggleTheme(e) {
+        if (!e.key || e.key === "Enter") {
+            const newTheme = theme === 'dark' ? 'light' : 'dark'
+            setTheme(newTheme)
+            storeUserThemePref(newTheme)
+            document.body.dataset.theme = theme
+        }
     }
 
     function storeUserThemePref(pref) {
@@ -64,22 +80,25 @@ const Header = () => {
     }
 
     /** Handle hamburger menu state **/
-    function toggleMenu() {
-        setIsMenuOpen(!isMenuOpen)
+    function toggleMenu(e) {
+        if (!e.key || e.key === "Enter")
+            setIsMenuOpen(!isMenuOpen)
     }
 
-    function closeMenu() {
-        setIsMenuOpen(false)
+    function closeMenu(e) {
+        if (!e.key || e.key === "Enter") {
+            setIsMenuOpen(false)
+        }
     }
 
     /** Close hamburger menu on click outside the menu **/
-    const close = useCallback(() => closeMenu(), [])
+    const close = useCallback(e => closeMenu(e), [])
     useClickOutside(menuRef, close)
 
     /** Create header element based on the user's window width **/
     const headerEl = windowWidth < 768 ?
         <div className="header--small">
-            <FiMenu onClick={toggleMenu} className="icon menu-icon" tabIndex="0" />
+            <FiMenu onClick={toggleMenu} onKeyDown={toggleMenu} className="icon menu-icon" tabIndex="0" />
             {isMenuOpen && <NavBar navClass="header__nav-bar--vertical" isMenuOpen={isMenuOpen} closeMenu={closeMenu} menuRef={menuRef} />}
         </div>
         : <div className="header--large">
@@ -89,7 +108,9 @@ const Header = () => {
     return (
         <header>
             {headerEl}
-            {theme === "light" ? <HiMoon onClick={toggleTheme} className="icon theme-icon"/> : <HiOutlineSun onClick={toggleTheme} className="icon theme-icon" />}
+            {theme === "light"
+                ? <HiMoon onClick={toggleTheme} onKeyDown={toggleTheme} className="icon theme-icon" tabIndex="0" /> 
+                : <HiOutlineSun onClick={toggleTheme} onKeyDown={toggleTheme} className="icon theme-icon" tabIndex="0" />}
         </header>
     )
 }

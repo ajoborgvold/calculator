@@ -36,7 +36,7 @@ body[data-theme="light"] {
 
 /* Typography */
 .main-heading {
-  font-size: 2rem;
+  font-size: 1.75rem;
   text-align: center;
   letter-spacing: .1em;
 }
@@ -84,13 +84,20 @@ a {
   border-radius: .3em;
 }
 
+.nav-link--border {
+  /* padding: .5em 1em; */
+  /* outline: 2px solid var(--color-primary); */
+  /* background-color: var(--bg-primary); */
+}
+
 .link:hover,
 .link:focus,
 .link:active {
   background-color: var(--bg-primary);
 }
 
-.nav-link--border--focus {
+.nav-link--border:hover,
+.nav-link--border:focus {
   outline: 2px solid var(--color-primary);
   background-color: var(--bg-primary);
 }
@@ -369,6 +376,10 @@ footer p {
 }
 
 @media (min-width: 768px) {
+  .main-heading {
+    font-size: 2rem;
+  }
+
   .link {
     font-size: 1.125rem;
   }
