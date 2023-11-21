@@ -51,7 +51,11 @@ function calculateTime(name, setResult, setErrorMessage, day, month, year) {
     const currentDate = new Date()
     const selectedDate = new Date(year, month, day)
 
-    if (name === "time passed") {
+    if (name === "time passed" && year < 100 && year > 0) {
+        setErrorMessage("Invalid value. Selected year must be at least 100.")
+        return
+    }
+    else if (name === "time passed") {
         calculateTimePassed(setResult, setErrorMessage, selectedDate, currentDate)
     } else if (name === "future time") {
         calculateFutureTime(setResult, setErrorMessage, selectedDate, currentDate)
@@ -65,10 +69,8 @@ function calculateTimePassed(setResult, setErrorMessage, selectedDate, currentDa
     if (timeDiffInMs < 0) {
         setErrorMessage("Invalid selection. Selected date must be in the past.")
         return
-    } else {
-        setErrorMessage("")
-    }
-
+    } else { setErrorMessage("") }
+        
     const yearsPassed = Math.floor(timeDiffInMs / (1000 * 60 * 60 * 24 * 365))
     selectedDate.setFullYear(selectedDate.getFullYear() + yearsPassed)
 
@@ -83,7 +85,7 @@ function calculateTimePassed(setResult, setErrorMessage, selectedDate, currentDa
         years: yearsPassed,
         months: monthsPassed,
         days: dayDiff,
-    });
+    })
 }
 
 
@@ -93,9 +95,7 @@ function calculateFutureTime(setResult, setErrorMessage, selectedDate, currentDa
     if (timeDiffInMs < 0) {
         setErrorMessage("Invalid selection. Selected date must be in the future.")
         return
-    } else {
-        setErrorMessage("")
-    }
+    } else { setErrorMessage("") }
 
     const yearsToCome = Math.floor(timeDiffInMs / (1000 * 60 * 60 * 24 * 365))
     selectedDate.setFullYear(selectedDate.getFullYear() + yearsToCome)
