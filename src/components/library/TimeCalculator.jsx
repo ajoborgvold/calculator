@@ -21,7 +21,10 @@ const TimeCalculator = ({ name, heading, description }) => {
 
         if (timeCalculationData.day && timeCalculationData.month && timeCalculationData.year) {
             calculateTime(name, setResult, setIsError, setIsProcessing, setErrorMessage, timeCalculationData.day, monthIndex, timeCalculationData.year)
-        } else { setResult(null) }
+        } else {
+            setResult(null)
+            setIsError(false)
+        }
     }, [timeCalculationData])
 
     const resultToDisplay = result && isDetailsSelected ? `${result.years} years, ${result.months} months, ${result.days} days`
