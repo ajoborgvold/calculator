@@ -12,13 +12,16 @@ const TimeCalculator = ({ name, heading, description }) => {
     })
     const [result, setResult] = useState(null)
     const [isDetailsSelected, setIsDetailsSelected] = useState(false)
+    const [isError, setIsError] = useState(false)
+    const [isProcessing, setIsProcessing] = useState(false)
     const [errorMessage, setErrorMessage] = useState("")
 
     useEffect(() => {
         const monthIndex = monthsArray.indexOf(timeCalculationData.month)
 
-        timeCalculationData.day && timeCalculationData.month && timeCalculationData.year
-            && calculateTime(name, setResult, setErrorMessage, timeCalculationData.day, monthIndex, timeCalculationData.year)
+        if (timeCalculationData.day && timeCalculationData.month && timeCalculationData.year) {
+            calculateTime(name, setResult, setIsError, setIsProcessing, setErrorMessage, timeCalculationData.day, monthIndex, timeCalculationData.year)
+        } else { setResult(null) }
     }, [timeCalculationData])
 
     const resultToDisplay = result && isDetailsSelected ? `${result.years} years, ${result.months} months, ${result.days} days`
@@ -75,9 +78,9 @@ const TimeCalculator = ({ name, heading, description }) => {
                     />
                 </div>
                 <div className="inner-wrapper space-between result-wrapper">
-                    {!errorMessage && <p className="p--large">Result:</p>}
-                    {result && !errorMessage && <p className="p--large">{resultToDisplay}</p>}
-                    {errorMessage && <p className="p--warning">{errorMessage}</p>}
+                    {!isError && <p className="p--large">Result:</p>}
+                    {result && !isError && <p className="p--large">{resultToDisplay}</p>}
+                    {isError && <p className="p--warning">{isProcessing ? "One moment please..." : errorMessage}</p>}
                 </div>
             </form>
         </div>

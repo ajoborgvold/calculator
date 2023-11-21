@@ -57,7 +57,7 @@ function handleChange(e, key, setterFunction) {
 }
 
 
-//=== PERFORM UNIT CONVERSION ===//
+//=== UNIT CONVERSION ===//
 function handleConversion(data, conversionData) {
     const fromUnitData = data.units.find(unit => unit.name === conversionData.fromUnit)
     const toUnitData = data.units.find(unit => unit.name === conversionData.toUnit)
@@ -83,38 +83,69 @@ function handleConversion(data, conversionData) {
 
 
 //=== TIME CALCULATION ===//
-function calculateTime(name, setResult, setErrorMessage, day, month, year) {
+function calculateTime(name, setResult, setIsError, setIsProcessing, setErrorMessage, day, month, year) {
     const currentDate = new Date()
     const selectedDate = new Date(year, month, day)
 
-    if (name === "time passed" && year < 100 && year > 0) {
-        setErrorMessage("Invalid value. Selected year must be at least 100.")
-        return
+    if (name === "time passed") {
+        /* JS automatically converts years between 0 and 99 to a 20th century year, e.g. if actual year is 75, JS converts that to 1975.
+        Below, we check if the user's selection is a year between 0 and 99, and if so, we create a processedDate with 100 years added to the user selection to allow correct calculations based on the user's selection. When calculating the time difference between current date and user selection, we check again if the user's selection is in the span 0-99, and if so we correct the diff, which would otherwise be off with 100 years */
+        const yearAsNum = Number(year)
+        const processedYear = yearAsNum < 100 && yearAsNum >= 0 ? yearAsNum + 100 : yearAsNum
+        const processedDate = new Date(processedYear.toString(), month, day)
+        const oneHundredYearsInMs = 3153600000000
+
+        const timeDiffInMs = yearAsNum < 100 && yearAsNum >= 0
+            ? currentDate - processedDate + oneHundredYearsInMs
+            : currentDate - processedDate
+
+        if (timeDiffInMs < 0) {
+            setIsError(true)
+            setIsProcessing(true)
+            setTimeout(() => {
+                setIsProcessing(false)
+                setErrorMessage("Invalid selection. Selected date must be in the past.")
+            }, 1250)
+            return
+        } else {
+            setIsProcessing(false)
+            setIsError(false)
+            setErrorMessage("")
+        }
+
+        calculateTimePassed(setResult, processedDate, currentDate, timeDiffInMs)
     }
-    else if (name === "time passed") {
-        calculateTimePassed(setResult, setErrorMessage, selectedDate, currentDate)
-    } else if (name === "future time") {
-        calculateFutureTime(setResult, setErrorMessage, selectedDate, currentDate)
+    else if (name === "future time") {
+        const timeDiffInMs = selectedDate - currentDate
+
+        if (timeDiffInMs < 0) {
+            setIsError(true)
+            setIsProcessing(true)
+            setTimeout(() => {
+                setIsProcessing(false)
+                setErrorMessage("Invalid selection. Selected date must be in the future.")
+            }, 1250)
+            return
+        } else {
+            setIsProcessing(false)
+            setIsError(false)
+            setErrorMessage("")
+        }
+
+        calculateFutureTime(setResult, selectedDate, currentDate, timeDiffInMs)
     }
 }
 
 
-function calculateTimePassed(setResult, setErrorMessage, selectedDate, currentDate) {
-    const timeDiffInMs = currentDate - selectedDate
-
-    if (timeDiffInMs < 0) {
-        setErrorMessage("Invalid selection. Selected date must be in the past.")
-        return
-    } else { setErrorMessage("") }
-        
+function calculateTimePassed(setResult, processedDate, currentDate, timeDiffInMs) {
     const yearsPassed = Math.floor(timeDiffInMs / (1000 * 60 * 60 * 24 * 365))
-    selectedDate.setFullYear(selectedDate.getFullYear() + yearsPassed)
+    processedDate.setFullYear(processedDate.getFullYear() + yearsPassed)
 
-    const monthDiff = currentDate.getMonth() - selectedDate.getMonth()
+    const monthDiff = currentDate.getMonth() - processedDate.getMonth()
     const monthsPassed = monthDiff < 0 ? 12 + monthDiff : monthDiff
-    selectedDate.setMonth(selectedDate.getMonth() + monthsPassed)
+    processedDate.setMonth(processedDate.getMonth() + monthsPassed)
 
-    let dayDiff = selectedDate.getDate() - currentDate.getDate()
+    let dayDiff = processedDate.getDate() - currentDate.getDate()
     dayDiff = adjustDayDifference(dayDiff, currentDate)
 
     setResult({
@@ -125,14 +156,7 @@ function calculateTimePassed(setResult, setErrorMessage, selectedDate, currentDa
 }
 
 
-function calculateFutureTime(setResult, setErrorMessage, selectedDate, currentDate) {
-    const timeDiffInMs = selectedDate - currentDate
-
-    if (timeDiffInMs < 0) {
-        setErrorMessage("Invalid selection. Selected date must be in the future.")
-        return
-    } else { setErrorMessage("") }
-
+function calculateFutureTime(setResult, selectedDate, currentDate, timeDiffInMs) {
     const yearsToCome = Math.floor(timeDiffInMs / (1000 * 60 * 60 * 24 * 365))
     selectedDate.setFullYear(selectedDate.getFullYear() + yearsToCome)
     
