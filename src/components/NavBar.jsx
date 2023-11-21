@@ -10,28 +10,28 @@ const NavBar = ({ navClass, isMenuOpen, closeMenu, menuRef }) => {
                 {isMenuOpen && <CgClose onClick={closeMenu} onKeyDown={closeMenu} className="icon close-icon" tabIndex="0"/> }
                 <NavLink
                     to="/"
-                    className={({ isActive }) => isActive ? `nav-link ${navLinkClass} ${navLinkClass}--active` : `nav-link ${navLinkClass}`}
+                    className={({ isActive }) => isActive ? `${navLinkClass} ${navLinkClass}--active` : `${navLinkClass}`}
                     onClick={closeMenu}
                 >
                     Home
                 </NavLink>
                 <NavLink
                     to="percentage"
-                    className={({ isActive }) => isActive ? `nav-link ${navLinkClass} ${navLinkClass}--active` : `nav-link ${navLinkClass}`}
+                    className={({ isActive }) => isActive ? `${navLinkClass} ${navLinkClass}--active` : `${navLinkClass}`}
                     onClick={closeMenu}
                 >
                     Percentage
                 </NavLink>
                 <NavLink
                     to="unit-conversion"
-                    className={({ isActive }) => isActive ? `nav-link ${navLinkClass} ${navLinkClass}--active` : `nav-link ${navLinkClass}`}
+                    className={({ isActive }) => isActive ? `${navLinkClass} ${navLinkClass}--active` : `${navLinkClass}`}
                     onClick={closeMenu}
                 >
                     Unit conversion
                 </NavLink>
                 <NavLink
                     to="time"
-                    className={({ isActive }) => isActive ? `nav-link ${navLinkClass} ${navLinkClass}--active` : `nav-link ${navLinkClass}`}
+                    className={({ isActive }) => isActive ? `${navLinkClass} ${navLinkClass}--active` : `${navLinkClass}`}
                     onClick={closeMenu}
                 >
                     Time
