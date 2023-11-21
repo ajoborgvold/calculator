@@ -78,37 +78,55 @@ a {
   border-radius: .5em;
 }
 
-.nav-link {
+.nav-link--bare {
   font-size: 1rem;
   padding: .25em 1em;
   border-radius: .3em;
 }
 
 .nav-link--border {
-  /* padding: .5em 1em; */
-  /* outline: 2px solid var(--color-primary); */
-  /* background-color: var(--bg-primary); */
+  font-size: 1rem;
+  margin-bottom: -2px;
+  padding: .5em 1em;
+  border-bottom: 2px solid var(--color-primary);
 }
 
+
+/* Links hover/focus/active */
 .link:hover,
 .link:focus,
 .link:active {
   background-color: var(--bg-primary);
+  box-shadow: 0 0 .5em var(--color-primary);
 }
 
 .nav-link--border:hover,
-.nav-link--border:focus {
+.nav-link--border:focus,
+.nav-link--bare:hover,
+.nav-link--bare:focus {
+  box-shadow: 0 0 .5em var(--color-primary);
+}
+
+.nav-link--border:hover,
+.nav-link--border:focus,
+.nav-link--border--active {
+  margin-bottom: unset;
+  border-bottom: unset;
+  border-radius: .3em;
   outline: 2px solid var(--color-primary);
+}
+
+.nav-link--border--active {
   background-color: var(--bg-primary);
 }
 
 .nav-link--bare:hover,
-.nav-link--bare:focus {
+.nav-link--bare:focus,
+.nav-link--bare--active {
   outline: 2px solid var(--color-primary);  
 }
 
 .nav-link--bare--active {
-  outline: 2px solid var(--color-primary);
   background-color: var(--bg-primary);
 }
 
@@ -131,6 +149,7 @@ a {
 .icon:focus,
 .icon:active {
   background-color: var(--bg-primary);
+  box-shadow: 0 0 .25em var(--color-primary);
 }
 
 
@@ -158,6 +177,7 @@ a {
 .input:active {
   background-color: var(--bg-primary);
   outline: 1px solid var(--color-primary);
+  box-shadow: 0 0 .5em var(--color-primary);
 }
 
 
@@ -218,6 +238,7 @@ a {
   background-color: var(--bg-primary);
   --bg-secondary: var(--bg-primary);
   outline: 1px solid var(--color-primary);
+  box-shadow: 0 0 .5em var(--color-primary);
 }
 
 
