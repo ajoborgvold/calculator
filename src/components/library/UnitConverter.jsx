@@ -22,7 +22,7 @@ const UnitConverter = ({ data }) => {
         if (conversionData.fromUnit && conversionData.toUnit && conversionData.input) {
             const getResult = handleConversion(data, conversionData)
             const toUnitData = data.units.find(unit => unit.name === conversionData.toUnit)
-            setResult(formatResult(getResult, data))
+            setResult(formatResult(getResult))
             setToUnitAbbreviation(toUnitData.abbreviation)
         } else {
             setResult(null)

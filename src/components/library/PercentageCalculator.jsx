@@ -5,7 +5,7 @@ import { capitalizeFirstLetter, formatResult, handleChange } from "../../utils/u
 const PercentageCalculator = ({ heading, type, nameA, nameB, text, unit }) => {
     const [data, setData] = useState({ nameA: '', nameB: '' })
     const [result, setResult] = useState(null)
-    
+
     useEffect(() => {
         let newResult = 0
 
@@ -28,7 +28,9 @@ const PercentageCalculator = ({ heading, type, nameA, nameB, text, unit }) => {
     return (
         <div className="calculator-item-wrapper pct-item-wrapper">
             <h2 className="sub-heading">{capitalizeFirstLetter(heading)}</h2>
-            <form className="form pct-form">
+            <form
+                className="form pct-form"
+            >
                 <div className="inner-wrapper">
                     <p>{capitalizeFirstLetter(text.a)}</p>
                     <Input

@@ -42,12 +42,8 @@ function handleConversion(data, conversionData) {
 function formatResult(num, data) {
     const formattedResult = num.toFixed(2)
 
-    if (data?.name === "temperature") {
-        return formattedResult.endsWith(".00") ? num.toFixed(0) : formattedResult
-    } else {
-        return num < 0.01 ? "(rounded to) 0.00"
-            : formattedResult.endsWith(".00") ? num.toFixed(0) : formattedResult
-    }
+    return num < 0.01 && num > 0 ? "(rounded to) 0.00"
+        : formattedResult.endsWith(".00") ? num.toFixed(0) : formattedResult
 }
 
 

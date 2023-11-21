@@ -8,6 +8,7 @@ const Input = props => {
                 type="number"
                 name={name}
                 id={id}
+                inputMode="decimal"
                 placeholder="0"
                 value={value}
                 onChange={handleChange}
