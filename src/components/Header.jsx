@@ -98,8 +98,10 @@ const Header = () => {
     /** Create header element based on the user's window width **/
     const headerEl = windowWidth < 768 ?
         <div className="header--small">
-            <FiMenu onClick={toggleMenu} onKeyDown={toggleMenu} className="icon menu-icon" tabIndex="0" />
-            {isMenuOpen && <NavBar navClass="header__nav-bar--vertical" isMenuOpen={isMenuOpen} closeMenu={closeMenu} menuRef={menuRef} />}
+            <FiMenu onClick={toggleMenu} onKeyDown={toggleMenu} className="icon icon--border menu-icon" tabIndex="0" />
+            {isMenuOpen &&
+                <NavBar navClass="header__nav-bar--vertical" isMenuOpen={isMenuOpen} closeMenu={closeMenu} menuRef={menuRef} />
+            }
         </div>
         : <div className="header--large">
             <NavBar navClass="header__nav-bar--horizontal"/>
@@ -109,8 +111,8 @@ const Header = () => {
         <header>
             {headerEl}
             {theme === "light"
-                ? <HiMoon onClick={toggleTheme} onKeyDown={toggleTheme} className="icon theme-icon" tabIndex="0" /> 
-                : <HiOutlineSun onClick={toggleTheme} onKeyDown={toggleTheme} className="icon theme-icon" tabIndex="0" />}
+                ? <HiMoon onClick={toggleTheme} onKeyDown={toggleTheme} className="icon icon--border theme-icon" tabIndex="0" /> 
+                : <HiOutlineSun onClick={toggleTheme} onKeyDown={toggleTheme} className="icon icon--border theme-icon" tabIndex="0" />}
         </header>
     )
 }

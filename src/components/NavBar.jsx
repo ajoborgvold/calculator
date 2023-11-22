@@ -7,7 +7,9 @@ const NavBar = ({ navClass, isMenuOpen, closeMenu, menuRef }) => {
     return (
         <>
             <nav className={navClass} ref={menuRef && menuRef}>
-                {isMenuOpen && <CgClose onClick={closeMenu} onKeyDown={closeMenu} className="icon close-icon" tabIndex="0"/> }
+                {isMenuOpen &&
+                    <CgClose onClick={closeMenu} onKeyDown={closeMenu} className="icon icon--border close-icon" tabIndex="0"/>
+                }
                 <NavLink
                     to="/"
                     className={({ isActive }) => isActive ? `${navLinkClass} ${navLinkClass}--active` : `${navLinkClass}`}
