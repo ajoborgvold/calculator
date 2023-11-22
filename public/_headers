@@ -7,8 +7,8 @@
   Content-Type: application/javascript
 
 # For web manifests
-/site-dark.webmanifest?v=1.1
+/site-dark.webmanifest
   Content-Type: application/manifest+json
 
-/site-light.webmanifest?v=1.1
+/site-light.webmanifest
   Content-Type: application/manifest+json
