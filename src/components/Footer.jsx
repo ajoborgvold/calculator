@@ -6,9 +6,9 @@ const Footer = () => {
 
     return (
         <footer>
+            <a href="https://www.linkedin.com/in/ajo-borgvold/" target="_blank"><FaLinkedin className="icon icon--link"/></a>
             <p>&#169; {year} Ajo Borgvold</p>
             <a href="https://github.com/ajoborgvold/calculator" target="_blank"><FaGithubSquare className="icon icon--link"/></a>
-            <a href="https://www.linkedin.com/in/ajo-borgvold/" target="_blank"><FaLinkedin className="icon icon--link"/></a>
         </footer>
     )
 }
