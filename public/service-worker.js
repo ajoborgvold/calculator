@@ -5,7 +5,8 @@ self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(cacheName).then((cache) => {
             return cache.addAll([
-                '/src/assets/site-light.webmanifest?v=1.1',
+                '/site-light.webmanifest?v=1.1',
+                '/site-dark.webmanifest?v1=1.1'
                 // Add other files you want to cache...
             ]);
         })
