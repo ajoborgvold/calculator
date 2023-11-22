@@ -7,6 +7,7 @@ for (let i = 1; i <= 31; i++) {
 
 export const monthsArray = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
 
+export const weekdaysArray = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
 
 export const timeData = [
     {

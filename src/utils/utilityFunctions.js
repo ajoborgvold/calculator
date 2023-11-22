@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import { weekdaysArray } from "../data/timeData";
 
 
 //=== FORMATTING OF STRINGS AND NUMBERS ===//
@@ -113,7 +114,7 @@ function calculateTime(name, setResult, setIsError, setIsProcessing, setErrorMes
             setErrorMessage("")
         }
 
-        calculateTimePassed(setResult, processedDate, currentDate, timeDiffInMs)
+        calculateTimePassed(setResult, selectedDate, processedDate, currentDate, timeDiffInMs)
     }
     else if (name === "future time") {
         const timeDiffInMs = selectedDate - currentDate
@@ -137,7 +138,7 @@ function calculateTime(name, setResult, setIsError, setIsProcessing, setErrorMes
 }
 
 
-function calculateTimePassed(setResult, processedDate, currentDate, timeDiffInMs) {
+function calculateTimePassed(setResult, selectedDate, processedDate, currentDate, timeDiffInMs) {
     const yearsPassed = Math.floor(timeDiffInMs / (1000 * 60 * 60 * 24 * 365))
     processedDate.setFullYear(processedDate.getFullYear() + yearsPassed)
 
@@ -148,10 +149,13 @@ function calculateTimePassed(setResult, processedDate, currentDate, timeDiffInMs
     let dayDiff = processedDate.getDate() - currentDate.getDate()
     dayDiff = adjustDayDifference(dayDiff, currentDate)
 
+    const weekday = capitalizeFirstLetter(weekdaysArray[selectedDate.getDay()])
+
     setResult({
         years: yearsPassed,
         months: monthsPassed,
         days: dayDiff,
+        weekday: weekday
     })
 }
 
@@ -176,10 +180,13 @@ function calculateFutureTime(setResult, selectedDate, currentDate, timeDiffInMs)
     let dayDiff = selectedDate.getDate() - currentDate.getDate()
     dayDiff = adjustDayDifference(dayDiff, currentDate)
 
+    const weekday = capitalizeFirstLetter(weekdaysArray[selectedDate.getDay()])
+
     setResult({
         years: yearsToCome,
         months: monthsToCome,
         days: dayDiff,
+        weekday: weekday
     });
 }
 
@@ -195,6 +202,7 @@ function adjustDayDifference(dayDiff, currentDate) {
     }
     return dayDiff;
 }
+
 
 export { 
     formatResult,

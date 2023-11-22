@@ -68,6 +68,7 @@ p {
 .p--warning {
   color: var(--color-warning);
   font-weight: 500;
+  margin: 0 auto;
   letter-spacing: .05em;
 }
 

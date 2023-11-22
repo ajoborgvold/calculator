@@ -84,26 +84,30 @@ const TimeCalculator = ({ name, heading, description }) => {
                     />
                 </div>
                 <div className="inner-wrapper space-between result-wrapper">
+                    {isError && <p className="p--large p--warning">{isProcessing ? "One moment please..." : errorMessage}</p>}
                     {!isError && !isDetailsSelected && <p className="p--large">Result:</p>}
                     {result && !isDetailsSelected && !isError && <p className="p--large">{result.years} years</p>}
-                    {result && isDetailsSelected && !isError &&
+                    {isDetailsSelected && !isError &&
                         <div className="inner-wrapper flex-column">
                             <div className="space-between">
-                                <p  className="p--large">Years:</p>
-                                <p  className="p--large">{result.years}</p>
+                                <p>Years:</p>
+                                {result && <p>{result.years}</p>}
                             </div>
                             <div className="space-between">
-                                <p  className="p--large">Months:</p>
-                                <p  className="p--large">{result.months}</p>
+                                <p>Months:</p>
+                                {result && <p>{result.months}</p>}
                             </div>
                             <div className="space-between">
-                                <p  className="p--large">Days:</p>
-                                <p  className="p--large">{result.days}</p>
+                                <p>Days:</p>
+                                {result && <p>{result.days}</p>}
+                            </div>
+                            <div className="space-between">
+                                <p>Weekday:</p>
+                                {result && <p>{result.weekday}</p>}
                             </div>
                         </div>
                     }
 
-                    {isError && <p className="p--large p--warning">{isProcessing ? "One moment please..." : errorMessage}</p>}
                 </div>
             </form>
         </div>
