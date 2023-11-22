@@ -85,7 +85,7 @@ const Header = () => {
     function updateManifest(theme) {
         const manifestLink = document.querySelector('link[rel="manifest"]')
         if (manifestLink) {
-            const manifestFileName = `/site-${theme}.webmanifest?v=1.1`
+            const manifestFileName = `/site-${theme}.webmanifest`
             manifestLink.setAttribute('href', manifestFileName)
         }
     }
