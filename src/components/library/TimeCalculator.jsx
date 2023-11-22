@@ -27,12 +27,6 @@ const TimeCalculator = ({ name, heading, description }) => {
         }
     }, [timeCalculationData])
 
-    // const resultToDisplay = result && isDetailsSelected ? `${result.years} years, ${result.months} months, ${result.days} days`
-    //     : result ? `${result.years} years` : ""
-
-    const simpleResult = result ? `${result.years} years` : ""
-    // const detailedResult = result && isDetailsSelected ? 
-
     return (
         <div className="calculator-item-wrapper">
             <div>

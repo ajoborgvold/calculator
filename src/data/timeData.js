@@ -12,8 +12,8 @@ export const weekdaysArray = ["sunday", "monday", "tuesday", "wednesday", "thurs
 export const timeData = [
     {
         name: "time passed",
-        heading: "calculate age",
-        description: "how much time has passed up till today's date?"
+        heading: "calculate elapsed time",
+        description: "up till today's date, how long has this been going on?"
     },
     {
         name: "future time",
