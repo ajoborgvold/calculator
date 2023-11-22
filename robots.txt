@@ -1,4 +1,4 @@
-User-agent: *
-Disallow: 
-Disallow: /cgi-bin/
-Sitemap: https://calculator-ajo-b.netlify.app/sitemap.xml
+User-agent:*
+Disallow:
+Disallow:/cgi-bin/
+Sitemap:https://calculator-ajo-b.netlify.app/sitemap.xml
