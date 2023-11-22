@@ -27,8 +27,11 @@ const TimeCalculator = ({ name, heading, description }) => {
         }
     }, [timeCalculationData])
 
-    const resultToDisplay = result && isDetailsSelected ? `${result.years} years, ${result.months} months, ${result.days} days`
-        : result ? `${result.years} years` : ""
+    // const resultToDisplay = result && isDetailsSelected ? `${result.years} years, ${result.months} months, ${result.days} days`
+    //     : result ? `${result.years} years` : ""
+
+    const simpleResult = result ? `${result.years} years` : ""
+    // const detailedResult = result && isDetailsSelected ? 
 
     return (
         <div className="calculator-item-wrapper">
@@ -81,9 +84,26 @@ const TimeCalculator = ({ name, heading, description }) => {
                     />
                 </div>
                 <div className="inner-wrapper space-between result-wrapper">
-                    {!isError && <p className="p--large">Result:</p>}
-                    {result && !isError && <p className="p--large">{resultToDisplay}</p>}
-                    {isError && <p className="p--warning">{isProcessing ? "One moment please..." : errorMessage}</p>}
+                    {!isError && !isDetailsSelected && <p className="p--large">Result:</p>}
+                    {result && !isDetailsSelected && !isError && <p className="p--large">{result.years} years</p>}
+                    {result && isDetailsSelected && !isError &&
+                        <div className="inner-wrapper flex-column">
+                            <div className="space-between">
+                                <p  className="p--large">Years:</p>
+                                <p  className="p--large">{result.years}</p>
+                            </div>
+                            <div className="space-between">
+                                <p  className="p--large">Months:</p>
+                                <p  className="p--large">{result.months}</p>
+                            </div>
+                            <div className="space-between">
+                                <p  className="p--large">Days:</p>
+                                <p  className="p--large">{result.days}</p>
+                            </div>
+                        </div>
+                    }
+
+                    {isError && <p className="p--large p--warning">{isProcessing ? "One moment please..." : errorMessage}</p>}
                 </div>
             </form>
         </div>

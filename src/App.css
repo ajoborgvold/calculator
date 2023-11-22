@@ -24,7 +24,8 @@ body[data-theme="light"] {
   --bg-secondary: #A7BBCE;
   --bg-secondary-opacity: #A7BBCEF7;
   --color-primary: #182737;
-  --color-warning: #601414;
+  --color-warning: #7b0737;
+
 }
 
 
@@ -383,8 +384,15 @@ footer p {
   gap: .5em;
 }
 
+.flex-column {
+  flex-direction: column;
+  width: 100%;
+}
+
 .space-between {
+  display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 .result-wrapper {
