@@ -2,6 +2,7 @@ import { useCallback, useRef, useState, useEffect } from "react"
 import NavBar from "./NavBar"
 import { FiMenu } from "react-icons/fi"
 import { HiOutlineSun } from "react-icons/hi"
+// import { HiOutlineSun } from "react-icons/hi2";
 import { HiMoon } from "react-icons/hi2"
 import { useClickOutside } from "../utils/utilityFunctions"
 
@@ -98,7 +99,14 @@ const Header = () => {
     /** Create header element based on the user's window width **/
     const headerEl = windowWidth < 768 ?
         <div className="header--small">
-            <FiMenu onClick={toggleMenu} onKeyDown={toggleMenu} className="icon icon--border menu-icon" tabIndex="0" />
+            <FiMenu
+                onClick={toggleMenu}
+                onKeyDown={toggleMenu}
+                className="icon icon--border menu-icon"
+                tabIndex="0"
+                aria-hidden="false"
+                aria-label="Open navigation menu"
+            />
             {isMenuOpen &&
                 <NavBar navClass="header__nav-bar--vertical" isMenuOpen={isMenuOpen} closeMenu={closeMenu} menuRef={menuRef} />
             }
@@ -111,8 +119,23 @@ const Header = () => {
         <header>
             {headerEl}
             {theme === "light"
-                ? <HiMoon onClick={toggleTheme} onKeyDown={toggleTheme} className="icon icon--border theme-icon" tabIndex="0" /> 
-                : <HiOutlineSun onClick={toggleTheme} onKeyDown={toggleTheme} className="icon icon--border theme-icon" tabIndex="0" />}
+                ? <HiMoon 
+                    onClick={toggleTheme}
+                    onKeyDown={toggleTheme}
+                    className="icon icon--border theme-icon"
+                    tabIndex="0"
+                    aria-hidden="false"
+                    aria-label="Switch to dark mode"
+                /> 
+                : <HiOutlineSun
+                    onClick={toggleTheme}
+                    onKeyDown={toggleTheme}
+                    className="icon icon--border theme-icon"
+                    tabIndex="0"
+                    aria-hidden="false"
+                    aria-label="Switch to light mode"
+                />
+            }
         </header>
     )
 }

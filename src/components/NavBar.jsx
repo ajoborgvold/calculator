@@ -8,7 +8,14 @@ const NavBar = ({ navClass, isMenuOpen, closeMenu, menuRef }) => {
         <>
             <nav className={navClass} ref={menuRef && menuRef}>
                 {isMenuOpen &&
-                    <CgClose onClick={closeMenu} onKeyDown={closeMenu} className="icon icon--border close-icon" tabIndex="0"/>
+                    <CgClose
+                        onClick={closeMenu}
+                        onKeyDown={closeMenu}
+                        className="icon icon--border close-icon"
+                        tabIndex="0"
+                        aria-hidden="false"
+                        aria-label="Close navigation menu"
+                    />
                 }
                 <NavLink
                     to="/"
