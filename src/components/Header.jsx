@@ -83,11 +83,8 @@ const Header = () => {
     }
 
     function updateManifest(theme) {
-        const manifestLink = document.querySelector('link[rel="manifest"]')
-        if (manifestLink) {
-            const manifestFileName = `/site-${theme}.webmanifest`
-            manifestLink.setAttribute('href', manifestFileName)
-        }
+        const themeColor = theme === 'dark' ? '#27405C' : '#A7BBCE'
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', themeColor);
     }
 
     /** Handle hamburger menu state **/
