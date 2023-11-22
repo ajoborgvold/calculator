@@ -45,8 +45,10 @@ const Header = () => {
 
         if (userThemePref) {
             setTheme(userThemePref)
+            updateManifest(userThemePref)
         } else {
             setTheme(mediaQueryPref)
+            updateManifest(mediaQueryPref)
         }
 
         document.body.dataset.theme = theme
@@ -78,6 +80,14 @@ const Header = () => {
 
     function getUserThemePref() {
         return localStorage.getItem('theme')
+    }
+
+    function updateManifest(theme) {
+        const manifestLink = document.querySelector('link[rel="manifest"]')
+        if (manifestLink) {
+            const manifestFileName = `/site-${theme}.webmanifest`
+            manifestLink.setAttribute('href', manifestFileName)
+        }
     }
 
     /** Handle hamburger menu state **/
