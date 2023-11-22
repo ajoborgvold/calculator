@@ -1,5 +1,8 @@
 /public/robots.txt
   Content-Type: text/plain
 
-/site.webmanifest
+/site-dark.webmanifest
+  Content-Type: application/json
+
+/site-light.webmanifest
   Content-Type: application/json

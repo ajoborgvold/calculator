@@ -1,3 +1,4 @@
 /* /index.html 200
 /robots.txt /public/robots.txt 200
-/site.webmanifest /site.webmanifest 200
+/site-dark.webmanifest /site-dark.webmanifest 200
+/site-light.webmanifest /site-light.webmanifest 200
