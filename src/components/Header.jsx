@@ -84,6 +84,7 @@ const Header = () => {
 
     function updateManifest(theme) {
         const themeColor = theme === 'dark' ? '#27405C' : '#A7BBCE'
+        // console.log(themeColor)
         document.querySelector('meta[name="theme-color"]').setAttribute('content', themeColor);
     }
 
