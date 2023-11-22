@@ -3,5 +3,12 @@
   Content-Type: text/plain
 
 # For service-worker.js
-/service-worker.js
+/public/service-worker.js
   Content-Type: application/javascript
+
+# For web manifests
+/site-dark.webmanifest?v=1.1
+  Content-Type: application/manifest+json
+
+/site-light.webmanifest?v=1.1
+  Content-Type: application/manifest+json
