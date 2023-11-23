@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Input from "./Input"
 import { capitalizeFirstLetter, formatResult, handleChange } from "../../utils/utilityFunctions"
 
 const PercentageCalculator = ({ heading, type, nameA, nameB, text, unit }) => {
     const [data, setData] = useState({ nameA: '', nameB: '' })
     const [result, setResult] = useState(null)
+    const calculatorRef = useRef(null)
 
     useEffect(() => {
         let newResult = 0
@@ -26,7 +27,7 @@ const PercentageCalculator = ({ heading, type, nameA, nameB, text, unit }) => {
     const resultToDisplay = result && unit ? `${result} ${unit}` : result ? result : ''
 
     return (
-        <div className="calculator-item-wrapper pct-item-wrapper">
+        <div className="calculator-item-wrapper pct-item-wrapper" id={type} ref={calculatorRef}>
             <h2 className="sub-heading">{capitalizeFirstLetter(heading)}</h2>
             <form
                 className="form pct-form"

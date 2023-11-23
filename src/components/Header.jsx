@@ -5,7 +5,7 @@ import { FiMenu } from "react-icons/fi"
 import { FaHome } from "react-icons/fa"
 import { HiOutlineSun } from "react-icons/hi"
 import { HiMoon } from "react-icons/hi2"
-import { useClickOutside } from "../utils/utilityFunctions"
+import { getWindowWidth, useClickOutside } from "../utils/utilityFunctions"
 
 const Header = () => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth)
@@ -13,18 +13,7 @@ const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const menuRef = useRef()
 
-    /** Track the window width of the user's device **/
-    useEffect(() => {
-        function handleResize() {
-            setWindowWidth(window.innerWidth)
-        }
-        window.addEventListener('resize', handleResize)
-
-        return () => {
-            window.removeEventListener('resize', handleResize)
-        }
-    }, [])
-
+    /** Close the vertical menu on smaller screens with keyboard navigation by pressing the escape key **/
     useEffect(() => {
         function handleKeyDown(e) {
             if (e.key === "Escape") {
@@ -38,6 +27,9 @@ const Header = () => {
             document.removeEventListener("keydown", handleKeyDown);
         };
     }, []);
+
+    /** Track the user's window width **/
+    getWindowWidth(setWindowWidth)
 
     /** Handle the user's app color theme preferences **/
     useEffect(() => {
@@ -85,7 +77,6 @@ const Header = () => {
 
     function updateManifest(theme) {
         const themeColor = theme === 'dark' ? '#27405C' : '#A7BBCE'
-        // console.log(themeColor)
         document.querySelector('meta[name="theme-color"]').setAttribute('content', themeColor);
     }
 

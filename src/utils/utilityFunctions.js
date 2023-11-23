@@ -21,6 +21,21 @@ function formatResult(num) {
 }
 
 
+//=== TRACK THE USER'S WINDOW WIDTH ===//
+function getWindowWidth(setWindowWidth) {
+    useEffect(() => {
+        function handleResize() {
+            setWindowWidth(window.innerWidth)
+        }
+        window.addEventListener('resize', handleResize)
+
+        return () => {
+            window.removeEventListener('resize', handleResize)
+        }
+    }, [setWindowWidth])
+}
+
+
 //=== CLOSE VERTICAL MENU, RENDERED ON SMALLER SCREENS, ON CLICK OUTSIDE THE MENU ===//
 function useClickOutside(ref, handler) {
     useEffect(() => {
@@ -208,6 +223,7 @@ export {
     formatResult,
     capitalizeFirstLetter,
     isVowel,
+    getWindowWidth,
     useClickOutside,
     handleChange,
     handleConversion,
