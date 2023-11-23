@@ -38,10 +38,10 @@ const Header = () => {
 
         if (userThemePref) {
             setTheme(userThemePref)
-            updateManifest(userThemePref)
+            updatePWAThemeColor(userThemePref)
         } else {
             setTheme(mediaQueryPref)
-            updateManifest(mediaQueryPref)
+            updatePWAThemeColor(mediaQueryPref)
         }
 
         document.body.dataset.theme = theme
@@ -75,7 +75,7 @@ const Header = () => {
         return localStorage.getItem('theme')
     }
 
-    function updateManifest(theme) {
+    function updatePWAThemeColor(theme) {
         const themeColor = theme === 'dark' ? '#27405C' : '#A7BBCE'
         document.querySelector('meta[name="theme-color"]').setAttribute('content', themeColor);
     }

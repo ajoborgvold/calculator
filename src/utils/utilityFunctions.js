@@ -219,7 +219,7 @@ function adjustDayDifference(dayDiff, currentDate) {
 }
 
 
-export { 
+export {
     formatResult,
     capitalizeFirstLetter,
     isVowel,

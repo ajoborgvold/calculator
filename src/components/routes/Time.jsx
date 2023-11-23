@@ -1,8 +1,12 @@
-import { useEffect, useState } from "react"
-import { daysArray, monthsArray, timeData } from "../../data/timeData"
+import { useEffect } from "react"
+import { timeData } from "../../data/timeData"
 import TimeCalculator from "../library/TimeCalculator"
 
 const Time = () => {
+    useEffect(() => {
+        document.title = "Time calculation"
+    }, [])
+
     const timeCalculatorEl = timeData.map(item => {
         return (
             <TimeCalculator
