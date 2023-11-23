@@ -1,7 +1,7 @@
 {
     "name": "Calculator",
     "short_name": "Calculator",
-    "start_url": "https://calculator-ajo-b.netlify.app",
+    "start_url": ".",
     "icons":
         [
             {

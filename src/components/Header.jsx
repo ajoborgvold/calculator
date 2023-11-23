@@ -1,8 +1,9 @@
 import { useCallback, useRef, useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 import NavBar from "./NavBar"
 import { FiMenu } from "react-icons/fi"
+import { FaHome } from "react-icons/fa"
 import { HiOutlineSun } from "react-icons/hi"
-// import { HiOutlineSun } from "react-icons/hi2";
 import { HiMoon } from "react-icons/hi2"
 import { useClickOutside } from "../utils/utilityFunctions"
 
@@ -126,11 +127,20 @@ const Header = () => {
     return (
         <header>
             {headerEl}
+            {windowWidth < 768 &&
+                <Link to="/" className="a--icon">
+                    <FaHome
+                        className="icon icon--link"
+                        aria-hidden="false"
+                        aria-label="Go to home page"
+                    />
+                </Link>
+            }
             {theme === "light"
                 ? <HiMoon 
                     onClick={toggleTheme}
                     onKeyDown={toggleTheme}
-                    className="icon icon--border theme-icon"
+                    className="icon theme-icon"
                     tabIndex="0"
                     aria-hidden="false"
                     aria-label="Switch to dark mode"
@@ -138,7 +148,7 @@ const Header = () => {
                 : <HiOutlineSun
                     onClick={toggleTheme}
                     onKeyDown={toggleTheme}
-                    className="icon icon--border theme-icon"
+                    className="icon theme-icon"
                     tabIndex="0"
                     aria-hidden="false"
                     aria-label="Switch to light mode"

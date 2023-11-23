@@ -11,7 +11,7 @@ const NavBar = ({ navClass, isMenuOpen, closeMenu, menuRef }) => {
                     <CgClose
                         onClick={closeMenu}
                         onKeyDown={closeMenu}
-                        className="icon icon--border close-icon"
+                        className="icon close-icon"
                         tabIndex="0"
                         aria-hidden="false"
                         aria-label="Close navigation menu"
