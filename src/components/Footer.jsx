@@ -1,11 +1,20 @@
+import { useState } from "react"
 import { FaGithub, FaLinkedinIn } from "react-icons/fa"
+import { getWindowWidth } from "../utils/utilityFunctions"
 
 const Footer = () => {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+    
+    /** Track the user's window width **/
+    getWindowWidth(setWindowWidth)
+
+    const footerClass = windowWidth < 768 ? "footer--small-screen" : "footer--large-screen"
+
     const date = new Date()
     const year = date.getFullYear()
 
     return (
-        <footer>
+        <footer className={footerClass}>
             <a
                 href="https://www.linkedin.com/in/ajo-borgvold/"
                 target="_blank"
