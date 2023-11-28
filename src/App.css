@@ -206,16 +206,13 @@ a {
   box-shadow: 0 0 .5em var(--color-primary);
 }
 
-
-/* Checkbox elements */
 input[type="checkbox"]:hover,
 input[type="checkbox"]:focus,
 input[type="checkbox"]:active {
   outline: 1px solid var(--color-primary);
-  cursor: pointer;
   box-shadow: 0 0 .5em var(--color-primary);
+  cursor: pointer;
 }
-
 
 
 /* Select elements */

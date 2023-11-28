@@ -27,6 +27,8 @@ const TimeCalculator = ({ name, heading, description }) => {
         }
     }, [timeCalculationData])
 
+    const weekdayText = name === "time passed" ? "It began on a:" : "It ends on a:"
+
     return (
         <div className="calculator-item-wrapper">
             <div>
@@ -74,7 +76,6 @@ const TimeCalculator = ({ name, heading, description }) => {
                         id={`${name}-checkbox`}
                         value={isDetailsSelected}
                         onChange={() => setIsDetailsSelected(!isDetailsSelected)}
-                        className="custom-checkbox"
                     />
                 </div>
                 <div className="inner-wrapper space-between result-wrapper">
@@ -96,7 +97,7 @@ const TimeCalculator = ({ name, heading, description }) => {
                                 {result && <p>{result.days}</p>}
                             </div>
                             <div className="space-between">
-                                <p>Weekday:</p>
+                                <p>{weekdayText}</p>
                                 {result && <p>{result.weekday}</p>}
                             </div>
                         </div>
