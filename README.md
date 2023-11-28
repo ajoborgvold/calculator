@@ -39,7 +39,7 @@ This is my very first Progressive Web App. Turning the initial web app into a PW
 - Create a web manifest
 - Create a robots.txt file
 - Generate custom fav icons
-- Set the PWA theme_color and update it according to the user's choice of color mode, fetch either from the user's OS or from their previous selection stored in local storage
+- Set the PWA theme_color and update it according to the user's choice of color mode, fetched either from the user's OS or from their previous selection stored in local storage
 
 
 ## Future additions
