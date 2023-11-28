@@ -22,7 +22,7 @@ A progressive web app that allows you to calculate percentage, convert units (me
 ## Accessibility considerations
 1. All colors pass a WCAG AAA contrast check with a contrast ratio of at least 7:1.
 2. All icons that serve as links/buttons have aria-labels in order to provide technologies such as screen readers with textual information about the functionality of the icon in question.
-3. Most labels on form elements are visually hidden but accessible to screen readers and similar technologies. These visually hidden label texts provide explicit and exact information about the functionality of the form element in question. Visible on the screen are shorter texts in <p> tags giving the necessary information to any user navigating effortlessly with their vision.
+3. Most labels on form elements are visually hidden but accessible to screen readers and similar technologies. These visually hidden label texts provide explicit and exact information about the functionality of the form element in question. Visible on the screen are shorter texts giving the necessary information to any user navigating effortlessly with their vision.
 4. Keyboard navigation is possible on all devices, including touch devices.
 
 
