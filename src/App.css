@@ -51,7 +51,8 @@ body[data-theme="light"] {
   letter-spacing: .15em;
 }
 
-p {
+p,
+.label--visible {
   font-size: 1rem;
 }
 
@@ -206,6 +207,17 @@ a {
 }
 
 
+/* Checkbox elements */
+input[type="checkbox"]:hover,
+input[type="checkbox"]:focus,
+input[type="checkbox"]:active {
+  outline: 1px solid var(--color-primary);
+  cursor: pointer;
+  box-shadow: 0 0 .5em var(--color-primary);
+}
+
+
+
 /* Select elements */
 .select-wrapper {
   display: flex;
@@ -276,6 +288,10 @@ a {
   height: 1px;
   width: 1px;
   overflow: hidden;
+}
+
+.label--visible {
+  cursor: pointer;
 }
 
 

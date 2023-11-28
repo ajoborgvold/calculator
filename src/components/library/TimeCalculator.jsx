@@ -68,13 +68,13 @@ const TimeCalculator = ({ name, heading, description }) => {
                     />
                 </div>
                 <div className="inner-wrapper">
-                    <p>Give me all the details:</p>
-                    <label htmlFor={`${name}-checkbox`} className="label">Check this checkbox for a full calculation of years, months and days</label>
+                    <label htmlFor={`${name}-checkbox`} className="label--visible">Give me all the details:</label>
                     <input
                         type="checkbox"
                         id={`${name}-checkbox`}
                         value={isDetailsSelected}
                         onChange={() => setIsDetailsSelected(!isDetailsSelected)}
+                        className="custom-checkbox"
                     />
                 </div>
                 <div className="inner-wrapper space-between result-wrapper">
