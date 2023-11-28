@@ -43,6 +43,6 @@ This is my very first Progressive Web App. Turning the initial web app into a PW
 
 
 ## Future additions
-Now that this app is up and running, it is time to consider what could be improved or added to the app in the future
-- Custom form elements in order to allow even better custom styling of these elements
-- Adding week number to the time calculators
+Now that this app is up and running, here are some of my ideas to future improvements and additions:
+- Custom form elements that allow even better custom styling of these elements
+- Adding week numbers to the time calculators; displaying the week number of the selected date in the detailed result
