@@ -27,13 +27,13 @@ A progressive web app that allows you to calculate percentage, convert units (me
 
 
 ## Stumbling and learning points
-1. Writing clean and reusable code:
+### Writing clean and reusable code:
 The code of this app is like a puzzle, and each part of the app is built of several reusable components that are put together in different ways depending on the desired UI. Futhermore, the majority of the calculations are performed in utility functions that are reused for several different calculations. A few highlights of my leaning points:
 - I created my own component library containing both form element and calculator/converter element components.
 - I created a number of utility fuctions; some handle state management of form data and the calculations performed based on user input; others are used for e.g. capitalizing first letter in a string, formatting results of the calculations and limiting the number of decimal places, tracking the user's window width and changing the UI accordingly.
 - I managed to write less than 500 lines of CSS! A few classes defining various base layouts are reused across components/elements and combined with each other to achieve the desired layout of each component/element. This ensures a good readability and maintainability of the CSS code.
 
-2. Turning a web app into a PWA:
+### Turning a web app into a PWA:
 This is my very first Progressive Web App. Turning the initial web app into a PWA required a lot of hard work. Along the way, I've struggled with and learned how to e.g.:
 - Create a sitemap
 - Create a web manifest
