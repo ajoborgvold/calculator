@@ -17,6 +17,7 @@ This is a Progressive Web App that allows you to calculate percentage, convert u
 
 ## Screenshots
 ![Percentage calculation route](/src/assets/percentage-calculation-route.png)
+*The percentage calculation route*
 
 
 ## Technologies used
