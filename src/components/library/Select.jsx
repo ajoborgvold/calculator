@@ -7,7 +7,7 @@ const Select = ({ data, id, handleChange, defaultText, value, label, className }
         } else if (item.name) {
             const optionText = capitalizeFirstLetter(item.name)
             return (
-                <option key={item.name} value={item.name}>{optionText}</option>
+                <option key={item.name} value={item.name}>{optionText} ({item.abbreviation})</option>
             )
         } else {
             const optionText = capitalizeFirstLetter(item)

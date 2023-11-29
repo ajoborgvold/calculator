@@ -25,7 +25,6 @@ const UnitConversion = () => {
     return (
         <div className="main-container">
             <h1 className="main-heading">Unit conversion</h1>
-            {/* {nameFilter && <button onClick={handleFilterConverters} className="btn">Back to all converters</button>} */}
             <Select
                 data={Object.keys(unitData)}
                 id="filter-converters"

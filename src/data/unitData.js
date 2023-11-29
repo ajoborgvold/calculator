@@ -2,6 +2,7 @@ export const unitData = {
     length: {
         name: "length",
         baseUnit: "millimetre",
+        description: "measured in e.g.: cm, in, km, mi",
         units: [
             {
                 name: "millimetres",
@@ -53,6 +54,7 @@ export const unitData = {
     volume: {
         name: "volume",
         baseUnit: "millilitre",
+        description: "measured in e.g.: dl, fl oz, tsp, cups",
         units: [
             {
                 name: "millilitres",
@@ -119,6 +121,7 @@ export const unitData = {
     mass: {
         name: "mass",
         baseUnit: "gram",
+        description: "measured in e.g.: g, oz, kg, lb",
         units: [
             {
                 name: "milligrams",
@@ -170,6 +173,7 @@ export const unitData = {
     area: {
         name: "area",
         baseUnit: "square centimetre",
+        description: "measured in e.g.: cm², in², km², mi²",
         units: [
             {
                 name: "square centimetre",
@@ -211,6 +215,7 @@ export const unitData = {
     temperature: {
         name: "temperature",
         baseUnit: "celsius",
+        description: "measured in: °C & °F",
         units: [
             {
                 name: "celsius",

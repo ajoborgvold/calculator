@@ -30,11 +30,15 @@ const UnitConverter = ({ data }) => {
     }, [conversionData])
 
     const heading = capitalizeFirstLetter(data.name)
+    const description = capitalizeFirstLetter(data.description)
     const label = `Select ${isVowel(data.name[0]) ? "an" : "a"} ${data.name} unit`
 
     return (
         <div className="calculator-item-wrapper">
-            <h2 className="sub-heading">{heading}</h2>
+            <div>
+                <h2 className="sub-heading">{heading}</h2>
+                <p className="p--italic">{description}</p>
+            </div>
             <form className="form">
                 <div className="inner-wrapper space-between">
                     <p>Convert this number:</p>
