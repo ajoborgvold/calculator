@@ -108,11 +108,11 @@ const Header = () => {
                 aria-label="Open navigation menu"
             />
             {isMenuOpen &&
-                <NavBar navClass="header__nav-bar--vertical" isMenuOpen={isMenuOpen} closeMenu={closeMenu} menuRef={menuRef} />
+                <NavBar navClass="nav-bar--vertical" isMenuOpen={isMenuOpen} closeMenu={closeMenu} menuRef={menuRef} />
             }
         </div>
         : <div className="header--large">
-            <NavBar navClass="header__nav-bar--horizontal"/>
+            <NavBar navClass="nav-bar--horizontal"/>
         </div>
 
     return (

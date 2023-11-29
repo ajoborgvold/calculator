@@ -308,7 +308,11 @@ header {
   padding: .5em 0;
 }
 
-.header__nav-bar--vertical {
+.header--large {
+  padding: .75em 0;
+}
+
+.nav-bar--vertical {
   position: absolute;
   top: 0;
   left: -300px;
@@ -324,11 +328,7 @@ header {
   animation: slide 0.5s forwards;
 }
 
-.header--large {
-  padding: .75em 0;
-}
-
-.header__nav-bar--horizontal {
+.nav-bar--horizontal {
   display: flex;
   gap: 2em;
 }
