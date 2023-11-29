@@ -17,13 +17,13 @@ This is a Progressive Web App that allows you to calculate percentage, convert u
 
 ## Screenshots
 ![Percentage calculation route](/src/assets/percentage-calculation-route.png)
-*The percentage calculation route, showing two of the four calculators*
+*The percentage calculation route, showing two of the four calculators.*
 
 ![Unit conversion route](/src/assets/unit-conversion-route.png)
-*The unit conversion route, showing the length conversion element*
+*The unit conversion route, showing the length conversion element.*
 
 ![Time calculation route](/src/assets/time-calculation-route.png)
-*The time calculation route, showing the elapsed time calculator and the detailed result, i.e. the passed time in years, months and days and the weekday of the date selected by the user*
+*The time calculation route, showing the elapsed time calculator and the detailed result, i.e. the passed time in years, months and days and the weekday of the date selected by the user.*
 
 
 ## Technologies used
