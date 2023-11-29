@@ -4,7 +4,7 @@ This is a Progressive Web App that allows you to calculate percentage, convert u
 
 ## In this document:
 1. [App URL](#app-url)
-2. [Screenshots](#screenshots)
+2. [App screenshots](#screenshots)
 3. [Technologies used](#technologies-used)
 4. [Accessibility considerations](#accessibility-considerations)
 5. [Stumbling and learning points](#stumbling-and-learning-points)
@@ -15,7 +15,7 @@ This is a Progressive Web App that allows you to calculate percentage, convert u
 [https://calculator-ajo-b.netlify.app/](https://calculator-ajo-b.netlify.app/)
 
 
-## Screenshots
+## App screenshots
 ![Percentage calculation route](/src/assets/percentage-calculation-route.png)
 *The percentage calculation route, showing two of the four calculators.*
 
