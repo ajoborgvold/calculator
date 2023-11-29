@@ -1,17 +1,22 @@
 # Calculator
-A progressive web app that allows you to calculate percentage, convert units (metric/imperial), and calculate elapsed and future time. The UI is built with React.js and React Router, the layout is fully responsive, and the app is optimized to work equally well as a web app and a PWA on touch devices.
+This is a Progressive Web App that allows you to calculate percentage, convert units (metric/imperial), and calculate elapsed and future time. The UI is built with React.js and React Router, the layout is fully responsive, and the app is optimized to work equally well as a web app and a PWA on touch devices.
 
 
 ## In this document:
 1. [App URL](#app-url)
-2. [Technologies used](#technologies-used)
-3. [Accessibility considerations](#accessibility-considerations)
-4. [Stumbling and learning points](#stumbling-and-learning-points)
-5. [Future additions](#future-additions)
+2. [Screenshots](#screenshots)
+3. [Technologies used](#technologies-used)
+4. [Accessibility considerations](#accessibility-considerations)
+5. [Stumbling and learning points](#stumbling-and-learning-points)
+6. [Future additions](#future-additions)
 
 
 ## App URL
 [https://calculator-ajo-b.netlify.app/](https://calculator-ajo-b.netlify.app/)
+
+
+## Screenshots
+![Percentage calculation route](/src/assets/percentage-calculation-route.png)
 
 
 ## Technologies used
@@ -39,7 +44,7 @@ This is my very first Progressive Web App. Turning the initial web app into a PW
 - Create a web manifest
 - Create a robots.txt file
 - Generate custom fav icons
-- Set the PWA theme_color and update it according to the user's choice of color mode, fetched either from the user's OS or from their previous selection stored in local storage
+- Set the PWA theme color and update it according to the user's choice of color mode, fetched either from the user's OS or from their previous selection stored in local storage
 
 
 ## Future additions
