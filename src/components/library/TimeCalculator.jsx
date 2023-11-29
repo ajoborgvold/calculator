@@ -27,7 +27,7 @@ const TimeCalculator = ({ name, heading, description }) => {
         }
     }, [timeCalculationData])
 
-    const weekdayText = name === "time passed" ? "It all started on a:" : "It will end on a:"
+    const weekdayText = name === "time passed" ? "It all began on a:" : "It will happen on a:"
 
     return (
         <div className="calculator-item-wrapper">
