@@ -154,15 +154,28 @@ function calculateTime(name, setResult, setIsError, setIsProcessing, setErrorMes
 
 
 function calculateTimePassed(setResult, selectedDate, processedDate, currentDate, timeDiffInMs) {
-    const yearsPassed = Math.floor(timeDiffInMs / (1000 * 60 * 60 * 24 * 365))
+    let yearsPassed = Math.floor(timeDiffInMs / (1000 * 60 * 60 * 24 * 365))
     processedDate.setFullYear(processedDate.getFullYear() + yearsPassed)
+
+    if (currentDate < processedDate) {
+        processedDate.setFullYear(processedDate.getFullYear() - 1)
+        yearsPassed -= 1
+    }
 
     const monthDiff = currentDate.getMonth() - processedDate.getMonth()
     const monthsPassed = monthDiff < 0 ? 12 + monthDiff : monthDiff
     processedDate.setMonth(processedDate.getMonth() + monthsPassed)
 
-    let dayDiff = processedDate.getDate() - currentDate.getDate()
-    dayDiff = adjustDayDifference(dayDiff, currentDate)
+    let dayDiff = currentDate.getDate() - processedDate.getDate()
+
+    if (dayDiff < 0) {
+        const lastDayOfPrevMonth = new Date(
+            currentDate.getFullYear(),
+            currentDate.getMonth(),
+            0
+        ).getDate()
+        dayDiff = lastDayOfPrevMonth - processedDate.getDate() + currentDate.getDate()
+    }
 
     const weekday = capitalizeFirstLetter(weekdaysArray[selectedDate.getDay()])
 
@@ -193,7 +206,15 @@ function calculateFutureTime(setResult, selectedDate, currentDate, timeDiffInMs)
     currentDate.setMonth(currentDate.getMonth() + monthsToCome)
 
     let dayDiff = selectedDate.getDate() - currentDate.getDate()
-    dayDiff = adjustDayDifference(dayDiff, currentDate)
+
+    if (dayDiff < 0) {
+        const lastDayOfPrevMonth = new Date(
+        currentDate.getFullYear(),
+        currentDate.getMonth(),
+        0
+        ).getDate()
+        dayDiff += lastDayOfPrevMonth
+    }
 
     const weekday = capitalizeFirstLetter(weekdaysArray[selectedDate.getDay()])
 
@@ -203,19 +224,6 @@ function calculateFutureTime(setResult, selectedDate, currentDate, timeDiffInMs)
         days: dayDiff,
         weekday: weekday
     });
-}
-
-
-function adjustDayDifference(dayDiff, currentDate) {
-    if (dayDiff < 0) {
-        const lastDayOfPrevMonth = new Date(
-            currentDate.getFullYear(),
-            currentDate.getMonth(),
-            0
-        ).getDate();
-        dayDiff += lastDayOfPrevMonth;
-    }
-    return dayDiff;
 }
 
 
