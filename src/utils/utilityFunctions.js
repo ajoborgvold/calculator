@@ -163,8 +163,17 @@ function calculateTimePassed(setResult, selectedDate, processedDate, currentDate
     }
 
     const monthDiff = currentDate.getMonth() - processedDate.getMonth()
-    const monthsPassed = monthDiff < 0 ? 12 + monthDiff : monthDiff
-    processedDate.setMonth(processedDate.getMonth() + monthsPassed)
+    let monthsPassed = monthDiff < 0 ? 12 + monthDiff : monthDiff
+
+    if (processedDate.getDate() > currentDate.getDate()) {
+        monthsPassed--
+
+        if (monthsPassed < 0) {
+            monthsPassed += 12
+        }
+    }
+
+    currentDate.setMonth(currentDate.getMonth() + monthsPassed)
 
     let dayDiff = currentDate.getDate() - processedDate.getDate()
 
