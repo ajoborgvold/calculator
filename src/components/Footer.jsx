@@ -1,12 +1,8 @@
-import { useState } from "react"
 import { FaGithub, FaLinkedinIn } from "react-icons/fa"
-import { getWindowWidth } from "../utils/utilityFunctions"
+import useGetWindowWidth from "../hooks/useGetWindowWidth"
 
 const Footer = () => {
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth)
-    
-    /** Track the user's window width **/
-    getWindowWidth(setWindowWidth)
+    const windowWidth = useGetWindowWidth()
 
     const footerClass = windowWidth < 768 ? "footer--small-screen" : "footer--large-screen"
 
@@ -18,6 +14,7 @@ const Footer = () => {
             <a
                 href="https://www.linkedin.com/in/ajo-borgvold/"
                 target="_blank"
+                rel="noreferrer"
                 className="a--icon"
                 aria-hidden="false"
                 aria-label="Check out my LinkedIn profile"
@@ -28,6 +25,7 @@ const Footer = () => {
             <a
                 href="https://github.com/ajoborgvold/calculator"
                 target="_blank"
+                rel="noreferrer"
                 className="a--icon"
                 aria-hidden="false"
                 aria-label="Check out the GitHub repo for this app"

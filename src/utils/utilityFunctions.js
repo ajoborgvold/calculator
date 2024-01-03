@@ -1,17 +1,13 @@
-import { useEffect } from "react"
 import { weekdaysArray } from "../data/timeData";
-
 
 //=== FORMATTING OF STRINGS AND NUMBERS ===//
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
-
 function isVowel(letter) {
     return ['a', 'e', 'i', 'o', 'u'].includes(letter.toLowerCase());
 }
-
 
 function formatResult(num) {
     const formattedResult = num.toFixed(2)
@@ -19,53 +15,6 @@ function formatResult(num) {
     return num < 0.01 && num > 0 ? "(rounded to) 0.00"
         : formattedResult.endsWith(".00") ? num.toFixed(0) : formattedResult
 }
-
-
-//=== TRACK THE USER'S WINDOW WIDTH ===//
-function getWindowWidth(setWindowWidth) {
-    useEffect(() => {
-        function handleResize() {
-            setWindowWidth(window.innerWidth)
-        }
-        window.addEventListener('resize', handleResize)
-
-        return () => {
-            window.removeEventListener('resize', handleResize)
-        }
-    }, [setWindowWidth])
-}
-
-
-//=== CLOSE VERTICAL MENU, RENDERED ON SMALLER SCREENS, ON CLICK OUTSIDE THE MENU ===//
-function useClickOutside(ref, handler) {
-    useEffect(() => {
-        let startedInside = false
-        let startedWhenMounted = false
-
-        function listener(e) {
-            if (startedInside || !startedWhenMounted) return
-            if (!ref.current || ref.current.contains(e.target)) return
-
-            handler(e)
-        }
-
-        function validateEventStart(e) {
-            startedWhenMounted = ref.current
-            startedInside = ref.current && ref.current.contains(e.target)
-        }
-
-        document.addEventListener("mousedown", validateEventStart)
-        document.addEventListener("touchstart", validateEventStart)
-        document.addEventListener("click", listener)
-
-        return () => {
-            document.removeEventListener("mousedown", validateEventStart)
-            document.removeEventListener("touchstart", validateEventStart)
-            document.removeEventListener("click", listener)
-        }
-    }, [ref, handler])
-}
-
 
 //=== HANDLE FORM DATA BASED ON USER INPUT ===//
 function handleChange(e, key, setterFunction) {
@@ -152,7 +101,6 @@ function calculateTime(name, setResult, setIsError, setIsProcessing, setErrorMes
     }
 }
 
-
 function calculateTimePassed(setResult, selectedDate, processedDate, currentDate, timeDiffInMs) {
     let yearsPassed = Math.floor(timeDiffInMs / (1000 * 60 * 60 * 24 * 365))
     processedDate.setFullYear(processedDate.getFullYear() + yearsPassed)
@@ -195,7 +143,6 @@ function calculateTimePassed(setResult, selectedDate, processedDate, currentDate
         weekday: weekday
     })
 }
-
 
 function calculateFutureTime(setResult, selectedDate, currentDate, timeDiffInMs) {
     const yearsToCome = Math.floor(timeDiffInMs / (1000 * 60 * 60 * 24 * 365))
@@ -240,8 +187,6 @@ export {
     formatResult,
     capitalizeFirstLetter,
     isVowel,
-    getWindowWidth,
-    useClickOutside,
     handleChange,
     handleConversion,
     calculateTime
