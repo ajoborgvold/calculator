@@ -4,6 +4,7 @@ import Home from './components/routes/Home'
 import Percentage from './components/routes/Percentage'
 import Time from './components/routes/Time'
 import UnitConversion from './components/routes/UnitConversion'
+import Error from './components/Error'
 import './App.css'
 
 
@@ -31,6 +32,10 @@ function App() {
         }
       ]
     },
+    {
+      path: "*",
+      element: <Error />
+    }
   ])
 
   return (
