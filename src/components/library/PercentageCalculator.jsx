@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react"
+import { PropTypes } from "prop-types"
 import Input from "./Input"
 import { capitalizeFirstLetter, formatResult, handleChange } from "../../utils/utilityFunctions"
 
@@ -22,7 +23,7 @@ const PercentageCalculator = ({ heading, type, nameA, nameB, text, unit }) => {
         }
 
         data.nameA && data.nameB ? setResult(formatResult(newResult)) : setResult(null)
-    }, [data])
+    }, [data, type])
 
     const resultToDisplay = result && unit ? `${result} ${unit}` : result ? result : ''
 
@@ -64,6 +65,15 @@ const PercentageCalculator = ({ heading, type, nameA, nameB, text, unit }) => {
             </div>
         </div>
     )
+}
+
+PercentageCalculator.propTypes = {
+  heading: PropTypes.string,
+  type: PropTypes.string,
+  nameA: PropTypes.string,
+  nameB: PropTypes.string,
+  text: PropTypes.string,
+  unit: PropTypes.string,
 }
 
 export default PercentageCalculator

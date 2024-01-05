@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { PropTypes } from "prop-types"
 import Select from "./Select"
 import Input from "./Input"
 import { daysArray, monthsArray } from "../../data/timeData"
@@ -25,7 +26,7 @@ const TimeCalculator = ({ name, heading, description }) => {
             setResult(null)
             setIsError(false)
         }
-    }, [timeCalculationData])
+    }, [timeCalculationData, name])
 
     const weekdayText = name === "time passed" ? "It all began on a:" : "It will happen on a:"
 
@@ -107,6 +108,12 @@ const TimeCalculator = ({ name, heading, description }) => {
             </form>
         </div>
     )
+}
+
+TimeCalculator.propTypes = {
+  name: PropTypes.string,
+  heading: PropTypes.string,
+  description: PropTypes.string
 }
 
 export default TimeCalculator

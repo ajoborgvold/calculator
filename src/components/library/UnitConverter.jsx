@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { PropTypes } from "prop-types"
 import Select from "./Select"
 import Input from "./Input"
 import {
@@ -27,7 +28,7 @@ const UnitConverter = ({ data }) => {
         } else {
             setResult(null)
         }
-    }, [conversionData])
+    }, [data, conversionData])
 
     const heading = capitalizeFirstLetter(data.name)
     const description = capitalizeFirstLetter(data.description)
@@ -79,6 +80,10 @@ const UnitConverter = ({ data }) => {
             </div>
         </div>
     )
+}
+
+UnitConverter.propTypes = {
+    data: PropTypes.string
 }
 
 export default UnitConverter

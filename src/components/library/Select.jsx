@@ -1,3 +1,4 @@
+import { PropTypes } from "prop-types"
 import { capitalizeFirstLetter } from "../../utils/utilityFunctions"
 
 const Select = ({ data, id, handleChange, defaultText, value, label, className }) => {
@@ -26,6 +27,16 @@ const Select = ({ data, id, handleChange, defaultText, value, label, className }
             </select>
         </>
     )
+}
+
+Select.propTypes = {
+    data: PropTypes.string,
+    id: PropTypes.string,
+    handleChange: PropTypes.func,
+    defaultText: PropTypes.string,
+    value: PropTypes.string,
+    label: PropTypes.string,
+    className: PropTypes.string
 }
 
 export default Select
