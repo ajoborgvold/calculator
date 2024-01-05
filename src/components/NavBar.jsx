@@ -3,8 +3,6 @@ import { NavLink } from "react-router-dom"
 import { CgClose } from "react-icons/cg"
 
 const NavBar = ({ navClass, isMenuOpen, closeMenu, menuRef }) => {
-  console.log(typeof menuRef)
-
   const navLinkClass =
     navClass === "nav-bar--vertical" ? "nav-link--border" : "nav-link--bare"
 
