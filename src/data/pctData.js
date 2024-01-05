@@ -1,56 +1,56 @@
 export const pctData = [
-    {
-        heading: "from pct to number",
-        type: "pctToNum",
-        nameA: "pctToNumberNumOne",
-        nameB: "pctToNumberNumTwo",
-        text: {
-            a: "what is",
-            b: "pct",
-            c: "of the number",
-            d: "?",
-            e: ""
-        }
+  {
+    heading: "from pct to number",
+    type: "pctToNum",
+    nameA: "pctToNumberNumOne",
+    nameB: "pctToNumberNumTwo",
+    text: {
+      a: "what is",
+      b: "pct",
+      c: "of the number",
+      d: "?",
+      e: "",
     },
-    {
-        heading: "from number to pct",
-        type: "numToPct",
-        nameA: "numberToPctNumOne",
-        nameB: "numberToPctNumTwo",
-        text: {
-            a: "the number",
-            b: "",
-            c: "is what pct of the number",
-            d: "?",
-            e: ""
-        },
-        unit: "%"
+  },
+  {
+    heading: "from number to pct",
+    type: "numToPct",
+    nameA: "numberToPctNumOne",
+    nameB: "numberToPctNumTwo",
+    text: {
+      a: "the number",
+      b: "",
+      c: "is what pct of the number",
+      d: "?",
+      e: "",
     },
-    {
-        heading: "change in pct",
-        type: "changeInPct",
-        nameA: "changeInPctNumOne",
-        nameB: "changeInPctNumTwo",
-        text: {
-            a: "a change from the number",
-            b: "",
-            c: "to the number",
-            d: "",
-            e: "is what in pct?"
-        },
-        unit: "%"
+    unit: "%",
+  },
+  {
+    heading: "change in pct",
+    type: "changeInPct",
+    nameA: "changeInPctNumOne",
+    nameB: "changeInPctNumTwo",
+    text: {
+      a: "a change from the number",
+      b: "",
+      c: "to the number",
+      d: "",
+      e: "is what in pct?",
     },
-    {
-        heading: "find the total sum",
-        type: "pctOfTotal",
-        nameA: "fromPctToTotalNumOne",
-        nameB: "fromPctToTotalNumTwo",
-        text: {
-            a: "when",
-            b: "pct",
-            c: "is equal to the number",
-            d: "",
-            e: "the total sum is what?"
-        }
-    }
+    unit: "%",
+  },
+  {
+    heading: "find the total sum",
+    type: "pctOfTotal",
+    nameA: "fromPctToTotalNumOne",
+    nameB: "fromPctToTotalNumTwo",
+    text: {
+      a: "when",
+      b: "pct",
+      c: "is equal to the number",
+      d: "",
+      e: "the total sum is what?",
+    },
+  },
 ]
