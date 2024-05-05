@@ -7,11 +7,37 @@ import { HiOutlineSun } from "react-icons/hi"
 import { HiMoon } from "react-icons/hi2"
 import useClickOutside from "../hooks/useClickOutside"
 import useGetWindowWidth from "../hooks/useGetWindowWidth"
+import { useMediaQuery } from "react-responsive"
 
 const Header = () => {
-  const [theme, setTheme] = useState("light")
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const menuRef = useRef()
+
+  /** Handle user's app color preferences **/
+  const systemPrefersDark = useMediaQuery(
+    { query: "(prefers-color-scheme: dark)" },
+    undefined,
+    (prefersDark) => setIsDark(prefersDark)
+  )
+
+  const [isDark, setIsDark] = useState(systemPrefersDark)
+
+  useEffect(() => {
+    const newTheme = isDark ? "dark" : "light"
+    document.body.dataset.theme = newTheme
+    updatePWAThemeColor(newTheme)
+  }, [isDark])
+
+  function updatePWAThemeColor(theme) {
+    const themeColor = theme === "dark" ? "#27405C" : "#A7BBCE"
+    document
+      .querySelector('meta[name="theme-color"]')
+      .setAttribute("content", themeColor)
+  }
+
+  function toggleDark() {
+    setIsDark(!isDark)
+  }
 
   /** Close the vertical menu on smaller screens with keyboard navigation by pressing the escape key **/
   useEffect(() => {
@@ -27,56 +53,6 @@ const Header = () => {
       document.removeEventListener("keydown", handleKeyDown)
     }
   }, [])
-
-  /** Handle the user's app color theme preferences **/
-  useEffect(() => {
-    const userThemePref = getUserThemePref()
-    const mediaQueryPref = getMediaQueryPref()
-
-    if (userThemePref) {
-      setTheme(userThemePref)
-      updatePWAThemeColor(userThemePref)
-    } else {
-      setTheme(mediaQueryPref)
-      updatePWAThemeColor(mediaQueryPref)
-    }
-
-    document.body.dataset.theme = theme
-  }, [theme])
-
-  function getMediaQueryPref() {
-    const mediaQuery = "(prefers-color-scheme: dark)"
-    const mql = window.matchMedia(mediaQuery)
-    const hasPreference = typeof mql.matches === "boolean"
-
-    if (hasPreference) {
-      return mql.matches ? "dark" : "light"
-    }
-  }
-
-  function toggleTheme(e) {
-    if (!e.key || e.key === "Enter") {
-      const newTheme = theme === "dark" ? "light" : "dark"
-      setTheme(newTheme)
-      storeUserThemePref(newTheme)
-      document.body.dataset.theme = theme
-    }
-  }
-
-  function storeUserThemePref(pref) {
-    localStorage.setItem("theme", pref)
-  }
-
-  function getUserThemePref() {
-    return localStorage.getItem("theme")
-  }
-
-  function updatePWAThemeColor(theme) {
-    const themeColor = theme === "dark" ? "#27405C" : "#A7BBCE"
-    document
-      .querySelector('meta[name="theme-color"]')
-      .setAttribute("content", themeColor)
-  }
 
   /** Track the user's window width **/
   const windowWidth = useGetWindowWidth()
@@ -135,23 +111,23 @@ const Header = () => {
           />
         </Link>
       )}
-      {theme === "light" ? (
-        <HiMoon
-          onClick={toggleTheme}
-          onKeyDown={toggleTheme}
-          className="icon theme-icon"
-          tabIndex="0"
-          aria-hidden="false"
-          aria-label="Switch to dark mode"
-        />
-      ) : (
+      {isDark ? (
         <HiOutlineSun
-          onClick={toggleTheme}
-          onKeyDown={toggleTheme}
+          onClick={toggleDark}
+          onKeyDown={toggleDark}
           className="icon theme-icon"
           tabIndex="0"
           aria-hidden="false"
           aria-label="Switch to light mode"
+        />
+      ) : (
+        <HiMoon
+          onClick={toggleDark}
+          onKeyDown={toggleDark}
+          className="icon theme-icon"
+          tabIndex="0"
+          aria-hidden="false"
+          aria-label="Switch to dark mode"
         />
       )}
     </header>
