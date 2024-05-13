@@ -12,7 +12,7 @@ const Footer = () => {
 
   return (
     <footer className={footerClass}>
-      <a
+      {/* <a
         href="https://www.linkedin.com/in/ajo-borgvold/"
         target="_blank"
         rel="noreferrer"
@@ -21,9 +21,9 @@ const Footer = () => {
         aria-label="Check out my LinkedIn profile"
       >
         <FaLinkedinIn className="icon icon--link" />
-      </a>
-      <p>&#169; {year} Ajo Borgvold</p>
-      <a
+      </a> */}
+      <p>{year} &#169; Ajo Borgvold</p>
+      {/* <a
         href="https://github.com/ajoborgvold/calculator"
         target="_blank"
         rel="noreferrer"
@@ -32,7 +32,7 @@ const Footer = () => {
         aria-label="Check out the GitHub repo for this app"
       >
         <FaGithub className="icon icon--link" />
-      </a>
+      </a> */}
     </footer>
   )
 }

@@ -348,17 +348,18 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: .75em 0;
   background-color: var(--bg-secondary);
   box-shadow: 0 0 7px var(--color-primary);
 }
 
 .footer--small-screen {
-  gap: 1.5em;
-  padding: .75em 0 1.125em;
+  /* gap: 1.5em; */
+  /* padding: .75em 0 1.125em; */
 }
 
 .footer--large-screen {
-  gap: 3em;
+  /* gap: 3em; */
   padding: .75em 0;
 }
 
